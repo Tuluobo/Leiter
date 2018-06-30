@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChangeModeViewController: UIViewController {
+class ChangeModeViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

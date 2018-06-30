@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ConfigManager.default.setup()
         commonUI()
         
+        #if DEBUG
+        Thread.sleep(forTimeInterval: 2.0)
+        #endif
+        
         TrackerManager.shared.track(event: "app_start", properties: launchOptions)
         return true
     }
@@ -26,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate {
     private func commonUI() {
-        UINavigationBar.appearance().barTintColor = UIColor(red: 51.0/255.0, green: 153.0/255.0, blue: 1.0, alpha: 1.0)
+        UIApplication.shared.statusBarStyle = .lightContent
+        UINavigationBar.appearance().barTintColor = Opt.baseBlueColor
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
     }
