@@ -4,10 +4,8 @@ use_frameworks!
 
 target 'Leiter' do
     pod 'SPBaseKit', :path => '../SPBaseKit'
-    pod 'CommonCrypto'
     pod 'MJRefresh'
     pod 'SwiftColor'
-    pod 'CocoaLumberjack/Swift'
     pod 'Alamofire'
 end
 

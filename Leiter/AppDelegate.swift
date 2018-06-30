@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NEKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

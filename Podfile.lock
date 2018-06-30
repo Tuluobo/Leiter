@@ -1,10 +1,6 @@
 PODS:
   - Alamofire (4.7.2)
   - Amplitude-iOS (4.2.1)
-  - CocoaLumberjack/Default (3.4.2)
-  - CocoaLumberjack/Swift (3.4.2):
-    - CocoaLumberjack/Default
-  - CommonCrypto (1.1)
   - Crashlytics (3.10.3):
     - Fabric (~> 1.7.8)
   - Fabric (1.7.8)
@@ -24,8 +20,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - CocoaLumberjack/Swift
-  - CommonCrypto
   - MJRefresh
   - SPBaseKit (from `../SPBaseKit`)
   - SwiftColor
@@ -35,8 +29,6 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Amplitude-iOS
-    - CocoaLumberjack
-    - CommonCrypto
     - Crashlytics
     - Fabric
     - MJRefresh
@@ -51,8 +43,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Amplitude-iOS: 84da24ca8557fa3741888502c30c0b8b365acd7d
-  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
-  CommonCrypto: e18c8416332cca5efe80c197f2a522d471c42626
   Crashlytics: 2aea305161a2122492698c75af27f2b98aa49a25
   Fabric: fba4684a95df789565b0b27fc5b6e68f1755af32
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
@@ -61,6 +51,6 @@ SPEC CHECKSUMS:
   SwiftTimer: 4d25ff045d81c3132e1161a3ba2353d06ff63c30
   TrafficPolice: 0d41222c4ca8048f03a29eb50630c5ae9f3288b0
 
-PODFILE CHECKSUM: ac3c52d6eb81bf60329842c74d3d9186103f930d
+PODFILE CHECKSUM: 63c1a5858c4060217311ed37a54e8ad37b9749ec
 
 COCOAPODS: 1.5.3
