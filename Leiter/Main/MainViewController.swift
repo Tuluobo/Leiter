@@ -18,9 +18,9 @@ class MainViewController: UIViewController {
     
     private lazy var startButton: UIButton = {
         let btn = UIButton()
-        let normalImage = IonIcons.image(withIcon: ion_power, size: 128, color: UIColor.white)
+        let normalImage = IonIcons.image(withIcon: ion_power, size: 64, color: UIColor.white)
         btn.setImage(normalImage, for: .normal)
-        let selectedImage = IonIcons.image(withIcon: ion_ios_checkmark_outline, size: 128, color: UIColor.white)
+        let selectedImage = IonIcons.image(withIcon: ion_ios_checkmark_outline, size: 135, color: UIColor.white)
         btn.setImage(selectedImage, for: .selected)
         btn.setImage(selectedImage, for: [.selected, .highlighted])
         btn.addTarget(self, action: #selector(clickedStartbtn(btn:)), for: .touchUpInside)
@@ -29,6 +29,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        topBackgroundView.backgroundColor = Opt.baseBlueColor
         topBackgroundView.addSubview(startButton)
         startButton.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()

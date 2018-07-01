@@ -6,22 +6,23 @@
 //  Copyright © 2018 Tuluobo. All rights reserved.
 //
 
-import UIKit
+import MessageUI
+import SnapKit
+import SPBaseKit
 import StoreKit
 import VTAcknowledgementsViewController
-import SnapKit
 
 class AboutViewController: UITableViewController {
     
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var reviewCell: UITableViewCell!
     @IBOutlet weak var acknowledgeCell: UITableViewCell!
+    @IBOutlet weak var feedbackCell: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "关于 Leiter"
-        let info = Bundle.main.infoDictionary
-        versionLabel.text = "V\(info?["CFBundleShortVersionString"] ?? "0.0.1") Build \(info?["CFBundleVersion"] ?? 1)"
+        versionLabel.text = "V\(Opt.mainVersion) Build \(Opt.buildVersion)"
     }
 }
 
@@ -50,7 +51,7 @@ extension AboutViewController {
         
         imageView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-16)
+            make.centerY.equalToSuperview().offset(-20)
         }
         label.snp.makeConstraints { (make) in
             make.top.equalTo(imageView.snp.bottom).offset(8)
@@ -77,6 +78,8 @@ extension AboutViewController {
         case acknowledgeCell:
             guard let viewController = VTAcknowledgementsViewController.acknowledgementsViewController() else { return }
             self.navigationController?.pushViewController(viewController, animated: true)
+        case feedbackCell:
+            makeFeedback()
         default: break
         }
     }
@@ -93,5 +96,45 @@ extension AboutViewController {
             }
         }
         
+    }
+    
+    private func makeFeedback() {
+        if MFMailComposeViewController.canSendMail() {
+            let picker = MFMailComposeViewController()
+            picker.mailComposeDelegate = self
+            // 添加主题
+            picker.setSubject("FeedBack")
+            // 添加收件人
+            let toRecipients = ["tuluobo@icloud.com"]
+            picker.setToRecipients(toRecipients)
+            // 直接在HTML代码中写入图片的地址
+            let modelName = UIDevice.current.modelName
+            let osVersion = UIDevice.current.systemVersion
+            let emailBody = "请在下面输入你的反馈和意见：\n\n\n\n 设备和软件信息：\n\(modelName) \(osVersion) Leiter-\(Opt.mainVersion) \(Opt.buildVersion)"
+            picker.setMessageBody(emailBody, isHTML: false)
+            
+            self.present(picker, animated: true, completion: nil)
+        }
+        
+    }
+}
+
+extension AboutViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        self.dismiss(animated: true, completion: nil)
+        var msg: String
+        switch result {
+        case .failed:
+            msg = "发送失败，请稍后再试。"
+        case .sent:
+            msg = "发送成功。"
+        case .cancelled:
+            msg = "已取消发送"
+        case .saved:
+            msg = "已保存到草稿箱"
+        }
+        let alertVC = UIAlertController(title: "Feedback Message", message: msg, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alertVC, animated: true, completion: nil)
     }
 }

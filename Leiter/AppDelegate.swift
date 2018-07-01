@@ -22,10 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Thread.sleep(forTimeInterval: 2.0)
         #endif
         
-        TrackerManager.shared.track(event: "app_start", properties: launchOptions)
+        TrackerManager.shared.trace(event: "app_start", properties: launchOptions)
         return true
     }
-
+    //ss://rc4-md5:msx123456@ss.tuluobo.com:8080?Remark=Linode-VPS&OTA=false
 }
 
 extension AppDelegate {

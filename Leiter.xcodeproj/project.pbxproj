@@ -51,6 +51,7 @@
 		D6CE901C20E8A37B00209AF0 /* Socks5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6CE901720E8A37B00209AF0 /* Socks5.storyboard */; };
 		D6CE901D20E8A37B00209AF0 /* Shadowsocks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6CE901920E8A37B00209AF0 /* Shadowsocks.storyboard */; };
 		D6CE901F20E8A50F00209AF0 /* EncryptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE901E20E8A50F00209AF0 /* EncryptionViewController.swift */; };
+		D6CE902420E8C02F00209AF0 /* RouteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE902320E8C02F00209AF0 /* RouteManager.swift */; };
 		DCFA865615B527014DE39EF8 /* Pods_Leiter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88CF410450E8D58D1B7D86D /* Pods_Leiter.framework */; };
 /* End PBXBuildFile section */
 
@@ -139,6 +140,7 @@
 		D6CE901820E8A37B00209AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Socks5.storyboard; sourceTree = "<group>"; };
 		D6CE901A20E8A37B00209AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Shadowsocks.storyboard; sourceTree = "<group>"; };
 		D6CE901E20E8A50F00209AF0 /* EncryptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionViewController.swift; sourceTree = "<group>"; };
+		D6CE902320E8C02F00209AF0 /* RouteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteManager.swift; sourceTree = "<group>"; };
 		D843F3F0D662940EAA5827B6 /* Pods-Leiter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Leiter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Leiter/Pods-Leiter.debug.xcconfig"; sourceTree = "<group>"; };
 		E72CCAC99F60C885EF347891 /* Pods-Leiter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Leiter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Leiter/Pods-Leiter.release.xcconfig"; sourceTree = "<group>"; };
 		F27AB17D9324E2050713E466 /* Pods_TodayWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -367,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				D6CE8FF420E7CC4C00209AF0 /* Route.swift */,
+				D6CE902220E8C00F00209AF0 /* Manager */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -379,6 +382,14 @@
 				D6CE900720E7DC5D00209AF0 /* EditSSViewController.swift */,
 			);
 			path = Edit;
+			sourceTree = "<group>";
+		};
+		D6CE902220E8C00F00209AF0 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D6CE902320E8C02F00209AF0 /* RouteManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -677,6 +688,7 @@
 				D6CE8FE320E7AA6500209AF0 /* RoutModeViewController.swift in Sources */,
 				D6CE901F20E8A50F00209AF0 /* EncryptionViewController.swift in Sources */,
 				D6CE8FE120E7AA4800209AF0 /* AboutViewController.swift in Sources */,
+				D6CE902420E8C02F00209AF0 /* RouteManager.swift in Sources */,
 				D6741A5820E75B8A00C6AFFA /* AppDelegate.swift in Sources */,
 				D6CE900C20E8767900209AF0 /* BaseNavigationController.swift in Sources */,
 				D6CE8FF520E7CC4C00209AF0 /* Route.swift in Sources */,

@@ -18,7 +18,7 @@ class TrackerManager {
         Amplitude.instance().initializeApiKey(amplitudeApiKey)
     }
     
-    func track(event: String, properties: [AnyHashable: Any]? = nil) {
+    func trace(event: String, properties: [AnyHashable: Any]? = nil) {
         if let properties = properties {
             Amplitude.instance().logEvent(event, withEventProperties: properties)
         } else {
