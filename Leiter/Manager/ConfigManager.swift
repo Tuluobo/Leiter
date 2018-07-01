@@ -8,6 +8,7 @@
 
 import Fabric
 import Crashlytics
+import CocoaLumberjackSwift
 
 class ConfigManager {
     
@@ -17,6 +18,10 @@ class ConfigManager {
     func setup() {
         Fabric.with([Crashlytics.self])
         TrackerManager.shared.setup()
+        
+        /// Working
+        DDLog.add(DDTTYLogger.sharedInstance) // TTY = Xcode console
+        DatabaseManager.shared.setup()
     }
 }
 

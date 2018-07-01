@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Eureka
 
 class EditSocks5ViewController: UITableViewController {
 

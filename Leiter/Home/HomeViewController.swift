@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  HomeViewController.swift
 //  Leiter
 //
 //  Created by Hao Wang on 2018/6/30.
@@ -9,16 +9,19 @@
 import UIKit
 import ionicons
 import SnapKit
+import MJRefresh
 
-class MainViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     @IBOutlet weak var topBackgroundView: UIView!
-    @IBOutlet weak var configTableView: UITableView!
+    @IBOutlet weak var routeTableView: UITableView!
     @IBOutlet weak var connectStatusLabel: UILabel!
+    
+    private let viewModel = HomeViewModel()
     
     private lazy var startButton: UIButton = {
         let btn = UIButton()
-        let normalImage = IonIcons.image(withIcon: ion_power, size: 64, color: UIColor.white)
+        let normalImage = IonIcons.image(withIcon: ion_power, size: 135, color: UIColor.white)
         btn.setImage(normalImage, for: .normal)
         let selectedImage = IonIcons.image(withIcon: ion_ios_checkmark_outline, size: 135, color: UIColor.white)
         btn.setImage(selectedImage, for: .selected)
@@ -33,9 +36,18 @@ class MainViewController: UIViewController {
         topBackgroundView.addSubview(startButton)
         startButton.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.width.height.equalTo(128)
+            make.width.height.equalTo(135)
             make.centerY.equalToSuperview().offset(self.topLayoutGuide.length / 2.0)
         }
+        
+        routeTableView.delegate = self
+        routeTableView.dataSource = viewModel
+        routeTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
+            self?.viewModel.refresh()
+            self?.routeTableView.reloadData()
+            self?.routeTableView.mj_header.endRefreshing()
+        })
+        routeTableView.tableFooterView = UIView(frame: .zero)
     }
     
     // MARK: - Actions
@@ -48,7 +60,13 @@ class MainViewController: UIViewController {
 
 // MARK: - UITableViewDelegate
 
-extension MainViewController: UITableViewDelegate {
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44.0
+    }
 }
 

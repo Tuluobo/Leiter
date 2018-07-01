@@ -38,10 +38,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Optional" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VG5-6b-kZt">
-                                                    <rect key="frame" x="92" y="12.5" width="275" height="17"/>
+                                                    <rect key="frame" x="92" y="12" width="275" height="18"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -70,10 +70,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Required" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R5L-5I-5bK">
-                                                    <rect key="frame" x="92" y="12.5" width="275" height="17"/>
+                                                    <rect key="frame" x="92" y="12" width="275" height="18"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -102,10 +102,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1-65535" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lt1-0E-soH">
-                                                    <rect key="frame" x="92" y="12.5" width="275" height="17"/>
+                                                    <rect key="frame" x="92" y="12" width="275" height="18"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -134,10 +134,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Required, Max Length 128" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SfA-3S-8yY">
-                                                    <rect key="frame" x="92" y="12.5" width="275" height="17"/>
+                                                    <rect key="frame" x="92" y="12" width="275" height="18"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -216,12 +216,13 @@
                         <outlet property="identifierTextField" destination="VG5-6b-kZt" id="oGc-av-Cnn"/>
                         <outlet property="passwdTextField" destination="SfA-3S-8yY" id="Wed-Kw-bTS"/>
                         <outlet property="portTextField" destination="Lt1-0E-soH" id="rhD-xA-8MO"/>
+                        <outlet property="saveButton" destination="Qxw-34-Dva" id="WB0-c8-F4C"/>
                         <outlet property="serverTextField" destination="R5L-5I-5bK" id="qpQ-US-dYa"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Doh-Bb-fbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2020" y="-611"/>
+            <point key="canvasLocation" x="1722" y="-602"/>
         </scene>
     </scenes>
 </document>

@@ -9,15 +9,19 @@
 import UIKit
 import SPBaseKit
 
-protocol SegueProtocol {
-    static var segueIdentifier: String { get }
+//MARK: - Identifiable
+
+protocol Identifiable {
+    static var identifier: String { get }
 }
 
-extension SegueProtocol {
-    static var segueIdentifier: String {
-        return "\(self)SegueID"
+extension Identifiable {
+    static var identifier: String {
+        return "\(self)"
     }
 }
+
+// MARK: - BaseNavigationController
 
 class BaseNavigationController: UINavigationController {
 

@@ -2,13 +2,14 @@ PODS:
   - Amplitude-iOS (4.2.1)
   - Crashlytics (3.10.3):
     - Fabric (~> 1.7.8)
-  - Eureka (4.2.0)
   - Fabric (1.7.8)
   - ionicons (2.1.1)
   - MJRefresh (3.1.15.3)
-  - MMWormhole (2.0.0):
-    - MMWormhole/Core (= 2.0.0)
-  - MMWormhole/Core (2.0.0)
+  - ReactiveCocoa (7.2.0):
+    - ReactiveSwift (~> 3.1)
+  - ReactiveSwift (3.1.0):
+    - Result (~> 3.2)
+  - Result (3.2.4)
   - SnapKit (4.0.0)
   - SPBaseKit (0.1.0):
     - SPBaseKit/Core (= 0.1.0)
@@ -18,34 +19,43 @@ PODS:
     - Amplitude-iOS (~> 4.2)
     - Crashlytics (~> 3.10)
     - Fabric (~> 1.7)
+  - SVProgressHUD (2.2.5)
   - SwiftTimer (2.0)
   - TrafficPolice (1.0):
     - SwiftTimer (~> 2.0)
   - VTAcknowledgementsViewController (1.4.1)
+  - WCDB.swift (1.0.6.2):
+    - WCDB.swift/sqlcipher (= 1.0.6.2)
+  - WCDB.swift/sqlcipher (1.0.6.2)
 
 DEPENDENCIES:
-  - Eureka
-  - ionicons
-  - MJRefresh
-  - MMWormhole
-  - SnapKit
+  - ionicons (~> 2.1.1)
+  - MJRefresh (~> 3.1.15)
+  - ReactiveCocoa (~> 7.2.0)
+  - ReactiveSwift (~> 3.1.0)
+  - SnapKit (~> 4.0.0)
   - SPBaseKit (from `../SPBaseKit`)
-  - TrafficPolice
-  - VTAcknowledgementsViewController
+  - SVProgressHUD (~> 2.2.5)
+  - TrafficPolice (~> 1.0)
+  - VTAcknowledgementsViewController (~> 1.4.1)
+  - WCDB.swift (~> 1.0.6)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Amplitude-iOS
     - Crashlytics
-    - Eureka
     - Fabric
     - ionicons
     - MJRefresh
-    - MMWormhole
+    - ReactiveCocoa
+    - ReactiveSwift
+    - Result
     - SnapKit
+    - SVProgressHUD
     - SwiftTimer
     - TrafficPolice
     - VTAcknowledgementsViewController
+    - WCDB.swift
 
 EXTERNAL SOURCES:
   SPBaseKit:
@@ -54,17 +64,20 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Amplitude-iOS: 84da24ca8557fa3741888502c30c0b8b365acd7d
   Crashlytics: 2aea305161a2122492698c75af27f2b98aa49a25
-  Eureka: 0748c7bbb2560130e43c7bfa83e99c98854a1f42
   Fabric: fba4684a95df789565b0b27fc5b6e68f1755af32
   ionicons: 630bcd2c2970741c3359e3a35ad544e71d3c086b
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
-  MMWormhole: 0cd3fd35a9118b2e2d762b499f54eeaace0be791
+  ReactiveCocoa: 476dae7ca790f40d30d186a1bd7ebae4290395d5
+  ReactiveSwift: 5b26d2e988fe0eed2daf48c4054d1de74db50184
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SPBaseKit: 93407815ff836c8efe728d844992ba5aa897d9fc
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftTimer: 4d25ff045d81c3132e1161a3ba2353d06ff63c30
   TrafficPolice: 0d41222c4ca8048f03a29eb50630c5ae9f3288b0
   VTAcknowledgementsViewController: 9a7d0f040f17dfa6d02fc731bec8b188e4b4ee59
+  WCDB.swift: 4f0f3e19085546ef85a69b5087ec5e1dec0f88b1
 
-PODFILE CHECKSUM: 0ac48f2de1f85d317eab80c6e3a666233c712f99
+PODFILE CHECKSUM: a51d4de176955917ab72c7018c51545d9b5171f2
 
 COCOAPODS: 1.5.3
