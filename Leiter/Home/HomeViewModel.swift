@@ -33,6 +33,23 @@ extension HomeViewModel: UITableViewDataSource {
         return dataSources.count + 1
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.item < dataSources.count
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            let route = dataSources[indexPath.item]
+            if RouteManager.shared.delete(route) {
+                dataSources.remove(at: indexPath.item)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        default:
+            break
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RouteViewCell.identifier, for: indexPath) as? RouteViewCell else {
             return UITableViewCell()

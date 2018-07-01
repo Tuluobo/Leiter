@@ -6,8 +6,8 @@
 //  Copyright © 2018 Tuluobo. All rights reserved.
 //
 
-import Foundation
 import CocoaLumberjackSwift
+import WCDBSwift
 
 class RouteManager {
     static let shared = RouteManager()
@@ -21,6 +21,19 @@ class RouteManager {
         } catch {
             DDLogError("Route Select All Error: \(error.localizedDescription)")
             return []
+        }
+    }
+    
+    func delete(_ route: Route) -> Bool {
+        do {
+            guard let rid = route.rid else {
+                return false
+            }
+            try DatabaseManager.shared.database?.delete(fromTable: Route.tableName, where: Route.Properties.rid == rid)
+            return true
+        } catch {
+            DDLogError("Route[\(route.server):\(route.port)]: delete Error: \(error.localizedDescription)")
+            return false
         }
     }
     

@@ -21,3 +21,9 @@ extension Opt {
     static let baseBlueColor = UIColor(red: 53.0/255.0, green: 151.0/255.0, blue: 1.0, alpha: 1.0)
 }
 
+// MARK: - 通知
+
+extension Notification.Name {
+    static let RouteAddSuccess = Notification.Name("RouteAddSuccess")
+}
+

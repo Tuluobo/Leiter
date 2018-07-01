@@ -12,6 +12,10 @@ import SnapKit
 import MJRefresh
 
 class HomeViewController: UIViewController {
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 
     @IBOutlet weak var topBackgroundView: UIView!
     @IBOutlet weak var routeTableView: UITableView!
@@ -48,6 +52,10 @@ class HomeViewController: UIViewController {
             self?.routeTableView.mj_header.endRefreshing()
         })
         routeTableView.tableFooterView = UIView(frame: .zero)
+        // 接收增加 通知
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.RouteAddSuccess, object: nil, queue: OperationQueue.main) { [weak self] (_) in
+            self?.routeTableView.mj_header.beginRefreshing()
+        }
     }
     
     // MARK: - Actions

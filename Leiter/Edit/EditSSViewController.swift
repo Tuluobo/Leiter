@@ -60,6 +60,7 @@ class EditSSViewController: UITableViewController {
         r.mode = routeMode
         if RouteManager.shared.save(route: r) {
             SVProgressHUD.showSuccess(withStatus: "保存成功！")
+            NotificationCenter.default.post(name: NSNotification.Name.RouteAddSuccess, object: nil)
             self.navigationController?.popToRootViewController(animated: true)
         } else {
             SVProgressHUD.showError(withStatus: "保存失败！")
