@@ -17,6 +17,6 @@ enum Opt {
 // MARK: - 颜色
 
 extension Opt {
-    static let baseBlueColor = UIColor(red: 51.0/255.0, green: 153.0/255.0, blue: 1.0, alpha: 1.0)
+    static let baseBlueColor = UIColor(red: 53.0/255.0, green: 151.0/255.0, blue: 1.0, alpha: 1.0)
 }
 

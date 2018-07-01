@@ -1,5 +1,5 @@
 //
-//  EditSocket5ViewController.swift
+//  EditSocks5ViewController.swift
 //  Leiter
 //
 //  Created by Hao Wang on 2018/6/30.
@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Eureka
 
-class EditSocket5ViewController: UITableViewController {
+class EditSocks5ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "添加 Sockks5"
     }
-
 }

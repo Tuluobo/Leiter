@@ -36,21 +36,21 @@
 		D6741A9320E778B200C6AFFA /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6741A9220E778B200C6AFFA /* PacketTunnelProvider.swift */; };
 		D6741A9820E778B200C6AFFA /* NEWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D6741A9020E778B200C6AFFA /* NEWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D6741A9C20E778BC00C6AFFA /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6741A8A20E7662900C6AFFA /* NetworkExtension.framework */; };
-		D6CE8FDF20E7A1BF00209AF0 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FDE20E7A1BF00209AF0 /* AddViewController.swift */; };
 		D6CE8FE120E7AA4800209AF0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FE020E7AA4800209AF0 /* AboutViewController.swift */; };
-		D6CE8FE320E7AA6500209AF0 /* ChangeModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FE220E7AA6500209AF0 /* ChangeModeViewController.swift */; };
-		D6CE8FE520E7AAAE00209AF0 /* EditSocket5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FE420E7AAAE00209AF0 /* EditSocket5ViewController.swift */; };
+		D6CE8FE320E7AA6500209AF0 /* RoutModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FE220E7AA6500209AF0 /* RoutModeViewController.swift */; };
+		D6CE8FE520E7AAAE00209AF0 /* EditSocks5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FE420E7AAAE00209AF0 /* EditSocks5ViewController.swift */; };
 		D6CE8FEB20E7B95900209AF0 /* Pods-Leiter-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6CE8FEA20E7B95800209AF0 /* Pods-Leiter-acknowledgements.plist */; };
 		D6CE8FEE20E7BAC900209AF0 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FED20E7BAC900209AF0 /* Constant.swift */; };
 		D6CE8FF220E7CB8C00209AF0 /* MainConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FF120E7CB8C00209AF0 /* MainConfigViewModel.swift */; };
 		D6CE8FF520E7CC4C00209AF0 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FF420E7CC4C00209AF0 /* Route.swift */; };
-		D6CE8FF820E7D9E500209AF0 /* Mode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6CE8FF620E7D9E500209AF0 /* Mode.storyboard */; };
-		D6CE8FFD20E7DB0000209AF0 /* Socket5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6CE8FFB20E7DAFF00209AF0 /* Socket5.storyboard */; };
-		D6CE900220E7DB4000209AF0 /* Http.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6CE8FFE20E7DB4000209AF0 /* Http.storyboard */; };
-		D6CE900320E7DB4000209AF0 /* Shadowsocks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6CE900020E7DB4000209AF0 /* Shadowsocks.storyboard */; };
 		D6CE900620E7DC4900209AF0 /* EditHttpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE900520E7DC4900209AF0 /* EditHttpViewController.swift */; };
 		D6CE900820E7DC5D00209AF0 /* EditSSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE900720E7DC5D00209AF0 /* EditSSViewController.swift */; };
 		D6CE900A20E7DC7300209AF0 /* ScanQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE900920E7DC7300209AF0 /* ScanQRViewController.swift */; };
+		D6CE900C20E8767900209AF0 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE900B20E8767900209AF0 /* BaseNavigationController.swift */; };
+		D6CE901B20E8A37B00209AF0 /* Http.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6CE901520E8A37B00209AF0 /* Http.storyboard */; };
+		D6CE901C20E8A37B00209AF0 /* Socks5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6CE901720E8A37B00209AF0 /* Socks5.storyboard */; };
+		D6CE901D20E8A37B00209AF0 /* Shadowsocks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6CE901920E8A37B00209AF0 /* Shadowsocks.storyboard */; };
+		D6CE901F20E8A50F00209AF0 /* EncryptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE901E20E8A50F00209AF0 /* EncryptionViewController.swift */; };
 		DCFA865615B527014DE39EF8 /* Pods_Leiter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88CF410450E8D58D1B7D86D /* Pods_Leiter.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,21 +124,21 @@
 		D6741A9220E778B200C6AFFA /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
 		D6741A9420E778B200C6AFFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6741A9520E778B200C6AFFA /* NEWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NEWidget.entitlements; sourceTree = "<group>"; };
-		D6CE8FDE20E7A1BF00209AF0 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		D6CE8FE020E7AA4800209AF0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		D6CE8FE220E7AA6500209AF0 /* ChangeModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeModeViewController.swift; sourceTree = "<group>"; };
-		D6CE8FE420E7AAAE00209AF0 /* EditSocket5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSocket5ViewController.swift; sourceTree = "<group>"; };
+		D6CE8FE220E7AA6500209AF0 /* RoutModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutModeViewController.swift; sourceTree = "<group>"; };
+		D6CE8FE420E7AAAE00209AF0 /* EditSocks5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSocks5ViewController.swift; sourceTree = "<group>"; };
 		D6CE8FEA20E7B95800209AF0 /* Pods-Leiter-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-Leiter-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-Leiter/Pods-Leiter-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		D6CE8FED20E7BAC900209AF0 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		D6CE8FF120E7CB8C00209AF0 /* MainConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainConfigViewModel.swift; sourceTree = "<group>"; };
 		D6CE8FF420E7CC4C00209AF0 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
-		D6CE8FF720E7D9E500209AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Mode.storyboard; sourceTree = "<group>"; };
-		D6CE8FFC20E7DAFF00209AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Socket5.storyboard; sourceTree = "<group>"; };
-		D6CE8FFF20E7DB4000209AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Http.storyboard; sourceTree = "<group>"; };
-		D6CE900120E7DB4000209AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Shadowsocks.storyboard; sourceTree = "<group>"; };
 		D6CE900520E7DC4900209AF0 /* EditHttpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHttpViewController.swift; sourceTree = "<group>"; };
 		D6CE900720E7DC5D00209AF0 /* EditSSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSSViewController.swift; sourceTree = "<group>"; };
 		D6CE900920E7DC7300209AF0 /* ScanQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRViewController.swift; sourceTree = "<group>"; };
+		D6CE900B20E8767900209AF0 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		D6CE901620E8A37B00209AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Http.storyboard; sourceTree = "<group>"; };
+		D6CE901820E8A37B00209AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Socks5.storyboard; sourceTree = "<group>"; };
+		D6CE901A20E8A37B00209AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Shadowsocks.storyboard; sourceTree = "<group>"; };
+		D6CE901E20E8A50F00209AF0 /* EncryptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionViewController.swift; sourceTree = "<group>"; };
 		D843F3F0D662940EAA5827B6 /* Pods-Leiter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Leiter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Leiter/Pods-Leiter.debug.xcconfig"; sourceTree = "<group>"; };
 		E72CCAC99F60C885EF347891 /* Pods-Leiter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Leiter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Leiter/Pods-Leiter.release.xcconfig"; sourceTree = "<group>"; };
 		F27AB17D9324E2050713E466 /* Pods_TodayWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +207,7 @@
 		D655D61720E7893100FC22A3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				D6CE900B20E8767900209AF0 /* BaseNavigationController.swift */,
 				D6741A5920E75B8A00C6AFFA /* MainViewController.swift */,
 				D6CE8FF120E7CB8C00209AF0 /* MainConfigViewModel.swift */,
 			);
@@ -217,10 +218,9 @@
 			isa = PBXGroup;
 			children = (
 				D6741A5B20E75B8A00C6AFFA /* Main.storyboard */,
-				D6CE8FFB20E7DAFF00209AF0 /* Socket5.storyboard */,
-				D6CE8FFE20E7DB4000209AF0 /* Http.storyboard */,
-				D6CE900020E7DB4000209AF0 /* Shadowsocks.storyboard */,
-				D6CE8FF620E7D9E500209AF0 /* Mode.storyboard */,
+				D6CE901520E8A37B00209AF0 /* Http.storyboard */,
+				D6CE901720E8A37B00209AF0 /* Socks5.storyboard */,
+				D6CE901920E8A37B00209AF0 /* Shadowsocks.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -348,9 +348,9 @@
 		D6CE8FE720E7AADA00209AF0 /* Add */ = {
 			isa = PBXGroup;
 			children = (
-				D6CE8FDE20E7A1BF00209AF0 /* AddViewController.swift */,
-				D6CE8FE220E7AA6500209AF0 /* ChangeModeViewController.swift */,
 				D6CE900920E7DC7300209AF0 /* ScanQRViewController.swift */,
+				D6CE8FE220E7AA6500209AF0 /* RoutModeViewController.swift */,
+				D6CE901E20E8A50F00209AF0 /* EncryptionViewController.swift */,
 			);
 			path = Add;
 			sourceTree = "<group>";
@@ -374,8 +374,8 @@
 		D6CE900420E7DC1B00209AF0 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
-				D6CE8FE420E7AAAE00209AF0 /* EditSocket5ViewController.swift */,
 				D6CE900520E7DC4900209AF0 /* EditHttpViewController.swift */,
+				D6CE8FE420E7AAAE00209AF0 /* EditSocks5ViewController.swift */,
 				D6CE900720E7DC5D00209AF0 /* EditSSViewController.swift */,
 			);
 			path = Edit;
@@ -516,14 +516,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6CE901B20E8A37B00209AF0 /* Http.storyboard in Resources */,
 				D6CE8FEB20E7B95900209AF0 /* Pods-Leiter-acknowledgements.plist in Resources */,
-				D6CE900220E7DB4000209AF0 /* Http.storyboard in Resources */,
 				D6741A6220E75B8B00C6AFFA /* LaunchScreen.storyboard in Resources */,
+				D6CE901C20E8A37B00209AF0 /* Socks5.storyboard in Resources */,
 				D6741A5F20E75B8B00C6AFFA /* Assets.xcassets in Resources */,
-				D6CE8FFD20E7DB0000209AF0 /* Socket5.storyboard in Resources */,
+				D6CE901D20E8A37B00209AF0 /* Shadowsocks.storyboard in Resources */,
 				D6741A5D20E75B8A00C6AFFA /* Main.storyboard in Resources */,
-				D6CE900320E7DB4000209AF0 /* Shadowsocks.storyboard in Resources */,
-				D6CE8FF820E7D9E500209AF0 /* Mode.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,25 +588,25 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Leiter/Pods-Leiter-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Amplitude-iOS/Amplitude_iOS.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/MMWormhole/MMWormhole.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftColor/SwiftColor.framework",
 				"${BUILT_PRODUCTS_DIR}/VTAcknowledgementsViewController/VTAcknowledgementsViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/ionicons/ionicons.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTimer/SwiftTimer.framework",
 				"${BUILT_PRODUCTS_DIR}/TrafficPolice/TrafficPolice.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Amplitude_iOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMWormhole.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftColor.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VTAcknowledgementsViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ionicons.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTimer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrafficPolice.framework",
 			);
@@ -672,13 +671,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6CE900620E7DC4900209AF0 /* EditHttpViewController.swift in Sources */,
-				D6CE8FE520E7AAAE00209AF0 /* EditSocket5ViewController.swift in Sources */,
+				D6CE8FE520E7AAAE00209AF0 /* EditSocks5ViewController.swift in Sources */,
 				D6CE900A20E7DC7300209AF0 /* ScanQRViewController.swift in Sources */,
 				D6741A5A20E75B8A00C6AFFA /* MainViewController.swift in Sources */,
-				D6CE8FDF20E7A1BF00209AF0 /* AddViewController.swift in Sources */,
-				D6CE8FE320E7AA6500209AF0 /* ChangeModeViewController.swift in Sources */,
+				D6CE8FE320E7AA6500209AF0 /* RoutModeViewController.swift in Sources */,
+				D6CE901F20E8A50F00209AF0 /* EncryptionViewController.swift in Sources */,
 				D6CE8FE120E7AA4800209AF0 /* AboutViewController.swift in Sources */,
 				D6741A5820E75B8A00C6AFFA /* AppDelegate.swift in Sources */,
+				D6CE900C20E8767900209AF0 /* BaseNavigationController.swift in Sources */,
 				D6CE8FF520E7CC4C00209AF0 /* Route.swift in Sources */,
 				D6CE8FEE20E7BAC900209AF0 /* Constant.swift in Sources */,
 				D6CE8FF220E7CB8C00209AF0 /* MainConfigViewModel.swift in Sources */,
@@ -746,34 +746,26 @@
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
-		D6CE8FF620E7D9E500209AF0 /* Mode.storyboard */ = {
+		D6CE901520E8A37B00209AF0 /* Http.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D6CE8FF720E7D9E500209AF0 /* Base */,
-			);
-			name = Mode.storyboard;
-			sourceTree = "<group>";
-		};
-		D6CE8FFB20E7DAFF00209AF0 /* Socket5.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D6CE8FFC20E7DAFF00209AF0 /* Base */,
-			);
-			name = Socket5.storyboard;
-			sourceTree = "<group>";
-		};
-		D6CE8FFE20E7DB4000209AF0 /* Http.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D6CE8FFF20E7DB4000209AF0 /* Base */,
+				D6CE901620E8A37B00209AF0 /* Base */,
 			);
 			name = Http.storyboard;
 			sourceTree = "<group>";
 		};
-		D6CE900020E7DB4000209AF0 /* Shadowsocks.storyboard */ = {
+		D6CE901720E8A37B00209AF0 /* Socks5.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D6CE900120E7DB4000209AF0 /* Base */,
+				D6CE901820E8A37B00209AF0 /* Base */,
+			);
+			name = Socks5.storyboard;
+			sourceTree = "<group>";
+		};
+		D6CE901920E8A37B00209AF0 /* Shadowsocks.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6CE901A20E8A37B00209AF0 /* Base */,
 			);
 			name = Shadowsocks.storyboard;
 			sourceTree = "<group>";

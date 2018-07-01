@@ -9,6 +9,10 @@
 import Foundation
 import NEKit
 
+extension CryptoAlgorithm {
+    static let allValues: [CryptoAlgorithm] = [.AES128CFB, .AES192CFB, .AES256CFB, .CHACHA20, .SALSA20, .RC4MD5]
+}
+
 enum RouteType: Int {
     case http = 0
     case https
@@ -20,6 +24,8 @@ enum RouteMode: Int {
     case split = 0
     case full
 }
+
+//MARK: - Route
 
 struct Route {
     var identifier: String?
