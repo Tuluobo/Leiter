@@ -9,6 +9,7 @@
 import UIKit
 import AVKit
 import ionicons
+import SVProgressHUD
 
 class ScanQRViewController: UIViewController {
     
@@ -32,7 +33,7 @@ class ScanQRViewController: UIViewController {
         let x = ((viewFrame.height - self.height)/2 - 20) / viewFrame.height
         let width = self.height / viewFrame.size.height
         let height = self.height / viewFrame.size.width
-        
+
         op.rectOfInterest = CGRect(x: x, y: y, width: width, height: height)
         return op
     }()
@@ -71,7 +72,7 @@ class ScanQRViewController: UIViewController {
         
         output.metadataObjectTypes = output.availableMetadataObjectTypes
         output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-        previewLayer.frame = view.frame
+        previewLayer.frame = view.bounds
         view.layer.insertSublayer(previewLayer, at: 0)
         // start
         session.startRunning()
@@ -87,8 +88,13 @@ class ScanQRViewController: UIViewController {
     }
     
     fileprivate func handleQRData(string: String?) {
-        // TODO: 保存数据
+        guard RouteManager.shared.saveQRcode(with: string) else {
+            SVProgressHUD.showError(withStatus: "没有识别到相关配置信息，请重新扫描...")
+            return
+        }
         session.stopRunning()
+        NotificationCenter.default.post(name: NSNotification.Name.RouteAddSuccess, object: nil)
+        SVProgressHUD.showSuccess(withStatus: "添加成功")
         self.navigationController?.popToRootViewController(animated: true)
     }
 }

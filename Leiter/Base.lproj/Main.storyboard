@@ -111,7 +111,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mgt-z9-1VC">
                             <connections>
-                                <segue destination="F2g-Be-3dq" kind="show" id="pMJ-X7-RQL"/>
+                                <action selector="clickedAddBtn:" destination="BYZ-38-t0r" id="3yE-p7-KRh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -119,6 +119,7 @@
                         <outlet property="connectStatusLabel" destination="UXz-se-jd1" id="zx1-Ei-Lf2"/>
                         <outlet property="routeTableView" destination="OJb-3e-pLB" id="MJr-eJ-nH6"/>
                         <outlet property="topBackgroundView" destination="edB-KQ-hVz" id="WRh-MO-o1G"/>
+                        <segue destination="F2g-Be-3dq" kind="show" identifier="kSelectSegueID" id="Bsy-c8-5AQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

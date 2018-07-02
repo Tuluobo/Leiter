@@ -13,7 +13,9 @@ import ReactiveCocoa
 import ReactiveSwift
 import SVProgressHUD
 
-class EditSSViewController: UITableViewController {
+class EditSSViewController: UITableViewController, EditRouteProtocol {
+    
+    var route: Route?
     
     @IBOutlet weak var identifierTextField: UITextField!
     @IBOutlet weak var serverTextField: UITextField!
@@ -37,16 +39,26 @@ class EditSSViewController: UITableViewController {
             guard let passwd = passwd as? String, !passwd.isEmpty else { return false }
             return true
         }
-        
-        // 测试 rc4-md5:msx123456@ss.tuluobo.com:8080?Remark=Linode-VPS&OTA=false
-        serverTextField.text = "ss.tuluobo.com"
-        portTextField.text = "8080"
-        passwdTextField.text = "msx123456"
-        encryption = .RC4MD5
+        if let route = self.route {
+            identifierTextField.text = route.identifier
+            serverTextField.text = route.server
+            portTextField.text = "\(route.port)"
+            passwdTextField.text = route.password
+            routeMode = route.mode
+            encryption = route.encryption ?? .AES256CFB
+        } else {
+            #if DEBUG
+            // 测试 rc4-md5:msx123456@ss.tuluobo.com:8080?Remark=Linode-VPS&OTA=false
+            serverTextField.text = "ss.tuluobo.com"
+            portTextField.text = "8080"
+            passwdTextField.text = "msx123456"
+            encryption = .RC4MD5
+            #endif
+        }
     }
     
     @IBAction func clickedSaveBtn(_ sender: UIBarButtonItem) {
-        var r = Route()
+        var r = self.route ?? Route()
         r.type = .shadowsocks
         r.identifier = identifierTextField.text.isEmpty ? nil : identifierTextField.text
         if let server = serverTextField.text {

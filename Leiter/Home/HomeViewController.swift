@@ -10,6 +10,9 @@ import UIKit
 import ionicons
 import SnapKit
 import MJRefresh
+import CocoaLumberjackSwift
+
+private let kSelectSegueID = "kSelectSegueID"
 
 class HomeViewController: UIViewController {
     
@@ -59,22 +62,39 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Actions
-
+    @IBAction func clickedAddBtn(_ sender: UIBarButtonItem) {
+        openSelectTypeViewController()
+    }
+    
     @objc private func clickedStartbtn(btn: UIButton) {
         btn.isSelected = !btn.isSelected
         // TODO:
     }
+    
+    // MARK: - Private
+    private func openSelectTypeViewController() {
+        self.performSegue(withIdentifier: kSelectSegueID, sender: nil)
+    }
 }
 
 // MARK: - UITableViewDelegate
-
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if indexPath.item == viewModel.dataSources.count {
+            openSelectTypeViewController()
+        } else {
+            let route = viewModel.dataSources[indexPath.item]
+            var editVC = UIStoryboard(name: route.type.rawValue, bundle: nil).instantiateInitialViewController() as? EditRouteProtocol&UIViewController
+            editVC?.route = route
+            if let vc = editVC {
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                DDLogWarn("Edit VC open Error!!!")
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44.0
     }
 }
-

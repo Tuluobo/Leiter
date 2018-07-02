@@ -12,7 +12,7 @@ import ionicons
 class HomeViewModel: NSObject {
     
     private(set) var selectedRoute: Route?
-    private var dataSources = [Route]()
+    private(set) var dataSources = [Route]()
     
     override init() {
         super.init()
@@ -57,6 +57,8 @@ extension HomeViewModel: UITableViewDataSource {
         if indexPath.item == dataSources.count {
             // 最后一行 增加
             cell.titleLabel?.text = "新增线路"
+            cell.titleLabel.font = UIFont.systemFont(ofSize: 16)
+            cell.titleLabel.textColor = Opt.baseBlueColor
             cell.detailImageView.image = #imageLiteral(resourceName: "ic_ios_add")
         } else {
             // 正常显示

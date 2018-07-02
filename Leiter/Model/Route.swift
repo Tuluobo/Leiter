@@ -26,18 +26,41 @@ extension CryptoAlgorithm: ColumnCodable {
     }
 }
 
-enum RouteType: Int, ColumnCodable {
-    case http = 0
-    case https
-    case socket5
-    case shadowsocks
+enum RouteType: String, ColumnCodable {
+    case http = "Http"
+    case socks5 = "Socks5"
+    case shadowsocks = "Shadowsocks"
     
     static var columnType: ColumnType {
-        return .integer32
+        return .text
+    }
+    
+    init?(with scheme: String) {
+        switch scheme {
+        case "proxy":
+            self = .http
+        case "socks5":
+            self = .socks5
+        case "ss":
+            self = .shadowsocks
+        default:
+            return nil
+        }
+    }
+    
+    var scheme: String {
+        switch self {
+        case .http:
+            return "proxy"
+        case .socks5:
+            return "socks5"
+        case .shadowsocks:
+            return "ss"
+        }
     }
     
     init?(with value: FundamentalValue) {
-        self.init(rawValue: Int(value.int32Value))
+        self.init(rawValue: value.stringValue)
     }
     
     func archivedValue() -> FundamentalValue {

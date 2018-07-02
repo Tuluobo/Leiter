@@ -30,7 +30,7 @@ extension AboutViewController {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
-            return 150
+            return 160
         }
         return 0
     }
@@ -51,7 +51,7 @@ extension AboutViewController {
         
         imageView.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(-20)
+            make.centerY.equalToSuperview().offset(-10)
         }
         label.snp.makeConstraints { (make) in
             make.top.equalTo(imageView.snp.bottom).offset(8)
@@ -95,22 +95,22 @@ extension AboutViewController {
                 UIApplication.shared.openURL(url)
             }
         }
-        
     }
     
     private func makeFeedback() {
         if MFMailComposeViewController.canSendMail() {
             let picker = MFMailComposeViewController()
+            picker.navigationBar.tintColor = UIColor.white
             picker.mailComposeDelegate = self
             // 添加主题
-            picker.setSubject("FeedBack")
+            picker.setSubject("Leiter FeedBack")
             // 添加收件人
-            let toRecipients = ["tuluobo@icloud.com"]
+            let toRecipients = ["admin@tuluobo.com"]
             picker.setToRecipients(toRecipients)
             // 直接在HTML代码中写入图片的地址
             let modelName = UIDevice.current.modelName
             let osVersion = UIDevice.current.systemVersion
-            let emailBody = "请在下面输入你的反馈和意见：\n\n\n\n 设备和软件信息：\n\(modelName) \(osVersion) Leiter-\(Opt.mainVersion) \(Opt.buildVersion)"
+            let emailBody = "请在下面输入你的反馈和意见：\n\n\n\n 设备和软件信息：\n\(modelName) iOS:\(osVersion) Leiter-\(Opt.mainVersion) Build(\(Opt.buildVersion))"
             picker.setMessageBody(emailBody, isHTML: false)
             
             self.present(picker, animated: true, completion: nil)

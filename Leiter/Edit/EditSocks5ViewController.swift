@@ -8,8 +8,10 @@
 
 import UIKit
 
-class EditSocks5ViewController: UITableViewController {
+class EditSocks5ViewController: UITableViewController, EditRouteProtocol {
 
+    var route: Route?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "添加 Sockks5"
