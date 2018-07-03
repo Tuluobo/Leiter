@@ -30,6 +30,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         
         // Use the build-in debug observer.
         ObserverFactory.currentFactory = DebugObserverFactory()
+        NSLog("-------------")
         
         guard let conf = (protocolConfiguration as! NETunnelProviderProtocol).providerConfiguration else {
             NSLog("[ERROR] No ProtocolConfiguration Found")
@@ -40,29 +41,18 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         let ss_port = conf["ss_port"] as! Int
         let method = conf["ss_method"] as! String
         let password = conf["ss_password"] as!String
+        NSLog("[INFO] \(ss_adder)--\(method)")
         
         // Proxy Adapter
-        
-        
         // SSR Httpsimple
         //        let obfuscater = ShadowsocksAdapter.ProtocolObfuscater.HTTPProtocolObfuscater.Factory(hosts:["intl.aliyun.com","cdn.aliyun.com"], customHeader:nil)
         
         
         // Origin
         let obfuscater = ShadowsocksAdapter.ProtocolObfuscater.OriginProtocolObfuscater.Factory()
-        let algorithm: CryptoAlgorithm
-        
-        switch method{
-        case "AES128CFB":algorithm = .AES128CFB
-        case "AES192CFB":algorithm = .AES192CFB
-        case "AES256CFB":algorithm = .AES256CFB
-        case "CHACHA20":algorithm = .CHACHA20
-        case "SALSA20":algorithm = .SALSA20
-        case "RC4MD5":algorithm = .RC4MD5
-        default:
+        guard let algorithm = CryptoAlgorithm(rawValue: method) else {
             fatalError("Undefined algorithm!")
         }
-        
         
         let ssAdapterFactory = ShadowsocksAdapterFactory(serverHost: ss_adder, serverPort: ss_port, protocolObfuscaterFactory:obfuscater, cryptorFactory: ShadowsocksAdapter.CryptoStreamProcessor.Factory(password: password, algorithm: algorithm), streamObfuscaterFactory: ShadowsocksAdapter.StreamObfuscater.OriginStreamObfuscater.Factory())
         
@@ -74,8 +64,8 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         
         var UserRules:[NEKit.Rule] = []
         
-        for each in (value["rule"].array! ){
-            let adapter:NEKit.AdapterFactory
+        for each in value["rule"].array! {
+            let adapter: NEKit.AdapterFactory
             if (each["adapter"].string! == "direct") {
                 adapter = directAdapterFactory
             } else {
@@ -121,20 +111,20 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         let dnsFailRule = DNSFailRule(adapterFactory: ssAdapterFactory)
         
         let allRule = AllRule(adapterFactory: ssAdapterFactory)
-        UserRules.append(contentsOf: [chinaRule,unKnowLoc,dnsFailRule,allRule])
+        UserRules.append(contentsOf: [chinaRule, unKnowLoc, dnsFailRule, allRule])
         
         let manager = RuleManager(fromRules: UserRules, appendDirect: true)
         
         RuleManager.currentManager = manager
-        proxyPort =  9090
+        proxyPort = 10240
         
         RawSocketFactory.TunnelProvider = self
         
         // the `tunnelRemoteAddress` is meaningless because we are not creating a tunnel.
-        let networkSettings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "8.8.8.8")
+        let networkSettings = NEPacketTunnelNetworkSettings(tunnelRemoteAddress: "10.10.10.10")
         networkSettings.mtu = 1500
         
-        let ipv4Settings = NEIPv4Settings(addresses: ["192.169.89.1"], subnetMasks: ["255.255.255.0"])
+        let ipv4Settings = NEIPv4Settings(addresses: ["192.169.189.1"], subnetMasks: ["255.255.255.0"])
         if enablePacketProcessing {
             ipv4Settings.includedRoutes = [NEIPv4Route.default()]
             ipv4Settings.excludedRoutes = [
@@ -150,8 +140,6 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         networkSettings.ipv4Settings = ipv4Settings
         
         let proxySettings = NEProxySettings()
-        //        proxySettings.autoProxyConfigurationEnabled = true
-        //        proxySettings.proxyAutoConfigurationJavaScript = "function FindProxyForURL(url, host) {return \"SOCKS 127.0.0.1:\(proxyPort)\";}"
         proxySettings.httpEnabled = true
         proxySettings.httpServer = NEProxyServer(address: "127.0.0.1", port: proxyPort)
         proxySettings.httpsEnabled = true
@@ -162,7 +150,6 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         proxySettings.exceptionList = ["api.smoot.apple.com","configuration.apple.com","xp.apple.com","smp-device-content.apple.com","guzzoni.apple.com","captive.apple.com","*.ess.apple.com","*.push.apple.com","*.push-apple.com.akadns.net"]
         networkSettings.proxySettings = proxySettings
         
-        // the 198.18.0.0/15 is reserved for benchmark.
         if enablePacketProcessing {
             let DNSSettings = NEDNSSettings(servers: ["198.18.0.1"])
             DNSSettings.matchDomains = [""]
@@ -178,7 +165,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
                 return
             }
             
-            if (!self.started) {
+            if !self.started {
                 self.proxyServer = GCDHTTPProxyServer(address: IPAddress(fromString: "127.0.0.1"), port: NEKit.Port(port: UInt16(self.proxyPort)))
                 try! self.proxyServer.start()
                 self.addObserver(self, forKeyPath: "defaultPath", options: .initial, context: nil)
@@ -190,12 +177,11 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             completionHandler(nil)
             
             if (self.enablePacketProcessing) {
-                if (self.started) {
+                if self.started {
                     self.interface.stop()
                 }
                 
                 self.interface = TUNInterface(packetFlow: self.packetFlow)
-                
                 
                 let fakeIPPool = try! IPPool(range: IPRange(startIP: IPAddress(fromString: "198.18.1.1")!, endIP: IPAddress(fromString: "198.18.255.255")!))
                 

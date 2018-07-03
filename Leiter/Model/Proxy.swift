@@ -68,16 +68,16 @@ enum ProxyType: String, ColumnCodable {
     }
 }
 
-enum ProxyMode: Int, ColumnCodable {
-    case split = 0
-    case full
+enum ProxyMode: String, ColumnCodable {
+    case general = "general"
+    case all = "all"
     
     static var columnType: ColumnType {
-        return .integer32
+        return .text
     }
     
     init?(with value: FundamentalValue) {
-        self.init(rawValue: Int(value.int32Value))
+        self.init(rawValue: value.stringValue)
     }
     
     func archivedValue() -> FundamentalValue {
@@ -94,7 +94,7 @@ struct Proxy: BaseModel {
     var identifier: String?
     var server: String = ""
     var port: Int = 0
-    var mode: ProxyMode = .split
+    var mode: ProxyMode = .general
     
     // http(s)
     var isHttps: Bool = false

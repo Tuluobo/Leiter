@@ -18,6 +18,19 @@
 		D60DADED20EBB1FD00DE39F1 /* Sodium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FD20E77FF900FC22A3 /* Sodium.framework */; };
 		D60DADEE20EBB1FD00DE39F1 /* tun2socks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FB20E77FF900FC22A3 /* tun2socks.framework */; };
 		D60DADEF20EBB1FD00DE39F1 /* Yaml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FC20E77FF900FC22A3 /* Yaml.framework */; };
+		D60DADF120EBBCFB00DE39F1 /* VPNManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DADF020EBBCFB00DE39F1 /* VPNManager.swift */; };
+		D60DADFC20EBCB5B00DE39F1 /* config.template.socks5.general.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF520EBCB5A00DE39F1 /* config.template.socks5.general.yaml */; };
+		D60DADFD20EBCB5B00DE39F1 /* config.template.socks5.general.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF520EBCB5A00DE39F1 /* config.template.socks5.general.yaml */; };
+		D60DADFE20EBCB5B00DE39F1 /* config.template.socks5.all.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF620EBCB5A00DE39F1 /* config.template.socks5.all.yaml */; };
+		D60DADFF20EBCB5B00DE39F1 /* config.template.socks5.all.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF620EBCB5A00DE39F1 /* config.template.socks5.all.yaml */; };
+		D60DAE0020EBCB5B00DE39F1 /* config.template.ss.all.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF720EBCB5A00DE39F1 /* config.template.ss.all.yaml */; };
+		D60DAE0120EBCB5B00DE39F1 /* config.template.ss.all.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF720EBCB5A00DE39F1 /* config.template.ss.all.yaml */; };
+		D60DAE0220EBCB5B00DE39F1 /* config.template.http.general.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF820EBCB5A00DE39F1 /* config.template.http.general.yaml */; };
+		D60DAE0320EBCB5B00DE39F1 /* config.template.http.general.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF820EBCB5A00DE39F1 /* config.template.http.general.yaml */; };
+		D60DAE0420EBCB5B00DE39F1 /* config.template.http.all.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF920EBCB5A00DE39F1 /* config.template.http.all.yaml */; };
+		D60DAE0520EBCB5B00DE39F1 /* config.template.http.all.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF920EBCB5A00DE39F1 /* config.template.http.all.yaml */; };
+		D60DAE0620EBCB5B00DE39F1 /* config.template.ss.general.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADFA20EBCB5A00DE39F1 /* config.template.ss.general.yaml */; };
+		D60DAE0720EBCB5B00DE39F1 /* config.template.ss.general.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADFA20EBCB5A00DE39F1 /* config.template.ss.general.yaml */; };
 		D655D60420E77FF900FC22A3 /* NEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FA20E77FF900FC22A3 /* NEKit.framework */; };
 		D655D60520E77FF900FC22A3 /* tun2socks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FB20E77FF900FC22A3 /* tun2socks.framework */; };
 		D655D60620E77FF900FC22A3 /* Yaml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FC20E77FF900FC22A3 /* Yaml.framework */; };
@@ -105,6 +118,13 @@
 		4329204FECF3A825B54DF91D /* Pods-TodayWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.release.xcconfig"; sourceTree = "<group>"; };
 		668652A098DA44C25D7996D5 /* Pods-TodayWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		B88CF410450E8D58D1B7D86D /* Pods_Leiter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Leiter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D60DADF020EBBCFB00DE39F1 /* VPNManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNManager.swift; sourceTree = "<group>"; };
+		D60DADF520EBCB5A00DE39F1 /* config.template.socks5.general.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.template.socks5.general.yaml; sourceTree = "<group>"; };
+		D60DADF620EBCB5A00DE39F1 /* config.template.socks5.all.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.template.socks5.all.yaml; sourceTree = "<group>"; };
+		D60DADF720EBCB5A00DE39F1 /* config.template.ss.all.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.template.ss.all.yaml; sourceTree = "<group>"; };
+		D60DADF820EBCB5A00DE39F1 /* config.template.http.general.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.template.http.general.yaml; sourceTree = "<group>"; };
+		D60DADF920EBCB5A00DE39F1 /* config.template.http.all.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.template.http.all.yaml; sourceTree = "<group>"; };
+		D60DADFA20EBCB5A00DE39F1 /* config.template.ss.general.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.template.ss.general.yaml; sourceTree = "<group>"; };
 		D655D5FA20E77FF900FC22A3 /* NEKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NEKit.framework; path = Carthage/Build/iOS/NEKit.framework; sourceTree = "<group>"; };
 		D655D5FB20E77FF900FC22A3 /* tun2socks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = tun2socks.framework; path = Carthage/Build/iOS/tun2socks.framework; sourceTree = "<group>"; };
 		D655D5FC20E77FF900FC22A3 /* Yaml.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Yaml.framework; path = Carthage/Build/iOS/Yaml.framework; sourceTree = "<group>"; };
@@ -225,6 +245,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D60DADF420EBCB2000DE39F1 /* RuleResource */ = {
+			isa = PBXGroup;
+			children = (
+				D60DADF920EBCB5A00DE39F1 /* config.template.http.all.yaml */,
+				D60DADF820EBCB5A00DE39F1 /* config.template.http.general.yaml */,
+				D60DADF620EBCB5A00DE39F1 /* config.template.socks5.all.yaml */,
+				D60DADF520EBCB5A00DE39F1 /* config.template.socks5.general.yaml */,
+				D60DADF720EBCB5A00DE39F1 /* config.template.ss.all.yaml */,
+				D60DADFA20EBCB5A00DE39F1 /* config.template.ss.general.yaml */,
+			);
+			path = RuleResource;
+			sourceTree = "<group>";
+		};
 		D655D60F20E7836300FC22A3 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +265,7 @@
 				D655D61020E7838400FC22A3 /* ConfigManager.swift */,
 				D655D61220E784C100FC22A3 /* TrackerManager.swift */,
 				D6CE902A20E8D32F00209AF0 /* DatabaseManager.swift */,
+				D60DADF020EBBCFB00DE39F1 /* VPNManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -300,6 +334,7 @@
 		D6741A6920E75B9A00C6AFFA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D60DADF420EBCB2000DE39F1 /* RuleResource */,
 				D6CE8FEA20E7B95800209AF0 /* Pods-Leiter-acknowledgements.plist */,
 				D6741A8020E75C2C00C6AFFA /* Leiter.entitlements */,
 				D6741A5E20E75B8B00C6AFFA /* Assets.xcassets */,
@@ -570,9 +605,15 @@
 				D6CE901B20E8A37B00209AF0 /* Http.storyboard in Resources */,
 				D6CE8FEB20E7B95900209AF0 /* Pods-Leiter-acknowledgements.plist in Resources */,
 				D6741A6220E75B8B00C6AFFA /* LaunchScreen.storyboard in Resources */,
+				D60DAE0620EBCB5B00DE39F1 /* config.template.ss.general.yaml in Resources */,
 				D6CE901C20E8A37B00209AF0 /* Socks5.storyboard in Resources */,
 				D6741A5F20E75B8B00C6AFFA /* Assets.xcassets in Resources */,
+				D60DAE0020EBCB5B00DE39F1 /* config.template.ss.all.yaml in Resources */,
 				D6CE901D20E8A37B00209AF0 /* Shadowsocks.storyboard in Resources */,
+				D60DAE0420EBCB5B00DE39F1 /* config.template.http.all.yaml in Resources */,
+				D60DAE0220EBCB5B00DE39F1 /* config.template.http.general.yaml in Resources */,
+				D60DADFC20EBCB5B00DE39F1 /* config.template.socks5.general.yaml in Resources */,
+				D60DADFE20EBCB5B00DE39F1 /* config.template.socks5.all.yaml in Resources */,
 				D6741A5D20E75B8A00C6AFFA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,6 +622,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D60DAE0720EBCB5B00DE39F1 /* config.template.ss.general.yaml in Resources */,
+				D60DAE0320EBCB5B00DE39F1 /* config.template.http.general.yaml in Resources */,
+				D60DAE0120EBCB5B00DE39F1 /* config.template.ss.all.yaml in Resources */,
+				D60DADFD20EBCB5B00DE39F1 /* config.template.socks5.general.yaml in Resources */,
+				D60DAE0520EBCB5B00DE39F1 /* config.template.http.all.yaml in Resources */,
+				D60DADFF20EBCB5B00DE39F1 /* config.template.socks5.all.yaml in Resources */,
 				D6741A8420E75E1700C6AFFA /* Assets.xcassets in Resources */,
 				D6741A7720E75BEB00C6AFFA /* MainInterface.storyboard in Resources */,
 			);
@@ -743,6 +790,7 @@
 				D6CE8FEE20E7BAC900209AF0 /* Constant.swift in Sources */,
 				D6CE8FF220E7CB8C00209AF0 /* HomeViewModel.swift in Sources */,
 				D6CE902B20E8D32F00209AF0 /* DatabaseManager.swift in Sources */,
+				D60DADF120EBBCFB00DE39F1 /* VPNManager.swift in Sources */,
 				D6CE902620E8C9BD00209AF0 /* LeiterManager.swift in Sources */,
 				D655D61320E784C100FC22A3 /* TrackerManager.swift in Sources */,
 				D655D61120E7838400FC22A3 /* ConfigManager.swift in Sources */,

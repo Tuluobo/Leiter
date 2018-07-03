@@ -1,0 +1,17 @@
+port: 8899
+adapter:
+  - id: proxyAdapter
+    type: socks5
+    host: [attribute]socks5_host[/attribute]
+    port: [attribute]socks5_port[/attribute]
+rule:
+  - type: iplist
+    adapter: direct
+    criteria:
+      - 127.0.0.0/8
+      - 192.168.0.0/16
+      - 10.0.0.0/8
+      - 224.0.0.0/8
+      - 169.254.0.0/16
+  - type: all
+    adapter: proxyAdapter

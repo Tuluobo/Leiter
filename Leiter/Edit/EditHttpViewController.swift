@@ -21,7 +21,7 @@ class EditHttpViewController: UITableViewController, EditProxyProtocol {
     @IBOutlet weak var serverTextField: UITextField!
     @IBOutlet weak var portTextField: UITextField!
     @IBOutlet weak var isVerfiySwitch: UISwitch!
-    private var proxyMode: ProxyMode = .split
+    private var proxyMode: ProxyMode = .general
     
     override func viewDidLoad() {
         super.viewDidLoad()

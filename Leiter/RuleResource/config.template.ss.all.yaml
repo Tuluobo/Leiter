@@ -1,0 +1,25 @@
+port: 8899
+adapter:
+  - id: proxyAdapter
+    type: ss
+    method: [attribute]ss_method[/attribute]
+    host: [attribute]ss_host[/attribute]
+    port: [attribute]ss_port[/attribute]
+    password: [attribute]ss_password[/attribute]
+    # default set "origin"
+    protocol: [attribute]ss_protocol[/attribute]
+    # default set "origin"
+    obfs: [attribute]ss_obfs[/attribute]
+    # default set ""
+    obfs_param: [attribute]ss_obfsParam[/attribute]
+rule:
+  - type: iplist
+    adapter: direct
+    criteria:
+      - 127.0.0.0/8
+      - 192.168.0.0/16
+      - 10.0.0.0/8
+      - 224.0.0.0/8
+      - 169.254.0.0/16
+  - type: all
+    adapter: proxyAdapter

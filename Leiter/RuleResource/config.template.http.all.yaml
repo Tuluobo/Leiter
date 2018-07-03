@@ -1,0 +1,21 @@
+port: 8899
+adapter:
+  - id: proxyAdapter
+    type: http
+    host: [attribute]http_host[/attribute]
+    port: [attribute]http_port[/attribute]
+    secured: [attribute]http_secured[/attribute]
+    auth: [attribute]http_auth[/attribute]
+    username: [attribute]http_username[/attribute]
+    password: [attribute]http_password[/attribute]
+rule:
+  - type: iplist
+    adapter: direct
+    criteria:
+      - 127.0.0.0/8
+      - 192.168.0.0/16
+      - 10.0.0.0/8
+      - 224.0.0.0/8
+      - 169.254.0.0/16
+  - type: all
+    adapter: proxyAdapter

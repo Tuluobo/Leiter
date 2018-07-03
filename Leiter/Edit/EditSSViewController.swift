@@ -22,7 +22,7 @@ class EditSSViewController: UITableViewController, EditProxyProtocol {
     @IBOutlet weak var portTextField: UITextField!
     @IBOutlet weak var passwdTextField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    private var proxyMode: ProxyMode = .split
+    private var proxyMode: ProxyMode = .general
     private var encryption: CryptoAlgorithm = .AES256CFB
     
     override func viewDidLoad() {

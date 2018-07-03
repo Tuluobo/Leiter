@@ -69,6 +69,7 @@ class HomeViewController: UIViewController {
     @objc private func clickedStartbtn(btn: UIButton) {
         btn.isSelected = !btn.isSelected
         // TODO:
+        VPNManager.shared.connect()
     }
     
     // MARK: - Private
