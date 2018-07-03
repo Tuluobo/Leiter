@@ -8,9 +8,9 @@
 
 import UIKit
 
-class EditSocks5ViewController: UITableViewController, EditRouteProtocol {
+class EditSocks5ViewController: UITableViewController, EditProxyProtocol {
 
-    var route: Route?
+    var proxy: Proxy?
     
     override func viewDidLoad() {
         super.viewDidLoad()

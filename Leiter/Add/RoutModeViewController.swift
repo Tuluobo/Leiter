@@ -10,7 +10,7 @@ import UIKit
 
 class RoutModeViewController: UITableViewController {
 
-    var routeMode: RouteMode = .split
+    var proxyMode: ProxyMode = .split
     
     override func viewDidLoad() {
         super.viewDidLoad()

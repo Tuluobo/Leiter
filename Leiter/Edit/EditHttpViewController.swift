@@ -8,20 +8,20 @@
 
 import UIKit
 
-protocol EditRouteProtocol {
-    var route: Route? { get set }
+protocol EditProxyProtocol {
+    var proxy: Proxy? { get set }
 }
 
-class EditHttpViewController: UITableViewController, EditRouteProtocol {
+class EditHttpViewController: UITableViewController, EditProxyProtocol {
 
-    var route: Route?
+    var proxy: Proxy?
     
     @IBOutlet weak var identifierTextField: UITextField!
     @IBOutlet weak var isHttpsSwitch: UISwitch!
     @IBOutlet weak var serverTextField: UITextField!
     @IBOutlet weak var portTextField: UITextField!
     @IBOutlet weak var isVerfiySwitch: UISwitch!
-    private var routeMode: RouteMode = .split
+    private var proxyMode: ProxyMode = .split
     
     override func viewDidLoad() {
         super.viewDidLoad()

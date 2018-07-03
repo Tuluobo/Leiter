@@ -13,16 +13,16 @@ import ReactiveCocoa
 import ReactiveSwift
 import SVProgressHUD
 
-class EditSSViewController: UITableViewController, EditRouteProtocol {
+class EditSSViewController: UITableViewController, EditProxyProtocol {
     
-    var route: Route?
+    var proxy: Proxy?
     
     @IBOutlet weak var identifierTextField: UITextField!
     @IBOutlet weak var serverTextField: UITextField!
     @IBOutlet weak var portTextField: UITextField!
     @IBOutlet weak var passwdTextField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    private var routeMode: RouteMode = .split
+    private var proxyMode: ProxyMode = .split
     private var encryption: CryptoAlgorithm = .AES256CFB
     
     override func viewDidLoad() {
@@ -39,13 +39,13 @@ class EditSSViewController: UITableViewController, EditRouteProtocol {
             guard let passwd = passwd as? String, !passwd.isEmpty else { return false }
             return true
         }
-        if let route = self.route {
-            identifierTextField.text = route.identifier
-            serverTextField.text = route.server
-            portTextField.text = "\(route.port)"
-            passwdTextField.text = route.password
-            routeMode = route.mode
-            encryption = route.encryption ?? .AES256CFB
+        if let proxy = self.proxy {
+            identifierTextField.text = proxy.identifier
+            serverTextField.text = proxy.server
+            portTextField.text = "\(proxy.port)"
+            passwdTextField.text = proxy.password
+            proxyMode = proxy.mode
+            encryption = proxy.encryption ?? .AES256CFB
         } else {
             #if DEBUG
             // 测试 rc4-md5:msx123456@ss.tuluobo.com:8080?Remark=Linode-VPS&OTA=false
@@ -58,7 +58,7 @@ class EditSSViewController: UITableViewController, EditRouteProtocol {
     }
     
     @IBAction func clickedSaveBtn(_ sender: UIBarButtonItem) {
-        var r = self.route ?? Route()
+        var r = self.proxy ?? Proxy()
         r.type = .shadowsocks
         r.identifier = identifierTextField.text.isEmpty ? nil : identifierTextField.text
         if let server = serverTextField.text {
@@ -69,10 +69,10 @@ class EditSSViewController: UITableViewController, EditRouteProtocol {
         }
         r.password = passwdTextField.text
         r.encryption = encryption
-        r.mode = routeMode
-        if RouteManager.shared.save(route: r) {
+        r.mode = proxyMode
+        if ProxyManager.shared.save(proxy: r) {
             SVProgressHUD.showSuccess(withStatus: "保存成功！")
-            NotificationCenter.default.post(name: NSNotification.Name.RouteAddSuccess, object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name.AddProxySuccessNotification, object: nil)
             self.navigationController?.popToRootViewController(animated: true)
         } else {
             SVProgressHUD.showError(withStatus: "保存失败！")

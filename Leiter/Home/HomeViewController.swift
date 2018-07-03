@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
     }
 
     @IBOutlet weak var topBackgroundView: UIView!
-    @IBOutlet weak var routeTableView: UITableView!
+    @IBOutlet weak var proxyTableView: UITableView!
     @IBOutlet weak var connectStatusLabel: UILabel!
     
     private let viewModel = HomeViewModel()
@@ -47,17 +47,17 @@ class HomeViewController: UIViewController {
             make.centerY.equalToSuperview().offset(self.topLayoutGuide.length / 2.0)
         }
         
-        routeTableView.delegate = self
-        routeTableView.dataSource = viewModel
-        routeTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
+        proxyTableView.delegate = self
+        proxyTableView.dataSource = viewModel
+        proxyTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
             self?.viewModel.refresh()
-            self?.routeTableView.reloadData()
-            self?.routeTableView.mj_header.endRefreshing()
+            self?.proxyTableView.reloadData()
+            self?.proxyTableView.mj_header.endRefreshing()
         })
-        routeTableView.tableFooterView = UIView(frame: .zero)
+        proxyTableView.tableFooterView = UIView(frame: .zero)
         // 接收增加 通知
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.RouteAddSuccess, object: nil, queue: OperationQueue.main) { [weak self] (_) in
-            self?.routeTableView.mj_header.beginRefreshing()
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.AddProxySuccessNotification, object: nil, queue: OperationQueue.main) { [weak self] (_) in
+            self?.proxyTableView.mj_header.beginRefreshing()
         }
     }
     
@@ -83,9 +83,9 @@ extension HomeViewController: UITableViewDelegate {
         if indexPath.item == viewModel.dataSources.count {
             openSelectTypeViewController()
         } else {
-            let route = viewModel.dataSources[indexPath.item]
-            var editVC = UIStoryboard(name: route.type.rawValue, bundle: nil).instantiateInitialViewController() as? EditRouteProtocol&UIViewController
-            editVC?.route = route
+            let proxy = viewModel.dataSources[indexPath.item]
+            var editVC = UIStoryboard(name: proxy.type.rawValue, bundle: nil).instantiateInitialViewController() as? EditProxyProtocol&UIViewController
+            editVC?.proxy = proxy
             if let vc = editVC {
                 self.navigationController?.pushViewController(vc, animated: true)
             } else {

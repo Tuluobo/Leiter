@@ -1,5 +1,5 @@
 //
-//  RouteManager.swift
+//  ProxyManager.swift
 //  Leiter
 //
 //  Created by Hao Wang on 2018/7/1.
@@ -10,54 +10,54 @@ import CocoaLumberjackSwift
 import WCDBSwift
 import NEKit
 
-class RouteManager {
-    static let shared = RouteManager()
+class ProxyManager {
+    static let shared = ProxyManager()
     private init() { }
     
 
-    func all() -> [Route] {
+    func all() -> [Proxy] {
         do {
-            let routes: [Route] = try (DatabaseManager.shared.database?.getObjects(on: Route.Properties.all, fromTable: Route.tableName)) ?? []
-            return routes
+            let proxies: [Proxy] = try (DatabaseManager.shared.database?.getObjects(on: Proxy.Properties.all, fromTable: Proxy.tableName)) ?? []
+            return proxies
         } catch {
-            DDLogError("Route Select All Error: \(error.localizedDescription)")
+            DDLogError("Proxy Select All Error: \(error.localizedDescription)")
             return []
         }
     }
     
-    func delete(_ route: Route) -> Bool {
+    func delete(_ proxy: Proxy) -> Bool {
         do {
-            guard let rid = route.rid else {
+            guard let rid = proxy.rid else {
                 return false
             }
-            try DatabaseManager.shared.database?.delete(fromTable: Route.tableName, where: Route.Properties.rid == rid)
+            try DatabaseManager.shared.database?.delete(fromTable: Proxy.tableName, where: Proxy.Properties.rid == rid)
             return true
         } catch {
-            DDLogError("Route[\(route.server):\(route.port)]: delete Error: \(error.localizedDescription)")
+            DDLogError("Proxy[\(proxy.server):\(proxy.port)]: delete Error: \(error.localizedDescription)")
             return false
         }
     }
     
-    func save(route: Route) -> Bool {
+    func save(proxy: Proxy) -> Bool {
         do {
-            try DatabaseManager.shared.database?.insertOrReplace(objects: route, intoTable: Route.tableName)
+            try DatabaseManager.shared.database?.insertOrReplace(objects: proxy, intoTable: Proxy.tableName)
             return true
         } catch {
-            DDLogError("Route[\(route.server):\(route.port)]: insert Error: \(error.localizedDescription)")
+            DDLogError("Proxy[\(proxy.server):\(proxy.port)]: insert Error: \(error.localizedDescription)")
             return false
         }
     }
     
     // MARK: - QRCode
     func saveQRcode(with qrString: String?) -> Bool {
-        guard let route = decodeQRCode(with: qrString) else {
+        guard let proxy = decodeQRCode(with: qrString) else {
             return false
         }
-        return save(route: route)
+        return save(proxy: proxy)
     }
     
     // cmM0LW1kNTptc3gxMjM0NTZAc3MudHVsdW9iby5jb206ODA4MD9SZW1hcms9TGlub2RlLVZQUyZPVEE9ZmFsc2U
-    func decodeQRCode(with qrString: String?) -> Route? {
+    func decodeQRCode(with qrString: String?) -> Proxy? {
         guard let qr = qrString, let url = URL(string: qr) else { return nil }
         guard let scheme = url.scheme, let base64Str = url.host else { return nil }
         // 修正
@@ -69,18 +69,18 @@ class RouteManager {
         guard let data = Data(base64Encoded: fixBase64Str),
             let dataStr = String(data: data, encoding: String.Encoding.utf8),
             let encodeUrl = URL(string: scheme + "://" + dataStr),
-            let host = encodeUrl.host, let port = encodeUrl.port, let type = RouteType(with: scheme) else {
+            let host = encodeUrl.host, let port = encodeUrl.port, let type = ProxyType(with: scheme) else {
             return nil
         }
         
-        var route = Route()
-        route.type = type
-        route.server = host
-        route.port = port
-        route.password = encodeUrl.password
+        var proxy = Proxy()
+        proxy.type = type
+        proxy.server = host
+        proxy.port = port
+        proxy.password = encodeUrl.password
         if let user = encodeUrl.user?.uppercased() {
             guard let encryption = CryptoAlgorithm(rawValue: user) else { return nil }
-            route.encryption = encryption
+            proxy.encryption = encryption
         }
         if let query = encodeUrl.query {
             for pair in query.components(separatedBy: "&") {
@@ -89,22 +89,22 @@ class RouteManager {
                     continue
                 }
                 if key == "Remark" {
-                    route.identifier = value
+                    proxy.identifier = value
                 }
             }
         }
-        return route
+        return proxy
     }
     
     // ss://rc4-md5:msx123456@ss.tuluobo.com:8080?Remark=Linode-VPS&OTA=false
-    func encodeQRCode(with route: Route) -> String? {
+    func encodeQRCode(with proxy: Proxy) -> String? {
         var dataStr = ""
-        switch route.type {
+        switch proxy.type {
         case .http: break
         case .socks5: break
         case .shadowsocks:
-            dataStr = "ss://\((route.encryption ?? .AES256CFB).rawValue):\(route.password ?? "")@\(route.server):\(route.port)"
-            if let remark = route.identifier {
+            dataStr = "ss://\((proxy.encryption ?? .AES256CFB).rawValue):\(proxy.password ?? "")@\(proxy.server):\(proxy.port)"
+            if let remark = proxy.identifier {
                 dataStr += "?Remark=\(remark)"
             }
         }
@@ -112,6 +112,6 @@ class RouteManager {
         guard let encodeData = dataStr.data(using: String.Encoding.utf8)?.base64EncodedString() else {
             return nil
         }
-        return route.type.scheme + "://" + encodeData
+        return proxy.type.scheme + "://" + encodeData
     }
 }

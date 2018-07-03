@@ -24,6 +24,6 @@ extension Opt {
 // MARK: - 通知
 
 extension Notification.Name {
-    static let RouteAddSuccess = Notification.Name("RouteAddSuccess")
+    static let AddProxySuccessNotification = Notification.Name("AddProxySuccessNotification")
 }
 

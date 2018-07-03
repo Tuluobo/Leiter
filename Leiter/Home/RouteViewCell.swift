@@ -1,5 +1,5 @@
 //
-//  RouteViewCell.swift
+//  ProxyViewCell.swift
 //  Leiter
 //
 //  Created by Hao Wang on 2018/7/1.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RouteViewCell: UITableViewCell, Identifiable {
+class ProxyViewCell: UITableViewCell, Identifiable {
 
     @IBOutlet weak var checkImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!

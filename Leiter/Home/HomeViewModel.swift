@@ -11,8 +11,8 @@ import ionicons
 
 class HomeViewModel: NSObject {
     
-    private(set) var selectedRoute: Route?
-    private(set) var dataSources = [Route]()
+    private(set) var selectedProxy: Proxy?
+    private(set) var dataSources = [Proxy]()
     
     override init() {
         super.init()
@@ -20,7 +20,7 @@ class HomeViewModel: NSObject {
     }
     
     func refresh() {
-       let dataSources = RouteManager.shared.all()
+       let dataSources = ProxyManager.shared.all()
         // FIX:
         // 选择 selected
         // 
@@ -40,8 +40,8 @@ extension HomeViewModel: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
-            let route = dataSources[indexPath.item]
-            if RouteManager.shared.delete(route) {
+            let proxy = dataSources[indexPath.item]
+            if ProxyManager.shared.delete(proxy) {
                 dataSources.remove(at: indexPath.item)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
@@ -51,7 +51,7 @@ extension HomeViewModel: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: RouteViewCell.identifier, for: indexPath) as? RouteViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProxyViewCell.identifier, for: indexPath) as? ProxyViewCell else {
             return UITableViewCell()
         }
         if indexPath.item == dataSources.count {
@@ -62,10 +62,10 @@ extension HomeViewModel: UITableViewDataSource {
             cell.detailImageView.image = #imageLiteral(resourceName: "ic_ios_add")
         } else {
             // 正常显示
-            let route = dataSources[indexPath.item]
-            cell.titleLabel?.text = route.identifier ?? "\(route.server):\(route.port)"
+            let proxy = dataSources[indexPath.item]
+            cell.titleLabel?.text = proxy.identifier ?? "\(proxy.server):\(proxy.port)"
             cell.detailImageView.image = #imageLiteral(resourceName: "ic_information")
-            if let select = selectedRoute, select.rid == route.rid {
+            if let select = selectedProxy, select.rid == proxy.rid {
                 cell.checkImageView.image = #imageLiteral(resourceName: "ic_checkmark")
             }
         }

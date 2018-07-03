@@ -39,7 +39,7 @@ public class DatabaseManager {
     private func createAllTables() {
         do {
             try self.database?.run(transaction: {
-                Route.createTable(database: self.database)
+                Proxy.createTable(database: self.database)
             })
         } catch {
             DDLogWarn("Database create table transaction error:\(error.localizedDescription)")

@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		B55BB81BBCDAC06575594272 /* Pods_TodayWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F27AB17D9324E2050713E466 /* Pods_TodayWidget.framework */; };
+		D60DADE620EBB1FD00DE39F1 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D60120E77FF900FC22A3 /* CocoaAsyncSocket.framework */; };
+		D60DADE720EBB1FD00DE39F1 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D60320E77FF900FC22A3 /* CocoaLumberjack.framework */; };
+		D60DADE820EBB1FD00DE39F1 /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FF20E77FF900FC22A3 /* CocoaLumberjackSwift.framework */; };
+		D60DADE920EBB1FD00DE39F1 /* lwip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D60020E77FF900FC22A3 /* lwip.framework */; };
+		D60DADEA20EBB1FD00DE39F1 /* MMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D60220E77FF900FC22A3 /* MMDB.framework */; };
+		D60DADEB20EBB1FD00DE39F1 /* NEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FA20E77FF900FC22A3 /* NEKit.framework */; };
+		D60DADEC20EBB1FD00DE39F1 /* Resolver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FE20E77FF900FC22A3 /* Resolver.framework */; };
+		D60DADED20EBB1FD00DE39F1 /* Sodium.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FD20E77FF900FC22A3 /* Sodium.framework */; };
+		D60DADEE20EBB1FD00DE39F1 /* tun2socks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FB20E77FF900FC22A3 /* tun2socks.framework */; };
+		D60DADEF20EBB1FD00DE39F1 /* Yaml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FC20E77FF900FC22A3 /* Yaml.framework */; };
 		D655D60420E77FF900FC22A3 /* NEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FA20E77FF900FC22A3 /* NEKit.framework */; };
 		D655D60520E77FF900FC22A3 /* tun2socks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FB20E77FF900FC22A3 /* tun2socks.framework */; };
 		D655D60620E77FF900FC22A3 /* Yaml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FC20E77FF900FC22A3 /* Yaml.framework */; };
@@ -42,7 +52,7 @@
 		D6CE8FEB20E7B95900209AF0 /* Pods-Leiter-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6CE8FEA20E7B95800209AF0 /* Pods-Leiter-acknowledgements.plist */; };
 		D6CE8FEE20E7BAC900209AF0 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FED20E7BAC900209AF0 /* Constant.swift */; };
 		D6CE8FF220E7CB8C00209AF0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FF120E7CB8C00209AF0 /* HomeViewModel.swift */; };
-		D6CE8FF520E7CC4C00209AF0 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FF420E7CC4C00209AF0 /* Route.swift */; };
+		D6CE8FF520E7CC4C00209AF0 /* Proxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FF420E7CC4C00209AF0 /* Proxy.swift */; };
 		D6CE900620E7DC4900209AF0 /* EditHttpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE900520E7DC4900209AF0 /* EditHttpViewController.swift */; };
 		D6CE900820E7DC5D00209AF0 /* EditSSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE900720E7DC5D00209AF0 /* EditSSViewController.swift */; };
 		D6CE900A20E7DC7300209AF0 /* ScanQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE900920E7DC7300209AF0 /* ScanQRViewController.swift */; };
@@ -51,7 +61,7 @@
 		D6CE901C20E8A37B00209AF0 /* Socks5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6CE901720E8A37B00209AF0 /* Socks5.storyboard */; };
 		D6CE901D20E8A37B00209AF0 /* Shadowsocks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6CE901920E8A37B00209AF0 /* Shadowsocks.storyboard */; };
 		D6CE901F20E8A50F00209AF0 /* EncryptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE901E20E8A50F00209AF0 /* EncryptionViewController.swift */; };
-		D6CE902420E8C02F00209AF0 /* RouteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE902320E8C02F00209AF0 /* RouteManager.swift */; };
+		D6CE902420E8C02F00209AF0 /* ProxyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE902320E8C02F00209AF0 /* ProxyManager.swift */; };
 		D6CE902620E8C9BD00209AF0 /* LeiterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE902520E8C9BD00209AF0 /* LeiterManager.swift */; };
 		D6CE902920E8CE5B00209AF0 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE902820E8CE5B00209AF0 /* BaseModel.swift */; };
 		D6CE902B20E8D32F00209AF0 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE902A20E8D32F00209AF0 /* DatabaseManager.swift */; };
@@ -135,7 +145,7 @@
 		D6CE8FEA20E7B95800209AF0 /* Pods-Leiter-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-Leiter-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-Leiter/Pods-Leiter-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		D6CE8FED20E7BAC900209AF0 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		D6CE8FF120E7CB8C00209AF0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		D6CE8FF420E7CC4C00209AF0 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		D6CE8FF420E7CC4C00209AF0 /* Proxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proxy.swift; sourceTree = "<group>"; };
 		D6CE900520E7DC4900209AF0 /* EditHttpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHttpViewController.swift; sourceTree = "<group>"; };
 		D6CE900720E7DC5D00209AF0 /* EditSSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSSViewController.swift; sourceTree = "<group>"; };
 		D6CE900920E7DC7300209AF0 /* ScanQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRViewController.swift; sourceTree = "<group>"; };
@@ -144,7 +154,7 @@
 		D6CE901820E8A37B00209AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Socks5.storyboard; sourceTree = "<group>"; };
 		D6CE901A20E8A37B00209AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Shadowsocks.storyboard; sourceTree = "<group>"; };
 		D6CE901E20E8A50F00209AF0 /* EncryptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionViewController.swift; sourceTree = "<group>"; };
-		D6CE902320E8C02F00209AF0 /* RouteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteManager.swift; sourceTree = "<group>"; };
+		D6CE902320E8C02F00209AF0 /* ProxyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyManager.swift; sourceTree = "<group>"; };
 		D6CE902520E8C9BD00209AF0 /* LeiterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeiterManager.swift; sourceTree = "<group>"; };
 		D6CE902820E8CE5B00209AF0 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		D6CE902A20E8D32F00209AF0 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -188,6 +198,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6741A9C20E778BC00C6AFFA /* NetworkExtension.framework in Frameworks */,
+				D60DADE620EBB1FD00DE39F1 /* CocoaAsyncSocket.framework in Frameworks */,
+				D60DADE720EBB1FD00DE39F1 /* CocoaLumberjack.framework in Frameworks */,
+				D60DADE820EBB1FD00DE39F1 /* CocoaLumberjackSwift.framework in Frameworks */,
+				D60DADE920EBB1FD00DE39F1 /* lwip.framework in Frameworks */,
+				D60DADEA20EBB1FD00DE39F1 /* MMDB.framework in Frameworks */,
+				D60DADEB20EBB1FD00DE39F1 /* NEKit.framework in Frameworks */,
+				D60DADEC20EBB1FD00DE39F1 /* Resolver.framework in Frameworks */,
+				D60DADED20EBB1FD00DE39F1 /* Sodium.framework in Frameworks */,
+				D60DADEE20EBB1FD00DE39F1 /* tun2socks.framework in Frameworks */,
+				D60DADEF20EBB1FD00DE39F1 /* Yaml.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				D6CE902820E8CE5B00209AF0 /* BaseModel.swift */,
-				D6CE8FF420E7CC4C00209AF0 /* Route.swift */,
+				D6CE8FF420E7CC4C00209AF0 /* Proxy.swift */,
 				D6CE902220E8C00F00209AF0 /* Manager */,
 			);
 			path = Model;
@@ -399,7 +419,7 @@
 		D6CE902220E8C00F00209AF0 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				D6CE902320E8C02F00209AF0 /* RouteManager.swift */,
+				D6CE902320E8C02F00209AF0 /* ProxyManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -716,10 +736,10 @@
 				D6CE901F20E8A50F00209AF0 /* EncryptionViewController.swift in Sources */,
 				D6CE8FE120E7AA4800209AF0 /* AboutViewController.swift in Sources */,
 				D6CE902F20E901F200209AF0 /* RouteViewCell.swift in Sources */,
-				D6CE902420E8C02F00209AF0 /* RouteManager.swift in Sources */,
+				D6CE902420E8C02F00209AF0 /* ProxyManager.swift in Sources */,
 				D6741A5820E75B8A00C6AFFA /* AppDelegate.swift in Sources */,
 				D6CE900C20E8767900209AF0 /* BaseNavigationController.swift in Sources */,
-				D6CE8FF520E7CC4C00209AF0 /* Route.swift in Sources */,
+				D6CE8FF520E7CC4C00209AF0 /* Proxy.swift in Sources */,
 				D6CE8FEE20E7BAC900209AF0 /* Constant.swift in Sources */,
 				D6CE8FF220E7CB8C00209AF0 /* HomeViewModel.swift in Sources */,
 				D6CE902B20E8D32F00209AF0 /* DatabaseManager.swift in Sources */,
@@ -1027,6 +1047,10 @@
 				CODE_SIGN_ENTITLEMENTS = NEWidget/NEWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QRC4C5SWY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = NEWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1047,6 +1071,10 @@
 				CODE_SIGN_ENTITLEMENTS = NEWidget/NEWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QRC4C5SWY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = NEWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

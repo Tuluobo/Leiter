@@ -1,5 +1,5 @@
 //
-//  Route.swift
+//  Proxy.swift
 //  Leiter
 //
 //  Created by Hao Wang on 2018/6/30.
@@ -26,7 +26,7 @@ extension CryptoAlgorithm: ColumnCodable {
     }
 }
 
-enum RouteType: String, ColumnCodable {
+enum ProxyType: String, ColumnCodable {
     case http = "Http"
     case socks5 = "Socks5"
     case shadowsocks = "Shadowsocks"
@@ -68,7 +68,7 @@ enum RouteType: String, ColumnCodable {
     }
 }
 
-enum RouteMode: Int, ColumnCodable {
+enum ProxyMode: Int, ColumnCodable {
     case split = 0
     case full
     
@@ -85,16 +85,16 @@ enum RouteMode: Int, ColumnCodable {
     }
 }
 
-//MARK: - Route
+// MARK: - Proxy Model
 
-struct Route: BaseModel {
+struct Proxy: BaseModel {
     
     var rid: Int?
-    var type: RouteType = .http
+    var type: ProxyType = .http
     var identifier: String?
     var server: String = ""
     var port: Int = 0
-    var mode: RouteMode = .split
+    var mode: ProxyMode = .split
     
     // http(s)
     var isHttps: Bool = false
@@ -104,7 +104,7 @@ struct Route: BaseModel {
     var password: String?
     
     public enum CodingKeys: String, CodingTableKey {
-        public typealias Root = Route
+        public typealias Root = Proxy
         public static let objectRelationalMapping = TableBinding(CodingKeys.self)
         
         case rid

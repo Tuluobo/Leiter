@@ -88,12 +88,12 @@ class ScanQRViewController: UIViewController {
     }
     
     fileprivate func handleQRData(string: String?) {
-        guard RouteManager.shared.saveQRcode(with: string) else {
+        guard ProxyManager.shared.saveQRcode(with: string) else {
             SVProgressHUD.showError(withStatus: "没有识别到相关配置信息，请重新扫描...")
             return
         }
         session.stopRunning()
-        NotificationCenter.default.post(name: NSNotification.Name.RouteAddSuccess, object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name.AddProxySuccessNotification, object: nil)
         SVProgressHUD.showSuccess(withStatus: "添加成功")
         self.navigationController?.popToRootViewController(animated: true)
     }
