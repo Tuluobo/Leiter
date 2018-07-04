@@ -10,16 +10,45 @@ import CocoaLumberjackSwift
 import WCDBSwift
 import NEKit
 
+let kProxyOldValueKey = "kProxyOldValueKey"
+let kProxyNewValueKey = "kProxyNewValueKey"
+
+private let kSelectedProxyKey = "kSelectedProxyKey"
+
 class ProxyManager {
     
-    var currentProxy: Proxy?
+    var currentProxy: Proxy? {
+        didSet {
+            guard let proxy = currentProxy, let rid = proxy.rid  else {
+                return
+            }
+            UserDefaults.standard.set(rid, forKey: kSelectedProxyKey)
+            NotificationCenter.default.post(name: Notification.Name.CurrentProxyChangeNotification,
+                                            object: nil,
+                                            userInfo: [kProxyOldValueKey: oldValue as Any, kProxyNewValueKey: proxy])
+        }
+    }
     
     static let shared = ProxyManager()
-    private init() { }
+    private init() {
+        setupCurrentProxy()
+    }
+    
+    func setupCurrentProxy() {
+        if currentProxy == nil {
+            let allProxies = all()
+            let rid = UserDefaults.standard.integer(forKey: kSelectedProxyKey)
+            if let proxy = allProxies.first(where: { $0.rid == rid }) {
+                currentProxy = proxy
+            } else {
+                currentProxy = allProxies.first
+            }
+        }
+    }
 
     func all() -> [Proxy] {
         do {
-            let proxies: [Proxy] = try (DatabaseManager.shared.database?.getObjects(on: Proxy.Properties.all, fromTable: Proxy.tableName)) ?? []
+            let proxies: [Proxy] = try DatabaseManager.shared.database?.getObjects(on: Proxy.Properties.all, fromTable: Proxy.tableName, orderBy: [Proxy.Properties.rid.asOrder(by: .descending)]) ?? []
             return proxies
         } catch {
             DDLogError("Proxy Select All Error: \(error.localizedDescription)")
@@ -43,6 +72,8 @@ class ProxyManager {
     func save(proxy: Proxy) -> Bool {
         do {
             try DatabaseManager.shared.database?.insertOrReplace(objects: proxy, intoTable: Proxy.tableName)
+            // 默认选择一个
+            setupCurrentProxy()
             return true
         } catch {
             DDLogError("Proxy[\(proxy.server):\(proxy.port)]: insert Error: \(error.localizedDescription)")

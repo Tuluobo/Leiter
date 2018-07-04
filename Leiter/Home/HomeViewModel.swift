@@ -9,9 +9,14 @@
 import UIKit
 import ionicons
 
+protocol HomeViewModelDelegate: class {
+    func openDetailConfiguration(proxy: Proxy)
+}
+
 class HomeViewModel: NSObject {
     
-    private(set) var selectedProxy: Proxy?
+    weak var delegate: HomeViewModelDelegate?
+    
     private(set) var dataSources = [Proxy]()
     
     override init() {
@@ -20,11 +25,7 @@ class HomeViewModel: NSObject {
     }
     
     func refresh() {
-       let dataSources = ProxyManager.shared.all()
-        // FIX:
-        // 选择 selected
-        // 
-        self.dataSources = dataSources
+        self.dataSources = ProxyManager.shared.all()
     }
 }
 
@@ -54,19 +55,17 @@ extension HomeViewModel: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ProxyViewCell.identifier, for: indexPath) as? ProxyViewCell else {
             return UITableViewCell()
         }
+        cell.isSelected = false
         if indexPath.item == dataSources.count {
-            // 最后一行 增加
-            cell.titleLabel?.text = "新增线路"
-            cell.titleLabel.font = UIFont.systemFont(ofSize: 16)
-            cell.titleLabel.textColor = Opt.baseBlueColor
-            cell.detailImageView.image = #imageLiteral(resourceName: "ic_ios_add")
+            cell.proxy = nil
         } else {
-            // 正常显示
             let proxy = dataSources[indexPath.item]
-            cell.titleLabel?.text = proxy.identifier ?? "\(proxy.server):\(proxy.port)"
-            cell.detailImageView.image = #imageLiteral(resourceName: "ic_information")
-            if let select = selectedProxy, select.rid == proxy.rid {
-                cell.checkImageView.image = #imageLiteral(resourceName: "ic_checkmark")
+            cell.proxy = proxy
+            if let select = ProxyManager.shared.currentProxy, select.rid == proxy.rid {
+                cell.isSelected = true
+            }
+            cell.clickedDetailAction = { [weak self] in
+                self?.delegate?.openDetailConfiguration(proxy: proxy)
             }
         }
         return cell

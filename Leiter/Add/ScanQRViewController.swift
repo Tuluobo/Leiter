@@ -93,7 +93,7 @@ class ScanQRViewController: UIViewController {
             return
         }
         session.stopRunning()
-        NotificationCenter.default.post(name: NSNotification.Name.AddProxySuccessNotification, object: nil)
+        NotificationCenter.default.post(name: Notification.Name.AddProxySuccessNotification, object: nil)
         SVProgressHUD.showSuccess(withStatus: "添加成功")
         self.navigationController?.popToRootViewController(animated: true)
     }

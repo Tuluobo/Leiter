@@ -114,7 +114,6 @@ extension VPNManager {
 // Generate and Load ConfigFile
 extension VPNManager {
     private func getRuleConf() -> String {
-        
         guard let path = Bundle.main.path(forResource: "config.template.ss.general", ofType: "yaml") else {
             return ""
         }
@@ -129,6 +128,9 @@ extension VPNManager {
     }
     // ss://rc4-md5:msx123456@ss.tuluobo.com:8080?Remark=Linode-VPS&OTA=false
     private func setRulerConfig(_ manager: NETunnelProviderManager) {
+        guard let ProxyManager.shared.currentProxy else {
+            
+        }
         var config = [String: Any]()
         config["ss_address"] = "ss.tuluobo.com"
         config["ss_port"] = 8080
@@ -161,7 +163,7 @@ extension VPNManager {
         loadProviderManager { [unowned self] (manager) -> Void in
             if let manager = manager {
                 self.observerAdded = true
-                NotificationCenter.default.addObserver(forName: NSNotification.Name.NEVPNStatusDidChange, object: manager.connection, queue: OperationQueue.main, using: { [unowned self] (notification) -> Void in
+                NotificationCenter.default.addObserver(forName: Notification.Name.NEVPNStatusDidChange, object: manager.connection, queue: OperationQueue.main, using: { [unowned self] (notification) -> Void in
                     self.updateVPNStatus(manager)
                 })
             }

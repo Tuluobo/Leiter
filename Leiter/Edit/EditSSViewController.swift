@@ -31,12 +31,12 @@ class EditSSViewController: UITableViewController, EditProxyProtocol {
     
     private var proxyMode: ProxyMode = .general {
         didSet {
-            proxyModeLabel.text = proxyMode.description
+            proxyModeLabel?.text = proxyMode.description
         }
     }
     private var encryption: CryptoAlgorithm = .AES256CFB {
         didSet {
-            encryptionLabel.text = encryption.rawValue
+            encryptionLabel?.text = encryption.rawValue
         }
     }
     
@@ -72,7 +72,7 @@ class EditSSViewController: UITableViewController, EditProxyProtocol {
         r.mode = proxyMode
         if ProxyManager.shared.save(proxy: r) {
             SVProgressHUD.showSuccess(withStatus: "保存成功！")
-            NotificationCenter.default.post(name: NSNotification.Name.AddProxySuccessNotification, object: nil)
+            NotificationCenter.default.post(name: Notification.Name.AddProxySuccessNotification, object: nil)
             self.navigationController?.popToRootViewController(animated: true)
         } else {
             SVProgressHUD.showError(withStatus: "保存失败！")
@@ -81,18 +81,18 @@ class EditSSViewController: UITableViewController, EditProxyProtocol {
     
     private func updateUIs() {
         if let proxy = self.proxy {
-            identifierTextField.text = proxy.identifier
-            serverTextField.text = proxy.server
-            portTextField.text = "\(proxy.port)"
-            passwdTextField.text = proxy.password
+            identifierTextField?.text = proxy.identifier
+            serverTextField?.text = proxy.server
+            portTextField?.text = "\(proxy.port)"
+            passwdTextField?.text = proxy.password
             proxyMode = proxy.mode
             encryption = proxy.encryption ?? .AES256CFB
         } else {
             #if DEBUG
-            identifierTextField.text = "ss_\(arc4random_uniform(100))"
-            serverTextField.text = "ss.tuluobo.com"
-            portTextField.text = "8080"
-            passwdTextField.text = "msx123456"
+            identifierTextField?.text = "ss_\(arc4random_uniform(100))"
+            serverTextField?.text = "ss.tuluobo.com"
+            portTextField?.text = "8080"
+            passwdTextField?.text = "msx123456"
             encryption = .RC4MD5
             #endif
         }

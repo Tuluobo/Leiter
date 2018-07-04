@@ -25,6 +25,7 @@ extension Opt {
 
 extension Notification.Name {
     static let AddProxySuccessNotification = Notification.Name("AddProxySuccessNotification")
-    static let ProxyServiceStatusNotification = Notification.Name("proxyServiceStatusNotification")
+    static let ProxyServiceStatusNotification = Notification.Name("ProxyServiceStatusNotification")
+    static let CurrentProxyChangeNotification = Notification.Name("CurrentProxyChangeNotification")
 }
 

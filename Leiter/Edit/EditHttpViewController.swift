@@ -32,7 +32,7 @@ class EditHttpViewController: UITableViewController, EditProxyProtocol {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     private var proxyMode: ProxyMode = .general {
         didSet {
-            proxyModeLable.text = proxyMode.description
+            proxyModeLable?.text = proxyMode.description
         }
     }
     
@@ -66,7 +66,7 @@ class EditHttpViewController: UITableViewController, EditProxyProtocol {
         r.mode = proxyMode
         if ProxyManager.shared.save(proxy: r) {
             SVProgressHUD.showSuccess(withStatus: "保存成功！")
-            NotificationCenter.default.post(name: NSNotification.Name.AddProxySuccessNotification, object: nil)
+            NotificationCenter.default.post(name: Notification.Name.AddProxySuccessNotification, object: nil)
             self.navigationController?.popToRootViewController(animated: true)
         } else {
             SVProgressHUD.showError(withStatus: "保存失败！")
@@ -75,17 +75,17 @@ class EditHttpViewController: UITableViewController, EditProxyProtocol {
     
     private func updateUIs() {
         if let proxy = self.proxy {
-            identifierTextField.text = proxy.identifier
-            isHttpsSwitch.isOn = proxy.isHttps
-            serverTextField.text = proxy.server
-            portTextField.text = "\(proxy.port)"
-            isVerfiySwitch.isOn = proxy.isVerfiy
+            identifierTextField?.text = proxy.identifier
+            isHttpsSwitch?.isOn = proxy.isHttps
+            serverTextField?.text = proxy.server
+            portTextField?.text = "\(proxy.port)"
+            isVerfiySwitch?.isOn = proxy.isVerfiy
             proxyMode = proxy.mode
         } else {
             #if DEBUG
-            identifierTextField.text = "http_\(arc4random_uniform(100))"
-            serverTextField.text = "192.168.1.233"
-            portTextField.text = "1080"
+            identifierTextField?.text = "http_\(arc4random_uniform(100))"
+            serverTextField?.text = "192.168.1.233"
+            portTextField?.text = "1080"
             #endif
         }
     }

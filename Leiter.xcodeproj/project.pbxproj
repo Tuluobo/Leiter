@@ -43,6 +43,7 @@
 		D655D60D20E77FF900FC22A3 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D60320E77FF900FC22A3 /* CocoaLumberjack.framework */; };
 		D655D61120E7838400FC22A3 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D655D61020E7838400FC22A3 /* ConfigManager.swift */; };
 		D655D61320E784C100FC22A3 /* TrackerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D655D61220E784C100FC22A3 /* TrackerManager.swift */; };
+		D661CD8020ED0FED00466830 /* ProxyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D661CD7F20ED0FEC00466830 /* ProxyViewCell.swift */; };
 		D6741A5820E75B8A00C6AFFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6741A5720E75B8A00C6AFFA /* AppDelegate.swift */; };
 		D6741A5A20E75B8A00C6AFFA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6741A5920E75B8A00C6AFFA /* HomeViewController.swift */; };
 		D6741A5D20E75B8A00C6AFFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6741A5B20E75B8A00C6AFFA /* Main.storyboard */; };
@@ -78,7 +79,6 @@
 		D6CE902620E8C9BD00209AF0 /* LeiterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE902520E8C9BD00209AF0 /* LeiterManager.swift */; };
 		D6CE902920E8CE5B00209AF0 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE902820E8CE5B00209AF0 /* BaseModel.swift */; };
 		D6CE902B20E8D32F00209AF0 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE902A20E8D32F00209AF0 /* DatabaseManager.swift */; };
-		D6CE902F20E901F200209AF0 /* RouteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE902E20E901F200209AF0 /* RouteViewCell.swift */; };
 		DCFA865615B527014DE39EF8 /* Pods_Leiter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88CF410450E8D58D1B7D86D /* Pods_Leiter.framework */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +137,7 @@
 		D655D60320E77FF900FC22A3 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = Carthage/Build/iOS/CocoaLumberjack.framework; sourceTree = "<group>"; };
 		D655D61020E7838400FC22A3 /* ConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		D655D61220E784C100FC22A3 /* TrackerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerManager.swift; sourceTree = "<group>"; };
+		D661CD7F20ED0FEC00466830 /* ProxyViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxyViewCell.swift; sourceTree = "<group>"; };
 		D6741A5420E75B8A00C6AFFA /* Leiter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Leiter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6741A5720E75B8A00C6AFFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D6741A5920E75B8A00C6AFFA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -178,7 +179,6 @@
 		D6CE902520E8C9BD00209AF0 /* LeiterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeiterManager.swift; sourceTree = "<group>"; };
 		D6CE902820E8CE5B00209AF0 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		D6CE902A20E8D32F00209AF0 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
-		D6CE902E20E901F200209AF0 /* RouteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewCell.swift; sourceTree = "<group>"; };
 		D843F3F0D662940EAA5827B6 /* Pods-Leiter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Leiter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Leiter/Pods-Leiter.debug.xcconfig"; sourceTree = "<group>"; };
 		E72CCAC99F60C885EF347891 /* Pods-Leiter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Leiter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Leiter/Pods-Leiter.release.xcconfig"; sourceTree = "<group>"; };
 		F27AB17D9324E2050713E466 /* Pods_TodayWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,7 +275,7 @@
 			children = (
 				D6741A5920E75B8A00C6AFFA /* HomeViewController.swift */,
 				D6CE8FF120E7CB8C00209AF0 /* HomeViewModel.swift */,
-				D6CE902E20E901F200209AF0 /* RouteViewCell.swift */,
+				D661CD7F20ED0FEC00466830 /* ProxyViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -782,7 +782,6 @@
 				D6CE8FE320E7AA6500209AF0 /* RoutModeViewController.swift in Sources */,
 				D6CE901F20E8A50F00209AF0 /* EncryptionViewController.swift in Sources */,
 				D6CE8FE120E7AA4800209AF0 /* AboutViewController.swift in Sources */,
-				D6CE902F20E901F200209AF0 /* RouteViewCell.swift in Sources */,
 				D6CE902420E8C02F00209AF0 /* ProxyManager.swift in Sources */,
 				D6741A5820E75B8A00C6AFFA /* AppDelegate.swift in Sources */,
 				D6CE900C20E8767900209AF0 /* BaseNavigationController.swift in Sources */,
@@ -790,6 +789,7 @@
 				D6CE8FEE20E7BAC900209AF0 /* Constant.swift in Sources */,
 				D6CE8FF220E7CB8C00209AF0 /* HomeViewModel.swift in Sources */,
 				D6CE902B20E8D32F00209AF0 /* DatabaseManager.swift in Sources */,
+				D661CD8020ED0FED00466830 /* ProxyViewCell.swift in Sources */,
 				D60DADF120EBBCFB00DE39F1 /* VPNManager.swift in Sources */,
 				D6CE902620E8C9BD00209AF0 /* LeiterManager.swift in Sources */,
 				D655D61320E784C100FC22A3 /* TrackerManager.swift in Sources */,

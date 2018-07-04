@@ -25,7 +25,7 @@ class EditSocks5ViewController: UITableViewController, EditProxyProtocol {
     @IBOutlet weak var saveButton: UIBarButtonItem!
     private var proxyMode: ProxyMode = .general {
         didSet {
-            proxyModeLabel.text = proxy.debugDescription
+            proxyModeLabel?.text = proxyMode.description
         }
     }
     
@@ -57,7 +57,7 @@ class EditSocks5ViewController: UITableViewController, EditProxyProtocol {
         r.mode = proxyMode
         if ProxyManager.shared.save(proxy: r) {
             SVProgressHUD.showSuccess(withStatus: "保存成功！")
-            NotificationCenter.default.post(name: NSNotification.Name.AddProxySuccessNotification, object: nil)
+            NotificationCenter.default.post(name: Notification.Name.AddProxySuccessNotification, object: nil)
             self.navigationController?.popToRootViewController(animated: true)
         } else {
             SVProgressHUD.showError(withStatus: "保存失败！")
@@ -66,15 +66,15 @@ class EditSocks5ViewController: UITableViewController, EditProxyProtocol {
     
     private func updateUIs() {
         if let proxy = self.proxy {
-            identifierTextField.text = proxy.identifier
-            serverTextField.text = proxy.server
-            portTextField.text = "\(proxy.port)"
+            identifierTextField?.text = proxy.identifier
+            serverTextField?.text = proxy.server
+            portTextField?.text = "\(proxy.port)"
             proxyMode = proxy.mode
         } else {
             #if DEBUG
-            identifierTextField.text = "socks5_\(arc4random_uniform(100))"
-            serverTextField.text = "192.168.1.233"
-            portTextField.text = "1086"
+            identifierTextField?.text = "socks5_\(arc4random_uniform(100))"
+            serverTextField?.text = "192.168.1.233"
+            portTextField?.text = "1086"
             #endif
         }
     }

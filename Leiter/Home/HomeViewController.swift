@@ -46,7 +46,7 @@ class HomeViewController: UIViewController {
             make.width.height.equalTo(135)
             make.centerY.equalToSuperview().offset(self.topLayoutGuide.length / 2.0)
         }
-        
+        viewModel.delegate = self
         proxyTableView.delegate = self
         proxyTableView.dataSource = viewModel
         proxyTableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
@@ -56,8 +56,26 @@ class HomeViewController: UIViewController {
         })
         proxyTableView.tableFooterView = UIView(frame: .zero)
         // 接收增加 通知
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.AddProxySuccessNotification, object: nil, queue: OperationQueue.main) { [weak self] (_) in
+        NotificationCenter.default.addObserver(forName: Notification.Name.AddProxySuccessNotification, object: nil, queue: OperationQueue.main) { [weak self] (_) in
             self?.proxyTableView.mj_header.beginRefreshing()
+        }
+        
+        NotificationCenter.default.addObserver(forName: Notification.Name.CurrentProxyChangeNotification, object: nil, queue: OperationQueue.main) { [weak self] (notification) in
+            guard let `self` = self, let userInfo = notification.userInfo as? [String: Any] else {
+                return
+            }
+            if let oldValue = userInfo[kProxyOldValueKey] as? Proxy,
+                let index = self.viewModel.dataSources.index(where: { $0.rid == oldValue.rid }),
+                let cell = self.proxyTableView.cellForRow(at: IndexPath(item: index, section: 0)),
+                self.proxyTableView.visibleCells.contains(cell) {
+                cell.isSelected = false
+            }
+            if let newValue = userInfo[kProxyNewValueKey] as? Proxy,
+                let index = self.viewModel.dataSources.index(where: { $0.rid == newValue.rid }),
+                let cell = self.proxyTableView.cellForRow(at: IndexPath(item: index, section: 0)),
+                self.proxyTableView.visibleCells.contains(cell) {
+                cell.isSelected = true
+            }
         }
     }
     
@@ -88,17 +106,23 @@ extension HomeViewController: UITableViewDelegate {
             openSelectTypeViewController()
         } else {
             let proxy = viewModel.dataSources[indexPath.item]
-            var editVC = UIStoryboard(name: proxy.type.rawValue, bundle: nil).instantiateInitialViewController() as? EditProxyProtocol&UIViewController
-            editVC?.proxy = proxy
-            if let vc = editVC {
-                self.navigationController?.pushViewController(vc, animated: true)
-            } else {
-                DDLogWarn("Edit VC open Error!!!")
-            }
+            ProxyManager.shared.currentProxy = proxy
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44.0
+    }
+}
+
+extension HomeViewController: HomeViewModelDelegate {
+    func openDetailConfiguration(proxy: Proxy) {
+        var editVC = UIStoryboard(name: proxy.type.rawValue, bundle: nil).instantiateInitialViewController() as? EditProxyProtocol&UIViewController
+        editVC?.proxy = proxy
+        if let vc = editVC {
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            DDLogWarn("Edit VC open Error!!!")
+        }
     }
 }
