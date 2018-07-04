@@ -11,9 +11,11 @@ import WCDBSwift
 import NEKit
 
 class ProxyManager {
+    
+    var currentProxy: Proxy?
+    
     static let shared = ProxyManager()
     private init() { }
-    
 
     func all() -> [Proxy] {
         do {
@@ -56,14 +58,16 @@ class ProxyManager {
         return save(proxy: proxy)
     }
     
-    // cmM0LW1kNTptc3gxMjM0NTZAc3MudHVsdW9iby5jb206ODA4MD9SZW1hcms9TGlub2RlLVZQUyZPVEE9ZmFsc2U
     func decodeQRCode(with qrString: String?) -> Proxy? {
         guard let qr = qrString, let url = URL(string: qr) else { return nil }
         guard let scheme = url.scheme, let base64Str = url.host else { return nil }
-        // 修正
+        // 修正 BASE64 编码串
         var fixBase64Str = base64Str
-        if fixBase64Str.count % 2 != 0 {
-            fixBase64Str += "="
+        let dotCount = fixBase64Str.count % 4
+        if dotCount != 0 {
+            fixBase64Str = (0..<(4-dotCount)).reduce(fixBase64Str, { (str, _) -> String in
+                return str + "="
+            })
         }
         // Data
         guard let data = Data(base64Encoded: fixBase64Str),
@@ -96,7 +100,6 @@ class ProxyManager {
         return proxy
     }
     
-    // ss://rc4-md5:msx123456@ss.tuluobo.com:8080?Remark=Linode-VPS&OTA=false
     func encodeQRCode(with proxy: Proxy) -> String? {
         var dataStr = ""
         switch proxy.type {

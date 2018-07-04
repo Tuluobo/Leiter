@@ -213,9 +213,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="encryptionLabel" destination="9Is-rZ-P5y" id="NFV-b1-Boj"/>
                         <outlet property="identifierTextField" destination="VG5-6b-kZt" id="oGc-av-Cnn"/>
                         <outlet property="passwdTextField" destination="SfA-3S-8yY" id="Wed-Kw-bTS"/>
                         <outlet property="portTextField" destination="Lt1-0E-soH" id="rhD-xA-8MO"/>
+                        <outlet property="proxyModeLabel" destination="kSW-1H-fUx" id="rV8-AF-M2t"/>
                         <outlet property="saveButton" destination="Qxw-34-Dva" id="WB0-c8-F4C"/>
                         <outlet property="serverTextField" destination="R5L-5I-5bK" id="qpQ-US-dYa"/>
                     </connections>

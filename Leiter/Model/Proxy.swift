@@ -68,7 +68,7 @@ enum ProxyType: String, ColumnCodable {
     }
 }
 
-enum ProxyMode: String, ColumnCodable {
+enum ProxyMode: String, ColumnCodable, CustomStringConvertible {
     case general = "general"
     case all = "all"
     
@@ -82,6 +82,15 @@ enum ProxyMode: String, ColumnCodable {
     
     func archivedValue() -> FundamentalValue {
         return FundamentalValue(self.rawValue)
+    }
+    
+    var description: String {
+        switch self {
+        case .general:
+            return "自动代理模式"
+        case .all:
+            return "全局代理模式"
+        }
     }
 }
 

@@ -6,14 +6,76 @@
 //  Copyright © 2018 Tuluobo. All rights reserved.
 //
 
-import UIKit
+import SPBaseKit
+import ReactiveSwift
+import SVProgressHUD
 
 class EditSocks5ViewController: UITableViewController, EditProxyProtocol {
 
-    var proxy: Proxy?
+    var proxy: Proxy? {
+        didSet {
+            updateUIs()
+        }
+    }
+    
+    @IBOutlet weak var identifierTextField: UITextField!
+    @IBOutlet weak var serverTextField: UITextField!
+    @IBOutlet weak var portTextField: UITextField!
+    @IBOutlet weak var proxyModeLabel: UILabel!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    private var proxyMode: ProxyMode = .general {
+        didSet {
+            proxyModeLabel.text = proxy.debugDescription
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "添加 Sockks5"
+        saveButton.isEnabled = false
+        
+        let serverSignal = serverTextField.reactive.signal(forKeyPath: #keyPath(UITextField.text))
+        let portSignal = portTextField.reactive.signal(forKeyPath: #keyPath(UITextField.text))
+        saveButton.reactive.isEnabled <~ Signal.combineLatest(serverSignal, portSignal).observe(on: UIScheduler()).map { (server, port) -> Bool in
+            guard !(server as? String).isEmpty else { return false }
+            guard let port = port as? String, let portNumber = Int(port), portNumber > 0 else { return false }
+            return true
+        }
+        updateUIs()
+    }
+    
+    @IBAction func clickedSaveBtn(_ sender: UIBarButtonItem) {
+        var r = self.proxy ?? Proxy()
+        r.type = .socks5
+        r.identifier = identifierTextField.text.isEmpty ? nil : identifierTextField.text
+        if let server = serverTextField.text {
+            r.server = server
+        }
+        if let port = portTextField.text, let portNumber = Int(port) {
+            r.port = portNumber
+        }
+        r.mode = proxyMode
+        if ProxyManager.shared.save(proxy: r) {
+            SVProgressHUD.showSuccess(withStatus: "保存成功！")
+            NotificationCenter.default.post(name: NSNotification.Name.AddProxySuccessNotification, object: nil)
+            self.navigationController?.popToRootViewController(animated: true)
+        } else {
+            SVProgressHUD.showError(withStatus: "保存失败！")
+        }
+    }
+    
+    private func updateUIs() {
+        if let proxy = self.proxy {
+            identifierTextField.text = proxy.identifier
+            serverTextField.text = proxy.server
+            portTextField.text = "\(proxy.port)"
+            proxyMode = proxy.mode
+        } else {
+            #if DEBUG
+            identifierTextField.text = "socks5_\(arc4random_uniform(100))"
+            serverTextField.text = "192.168.1.233"
+            portTextField.text = "1086"
+            #endif
+        }
     }
 }

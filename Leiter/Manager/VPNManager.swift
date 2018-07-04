@@ -42,7 +42,7 @@ class VPNManager {
     }
 
     // MARK: - Actions
-    func connect(){
+    func connect() {
         loadAndCreatePrividerManager { (manager) in
             guard let manager = manager else{return}
             do{
@@ -114,7 +114,8 @@ extension VPNManager {
 // Generate and Load ConfigFile
 extension VPNManager {
     private func getRuleConf() -> String {
-        guard let path = Bundle.main.path(forResource: "NEKitRule", ofType: "conf") else {
+        
+        guard let path = Bundle.main.path(forResource: "config.template.ss.general", ofType: "yaml") else {
             return ""
         }
         do {

@@ -150,8 +150,19 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="添加线路" id="KWL-Lr-FIf">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Qxw-34-Dva"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Qxw-34-Dva">
+                            <connections>
+                                <action selector="clickedSaveBtn:" destination="z19-SD-6GW" id="dC0-1q-UCS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="identifierTextField" destination="VG5-6b-kZt" id="kIK-Bh-g4V"/>
+                        <outlet property="portTextField" destination="Lt1-0E-soH" id="rax-PC-BV5"/>
+                        <outlet property="proxyModeLabel" destination="kSW-1H-fUx" id="BjT-hS-E5V"/>
+                        <outlet property="saveButton" destination="Qxw-34-Dva" id="0X5-cS-qhj"/>
+                        <outlet property="serverTextField" destination="R5L-5I-5bK" id="Fcv-oD-a0E"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Doh-Bb-fbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

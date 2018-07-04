@@ -15,15 +15,30 @@ import SVProgressHUD
 
 class EditSSViewController: UITableViewController, EditProxyProtocol {
     
-    var proxy: Proxy?
+    var proxy: Proxy? {
+        didSet {
+            updateUIs()
+        }
+    }
     
     @IBOutlet weak var identifierTextField: UITextField!
     @IBOutlet weak var serverTextField: UITextField!
     @IBOutlet weak var portTextField: UITextField!
     @IBOutlet weak var passwdTextField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    private var proxyMode: ProxyMode = .general
-    private var encryption: CryptoAlgorithm = .AES256CFB
+    @IBOutlet weak var encryptionLabel: UILabel!
+    @IBOutlet weak var proxyModeLabel: UILabel!
+    
+    private var proxyMode: ProxyMode = .general {
+        didSet {
+            proxyModeLabel.text = proxyMode.description
+        }
+    }
+    private var encryption: CryptoAlgorithm = .AES256CFB {
+        didSet {
+            encryptionLabel.text = encryption.rawValue
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,27 +49,12 @@ class EditSSViewController: UITableViewController, EditProxyProtocol {
         let portSignal = portTextField.reactive.signal(forKeyPath: #keyPath(UITextField.text))
         let passwdSignal = passwdTextField.reactive.signal(forKeyPath: #keyPath(UITextField.text))
         saveButton.reactive.isEnabled <~ Signal.combineLatest(serverSignal, portSignal, passwdSignal).observe(on: UIScheduler()).map { (server, port, passwd) -> Bool in
-            guard let server = server as? String, !server.isEmpty else { return false }
+            guard !(server as? String).isEmpty else { return false }
             guard let port = port as? String, let portNumber = Int(port), portNumber > 0 else { return false }
-            guard let passwd = passwd as? String, !passwd.isEmpty else { return false }
+            guard !(passwd as? String).isEmpty else { return false }
             return true
         }
-        if let proxy = self.proxy {
-            identifierTextField.text = proxy.identifier
-            serverTextField.text = proxy.server
-            portTextField.text = "\(proxy.port)"
-            passwdTextField.text = proxy.password
-            proxyMode = proxy.mode
-            encryption = proxy.encryption ?? .AES256CFB
-        } else {
-            #if DEBUG
-            // 测试 rc4-md5:msx123456@ss.tuluobo.com:8080?Remark=Linode-VPS&OTA=false
-            serverTextField.text = "ss.tuluobo.com"
-            portTextField.text = "8080"
-            passwdTextField.text = "msx123456"
-            encryption = .RC4MD5
-            #endif
-        }
+        updateUIs()
     }
     
     @IBAction func clickedSaveBtn(_ sender: UIBarButtonItem) {
@@ -76,6 +76,25 @@ class EditSSViewController: UITableViewController, EditProxyProtocol {
             self.navigationController?.popToRootViewController(animated: true)
         } else {
             SVProgressHUD.showError(withStatus: "保存失败！")
+        }
+    }
+    
+    private func updateUIs() {
+        if let proxy = self.proxy {
+            identifierTextField.text = proxy.identifier
+            serverTextField.text = proxy.server
+            portTextField.text = "\(proxy.port)"
+            passwdTextField.text = proxy.password
+            proxyMode = proxy.mode
+            encryption = proxy.encryption ?? .AES256CFB
+        } else {
+            #if DEBUG
+            identifierTextField.text = "ss_\(arc4random_uniform(100))"
+            serverTextField.text = "ss.tuluobo.com"
+            portTextField.text = "8080"
+            passwdTextField.text = "msx123456"
+            encryption = .RC4MD5
+            #endif
         }
     }
 }
