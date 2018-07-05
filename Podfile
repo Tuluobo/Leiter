@@ -4,6 +4,7 @@ use_frameworks!
 
 target 'Leiter' do
     pod 'SPBaseKit', :path => '../SPBaseKit'
+    
     pod 'SnapKit', '~> 4.0.0'
     pod 'ionicons', '~> 2.1.1'
     pod 'MJRefresh', '~> 3.1.15'
@@ -15,6 +16,10 @@ target 'Leiter' do
 #    pod 'Alamofire'
 #    pod 'MMWormhole'    # extension <=> container app
 #    pod 'GBPing'
+end
+
+target 'NEWidget' do
+    pod 'SPBaseKit/Core', :path => '../SPBaseKit'
 end
 
 target 'TodayWidget' do

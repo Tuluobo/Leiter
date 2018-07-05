@@ -35,6 +35,7 @@ DEPENDENCIES:
   - ReactiveSwift (~> 3.1.0)
   - SnapKit (~> 4.0.0)
   - SPBaseKit (from `../SPBaseKit`)
+  - SPBaseKit/Core (from `../SPBaseKit`)
   - SVProgressHUD (~> 2.2.5)
   - TrafficPolice (~> 1.0)
   - VTAcknowledgementsViewController (~> 1.4.1)
@@ -78,6 +79,6 @@ SPEC CHECKSUMS:
   VTAcknowledgementsViewController: 9a7d0f040f17dfa6d02fc731bec8b188e4b4ee59
   WCDB.swift: 4f0f3e19085546ef85a69b5087ec5e1dec0f88b1
 
-PODFILE CHECKSUM: a51d4de176955917ab72c7018c51545d9b5171f2
+PODFILE CHECKSUM: c83ddc59464a2dedd392f8adb7c000eedc2b6e74
 
 COCOAPODS: 1.5.3

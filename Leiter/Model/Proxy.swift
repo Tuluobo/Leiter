@@ -37,7 +37,7 @@ enum ProxyType: String, ColumnCodable {
     
     init?(with scheme: String) {
         switch scheme {
-        case "proxy":
+        case "http":
             self = .http
         case "socks5":
             self = .socks5
@@ -51,7 +51,7 @@ enum ProxyType: String, ColumnCodable {
     var scheme: String {
         switch self {
         case .http:
-            return "proxy"
+            return "http"
         case .socks5:
             return "socks5"
         case .shadowsocks:
