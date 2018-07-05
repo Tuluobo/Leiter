@@ -27,97 +27,24 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         DDLog.removeAllLoggers()
         // warning: setting to .Debug level might be way too verbose.
         DDLog.add(DDASLLogger.sharedInstance, with: DDLogLevel.info)
-        
         // Use the build-in debug observer.
         ObserverFactory.currentFactory = DebugObserverFactory()
-        NSLog("-------------")
-        
-        guard let conf = (protocolConfiguration as! NETunnelProviderProtocol).providerConfiguration else {
-            NSLog("[ERROR] No ProtocolConfiguration Found")
+        DDLogError("startTunnel:-----------------")
+        guard let config = (protocolConfiguration as! NETunnelProviderProtocol).providerConfiguration,
+            let configString = config["proxy_conf"] as? String else {
+            NSLog("[ERROR] No ProtocolConfiguration Found Or Nil")
             exit(EXIT_FAILURE)
         }
         
-        let ss_adder = conf["ss_address"] as! String
-        let ss_port = conf["ss_port"] as! Int
-        let method = conf["ss_method"] as! String
-        let password = conf["ss_password"] as!String
-        NSLog("[INFO] \(ss_adder)--\(method)")
-        
-        // Proxy Adapter
-        // SSR Httpsimple
-        //        let obfuscater = ShadowsocksAdapter.ProtocolObfuscater.HTTPProtocolObfuscater.Factory(hosts:["intl.aliyun.com","cdn.aliyun.com"], customHeader:nil)
-        
-        
-        // Origin
-        let obfuscater = ShadowsocksAdapter.ProtocolObfuscater.OriginProtocolObfuscater.Factory()
-        guard let algorithm = CryptoAlgorithm(rawValue: method) else {
-            fatalError("Undefined algorithm!")
-        }
-        
-        let ssAdapterFactory = ShadowsocksAdapterFactory(serverHost: ss_adder, serverPort: ss_port, protocolObfuscaterFactory:obfuscater, cryptorFactory: ShadowsocksAdapter.CryptoStreamProcessor.Factory(password: password, algorithm: algorithm), streamObfuscaterFactory: ShadowsocksAdapter.StreamObfuscater.OriginStreamObfuscater.Factory())
-        
-        let directAdapterFactory = DirectAdapterFactory()
-        
-        //Get lists from conf
-        let yaml_str = conf["ymal_conf"] as! String
-        let value = try! Yaml.load(yaml_str)
-        
-        var UserRules:[NEKit.Rule] = []
-        
-        for each in value["rule"].array! {
-            let adapter: NEKit.AdapterFactory
-            if (each["adapter"].string! == "direct") {
-                adapter = directAdapterFactory
-            } else {
-                adapter = ssAdapterFactory
-            }
-            
-            let ruleType = each["type"].string!
-            switch ruleType {
-            case "domainlist":
-                var rule_array : [NEKit.DomainListRule.MatchCriterion] = []
-                for dom in each["criteria"].array! {
-                    let raw_dom = dom.string!
-                    let index = raw_dom.index(raw_dom.startIndex, offsetBy: 1)
-                    let index2 = raw_dom.index(raw_dom.startIndex, offsetBy: 2)
-                    let typeStr = String(raw_dom[..<index])
-                    let url = String(raw_dom[index2...])
-                    
-                    if (typeStr == "s") {
-                        rule_array.append(DomainListRule.MatchCriterion.suffix(url))
-                    } else if (typeStr == "k") {
-                        rule_array.append(DomainListRule.MatchCriterion.keyword(url))
-                    } else if (typeStr == "p") {
-                        rule_array.append(DomainListRule.MatchCriterion.prefix(url))
-                    } else if (typeStr == "r") {
-                        // ToDo:
-                        // shoud be complete
-                    }
-                }
-                UserRules.append(DomainListRule(adapterFactory: adapter, criteria: rule_array))
-            case "iplist":
-                let ipArray = each["criteria"].array!.map{$0.string!}
-                UserRules.append(try! IPRangeListRule(adapterFactory: adapter, ranges: ipArray))
-            default:
-                break
-            }
-        }
-        
-        
         // Rules
-        
-        let chinaRule = CountryRule(countryCode: "CN", match: true, adapterFactory: directAdapterFactory)
-        let unKnowLoc = CountryRule(countryCode: "--", match: true, adapterFactory: directAdapterFactory)
-        let dnsFailRule = DNSFailRule(adapterFactory: ssAdapterFactory)
-        
-        let allRule = AllRule(adapterFactory: ssAdapterFactory)
-        UserRules.append(contentsOf: [chinaRule, unKnowLoc, dnsFailRule, allRule])
-        
-        let manager = RuleManager(fromRules: UserRules, appendDirect: true)
-        
-        RuleManager.currentManager = manager
-        proxyPort = 10240
-        
+        let configHelper: ConfigParserHelper
+        do {
+              configHelper = try ConfigParserHelper(with: configString)
+        } catch {
+            fatalError("[ERROR] Rule Configuration read Error:\(error.localizedDescription)")
+        }
+        RuleManager.currentManager = configHelper.ruleManager
+        proxyPort = configHelper.proxyPort ?? 9933
         RawSocketFactory.TunnelProvider = self
         
         // the `tunnelRemoteAddress` is meaningless because we are not creating a tunnel.
