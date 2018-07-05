@@ -17,17 +17,17 @@ class EditSocks5ViewController: UITableViewController, EditProxyProtocol {
             updateUIs()
         }
     }
+    var proxyMode: ProxyMode = .general {
+        didSet {
+            proxyModeLabel?.text = proxyMode.description
+        }
+    }
     
     @IBOutlet weak var identifierTextField: UITextField!
     @IBOutlet weak var serverTextField: UITextField!
     @IBOutlet weak var portTextField: UITextField!
     @IBOutlet weak var proxyModeLabel: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    private var proxyMode: ProxyMode = .general {
-        didSet {
-            proxyModeLabel?.text = proxyMode.description
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -47,8 +47,8 @@ class VPNManager {
             guard let manager = manager else{return}
             do{
                 try manager.connection.startVPNTunnel(options: [:])
-            }catch let err{
-                print(err)
+            }catch let err {
+                DDLogError("VPN Connect Error: \(err.localizedDescription)")
             }
         }
     }
@@ -113,8 +113,8 @@ extension VPNManager {
 
 // Generate and Load ConfigFile
 extension VPNManager {
-    private func getRuleConf() -> String {
-        guard let path = Bundle.main.path(forResource: "config.template.ss.general", ofType: "yaml") else {
+    private func getRuleConfig(_ proxy: Proxy) -> String {
+        guard let path = Bundle.main.path(forResource: "config.template.\(proxy.type.scheme).\(proxy.mode.rawValue)", ofType: "yaml") else {
             return ""
         }
         do {
@@ -126,20 +126,46 @@ extension VPNManager {
             return ""
         }
     }
-    // ss://rc4-md5:msx123456@ss.tuluobo.com:8080?Remark=Linode-VPS&OTA=false
-    private func setRulerConfig(_ manager: NETunnelProviderManager) {
-        guard let ProxyManager.shared.currentProxy else {
-            
+    
+    private func replaceProxy(_ proxy: Proxy, ruleConfig: String) -> String {
+        var config = ruleConfig
+        switch proxy.type {
+        case .http:
+            // username: [attribute]http_username[/attribute]
+            // password: [attribute]http_password[/attribute]
+            config = config.replacingOccurrences(of: "[attribute]http_host[/attribute]", with: proxy.server)
+            config = config.replacingOccurrences(of: "[attribute]http_port[/attribute]", with: "\(proxy.port)")
+            config = config.replacingOccurrences(of: "[attribute]http_secured[/attribute]", with: "\(proxy.isHttps)")
+            config = config.replacingOccurrences(of: "[attribute]http_auth[/attribute]", with: "\(proxy.isVerfiy)")
+            config = config.replacingOccurrences(of: "[attribute]http_username[/attribute]", with: "")
+            config = config.replacingOccurrences(of: "[attribute]http_password[/attribute]", with: "")
+        case .socks5:
+            config = config.replacingOccurrences(of: "[attribute]socks5_host[/attribute]", with: proxy.server)
+            config = config.replacingOccurrences(of: "[attribute]socks5_port[/attribute]", with: "\(proxy.port)")
+        case .shadowsocks:
+            config = config.replacingOccurrences(of: "[attribute]ss_method[/attribute]", with: proxy.encryption?.rawValue ?? CryptoAlgorithm.AES256CFB.rawValue)
+            config = config.replacingOccurrences(of: "[attribute]ss_host[/attribute]", with: proxy.server)
+            config = config.replacingOccurrences(of: "[attribute]ss_port[/attribute]", with: "\(proxy.port)")
+            config = config.replacingOccurrences(of: "[attribute]ss_password[/attribute]", with: proxy.password ?? "")
+            config = config.replacingOccurrences(of: "[attribute]ss_protocol[/attribute]", with: "origin")
+            config = config.replacingOccurrences(of: "[attribute]ss_obfs[/attribute]", with: "origin")
+            config = config.replacingOccurrences(of: "[attribute]ss_obfsParam[/attribute]", with: "")
         }
-        var config = [String: Any]()
-        config["ss_address"] = "ss.tuluobo.com"
-        config["ss_port"] = 8080
-        config["ss_method"] = CryptoAlgorithm.RC4MD5.rawValue // 大写 没有横杠 看Extension中的枚举类设定 否则引发fatal error
-            config["ss_password"] = "msx123456"
-        config["ymal_conf"] = getRuleConf()
-        let orignConf = manager.protocolConfiguration as! NETunnelProviderProtocol
-        orignConf.providerConfiguration = config
-        manager.protocolConfiguration = orignConf
+        return config
+    }
+    
+    private func setRulerConfig(_ manager: NETunnelProviderManager) {
+        guard let proxy = ProxyManager.shared.currentProxy else {
+            return
+        }
+        var ruleConfig = getRuleConfig(proxy)
+        guard ruleConfig.count > 0 else {
+            return
+        }
+        ruleConfig = replaceProxy(proxy, ruleConfig: ruleConfig)
+        let orignConfiguration = manager.protocolConfiguration as! NETunnelProviderProtocol
+        orignConfiguration.providerConfiguration = ["proxy_conf": ruleConfig]
+        manager.protocolConfiguration = orignConfiguration
     }
 }
 
@@ -181,7 +207,7 @@ extension VPNManager {
         case .disconnected, .invalid:
             self.status = .off
         }
-        DDLogInfo("\(self.status)")
+        DDLogInfo("updateVPNStatus: \(self.status)")
     }
 }
 

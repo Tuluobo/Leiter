@@ -22,6 +22,11 @@ class EditHttpViewController: UITableViewController, EditProxyProtocol {
             updateUIs()
         }
     }
+    var proxyMode: ProxyMode = .general {
+        didSet {
+            proxyModeLable?.text = proxyMode.description
+        }
+    }
     
     @IBOutlet weak var identifierTextField: UITextField!
     @IBOutlet weak var isHttpsSwitch: UISwitch!
@@ -30,11 +35,6 @@ class EditHttpViewController: UITableViewController, EditProxyProtocol {
     @IBOutlet weak var isVerfiySwitch: UISwitch!
     @IBOutlet weak var proxyModeLable: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    private var proxyMode: ProxyMode = .general {
-        didSet {
-            proxyModeLable?.text = proxyMode.description
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

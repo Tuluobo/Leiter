@@ -20,6 +20,16 @@ class EditSSViewController: UITableViewController, EditProxyProtocol {
             updateUIs()
         }
     }
+    var proxyMode: ProxyMode = .general {
+        didSet {
+            proxyModeLabel?.text = proxyMode.description
+        }
+    }
+    var encryption: CryptoAlgorithm = .AES256CFB {
+        didSet {
+            encryptionLabel?.text = encryption.rawValue
+        }
+    }
     
     @IBOutlet weak var identifierTextField: UITextField!
     @IBOutlet weak var serverTextField: UITextField!
@@ -29,16 +39,6 @@ class EditSSViewController: UITableViewController, EditProxyProtocol {
     @IBOutlet weak var encryptionLabel: UILabel!
     @IBOutlet weak var proxyModeLabel: UILabel!
     
-    private var proxyMode: ProxyMode = .general {
-        didSet {
-            proxyModeLabel?.text = proxyMode.description
-        }
-    }
-    private var encryption: CryptoAlgorithm = .AES256CFB {
-        didSet {
-            encryptionLabel?.text = encryption.rawValue
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

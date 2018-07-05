@@ -17,7 +17,9 @@ private let kSelectSegueID = "kSelectSegueID"
 class HomeViewController: UIViewController {
     
     deinit {
-        NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AddProxySuccessNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.CurrentProxyChangeNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.ProxyServiceStatusNotification, object: nil)
     }
 
     @IBOutlet weak var topBackgroundView: UIView!
@@ -77,6 +79,24 @@ class HomeViewController: UIViewController {
                 cell.isSelected = true
             }
         }
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.ProxyServiceStatusNotification, object: nil, queue: OperationQueue.main) { [weak self] (_) in
+            let status = VPNManager.shared.status
+            switch status {
+            case .connecting:
+                self?.connectStatusLabel.text = "正在建立连接..."
+                break
+            case .on:
+                self?.startButton.isSelected = true
+                self?.connectStatusLabel.text = "已建立连接"
+            case .disconnecting:
+                self?.connectStatusLabel.text = "正在断开连接..."
+                break
+            case .off:
+                self?.startButton.isSelected = false
+                self?.connectStatusLabel.text = "未连接"
+            }
+        }
     }
     
     // MARK: - Actions
@@ -90,7 +110,6 @@ class HomeViewController: UIViewController {
         } else {
             VPNManager.shared.disconnect()
         }
-        btn.isSelected = !btn.isSelected 
     }
     
     // MARK: - Private
