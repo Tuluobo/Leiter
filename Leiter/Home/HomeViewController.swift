@@ -12,6 +12,7 @@ import SnapKit
 import MJRefresh
 import CocoaLumberjackSwift
 import SVProgressHUD
+import AudioToolbox
 
 private let kSelectSegueID = "kSelectSegueID"
 
@@ -125,13 +126,18 @@ extension HomeViewController: UITableViewDelegate {
         if indexPath.item == viewModel.dataSources.count {
             openSelectTypeViewController()
         } else {
-            let proxy = viewModel.dataSources[indexPath.item]
             SVProgressHUD.show(withStatus: "生成配置中...")
+            if #available(iOS 10.0, *) {
+                let feedBack = UIImpactFeedbackGenerator(style: .light)
+                feedBack.prepare()
+                feedBack.impactOccurred()
+            }
+            let proxy = viewModel.dataSources[indexPath.item]
             ProxyManager.shared.currentProxy = proxy
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 VPNManager.shared.disconnect()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    SVProgressHUD.dismiss()
+                SVProgressHUD.dismiss(withDelay: 0.3)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     VPNManager.shared.connect()
                 }
             }
