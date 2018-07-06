@@ -8,7 +8,6 @@
 
 import UIKit
 import NEKit
-import SPBaseKit
 import ReactiveCocoa
 import ReactiveSwift
 import SVProgressHUD
@@ -89,14 +88,6 @@ class EditSSViewController: UITableViewController, EditProxyProtocol {
             passwdTextField?.text = proxy.password
             proxyMode = proxy.mode
             encryption = proxy.encryption ?? .AES256CFB
-        } else {
-            #if DEBUG
-            identifierTextField?.text = "ss_\(arc4random_uniform(100))"
-            serverTextField?.text = "ss.tuluobo.com"
-            portTextField?.text = "8080"
-            passwdTextField?.text = "msx123456"
-            encryption = .RC4MD5
-            #endif
         }
     }
 }

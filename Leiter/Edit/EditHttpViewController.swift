@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SPBaseKit
 import ReactiveSwift
 import SVProgressHUD
 
@@ -83,12 +82,6 @@ class EditHttpViewController: UITableViewController, EditProxyProtocol {
             portTextField?.text = "\(proxy.port)"
             isVerfiySwitch?.isOn = proxy.isVerfiy
             proxyMode = proxy.mode
-        } else {
-            #if DEBUG
-            identifierTextField?.text = "http_\(arc4random_uniform(100))"
-            serverTextField?.text = "192.168.1.233"
-            portTextField?.text = "1080"
-            #endif
         }
     }
 }

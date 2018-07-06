@@ -48,8 +48,9 @@ extension EncryptionViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: Opt.kNormalTableViewCellIdentifierKey, for: indexPath)
         cell.selectionStyle = .none
         cell.textLabel?.text = "\(cellData.rawValue)"
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
         let imageView = UIImageView(image: #imageLiteral(resourceName: "ic_checkmark_circle"))
-        imageView.frame.size = CGSize(width: 20, height: 22)
+        imageView.frame.size = CGSize(width: 20, height: 20)
         cell.accessoryView = imageView
         cell.accessoryView?.isHidden = (encryption != cellData)
         return cell

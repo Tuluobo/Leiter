@@ -42,6 +42,7 @@ extension ProxyModeViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: Opt.kNormalTableViewCellIdentifierKey, for: indexPath)
         cell.selectionStyle = .none
         cell.textLabel?.text = "\(cellProxy.description)"
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
         let imageView = UIImageView(image: #imageLiteral(resourceName: "ic_checkmark_circle"))
         imageView.frame.size = CGSize(width: 20, height: 20)
         cell.accessoryView = imageView

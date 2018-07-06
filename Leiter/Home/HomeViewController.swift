@@ -11,6 +11,7 @@ import ionicons
 import SnapKit
 import MJRefresh
 import CocoaLumberjackSwift
+import SVProgressHUD
 
 private let kSelectSegueID = "kSelectSegueID"
 
@@ -125,7 +126,15 @@ extension HomeViewController: UITableViewDelegate {
             openSelectTypeViewController()
         } else {
             let proxy = viewModel.dataSources[indexPath.item]
+            SVProgressHUD.show(withStatus: "生成配置中...")
             ProxyManager.shared.currentProxy = proxy
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                VPNManager.shared.disconnect()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    SVProgressHUD.dismiss()
+                    VPNManager.shared.connect()
+                }
+            }
         }
     }
     
