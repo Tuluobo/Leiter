@@ -213,10 +213,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="encryptionCell" destination="97H-NP-lOq" id="05W-hK-rgb"/>
                         <outlet property="encryptionLabel" destination="9Is-rZ-P5y" id="NFV-b1-Boj"/>
                         <outlet property="identifierTextField" destination="VG5-6b-kZt" id="oGc-av-Cnn"/>
                         <outlet property="passwdTextField" destination="SfA-3S-8yY" id="Wed-Kw-bTS"/>
                         <outlet property="portTextField" destination="Lt1-0E-soH" id="rhD-xA-8MO"/>
+                        <outlet property="proxyModeCell" destination="TiE-k5-Gew" id="YUX-Ug-oFD"/>
                         <outlet property="proxyModeLabel" destination="kSW-1H-fUx" id="rV8-AF-M2t"/>
                         <outlet property="saveButton" destination="Qxw-34-Dva" id="WB0-c8-F4C"/>
                         <outlet property="serverTextField" destination="R5L-5I-5bK" id="qpQ-US-dYa"/>
@@ -224,7 +226,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Doh-Bb-fbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1722" y="-602"/>
+            <point key="canvasLocation" x="1666" y="-657"/>
         </scene>
     </scenes>
 </document>

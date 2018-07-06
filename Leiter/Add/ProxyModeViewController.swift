@@ -1,23 +1,22 @@
 //
-//  EncryptionViewController.swift
+//  ProxyModeViewController.swift
 //  Leiter
 //
-//  Created by Hao Wang on 2018/7/1.
+//  Created by Hao Wang on 2018/6/30.
 //  Copyright © 2018 Tuluobo. All rights reserved.
 //
 
 import UIKit
-import NEKit
+import SnapKit
 
-class EncryptionViewController: UITableViewController {
+class ProxyModeViewController: UITableViewController {
 
-    private var encryption: CryptoAlgorithm
-    private var completionAction: ((CryptoAlgorithm) -> Void)?
+    private var proxyMode: ProxyMode
+    private var completionAction: ((ProxyMode) -> Void)?
+    private let dataSources = ProxyMode.allCases
     
-    private var dataSources = CryptoAlgorithm.allCases
-    
-    init(encryption: CryptoAlgorithm, completionAction: @escaping ((CryptoAlgorithm) -> Void)) {
-        self.encryption = encryption
+    init(proxyMode: ProxyMode, completionAction: @escaping ((ProxyMode) -> Void)) {
+        self.proxyMode = proxyMode
         self.completionAction = completionAction
         super.init(style: .grouped)
     }
@@ -27,32 +26,33 @@ class EncryptionViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "加密方式"
+        self.title = "代理模式"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Opt.kNormalTableViewCellIdentifierKey)
     }
 }
 
-extension EncryptionViewController {
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        encryption = dataSources[indexPath.item]
-        completionAction?(encryption)
-        self.navigationController?.popViewController(animated: true)
-    }
-        
+extension ProxyModeViewController {
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSources.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellData = dataSources[indexPath.item]
+        let cellProxy = dataSources[indexPath.item]
         let cell = tableView.dequeueReusableCell(withIdentifier: Opt.kNormalTableViewCellIdentifierKey, for: indexPath)
         cell.selectionStyle = .none
-        cell.textLabel?.text = "\(cellData.rawValue)"
+        cell.textLabel?.text = "\(cellProxy.description)"
         let imageView = UIImageView(image: #imageLiteral(resourceName: "ic_checkmark_circle"))
-        imageView.frame.size = CGSize(width: 20, height: 22)
+        imageView.frame.size = CGSize(width: 20, height: 20)
         cell.accessoryView = imageView
-        cell.accessoryView?.isHidden = (encryption != cellData)
+        cell.accessoryView?.isHidden = (proxyMode != cellProxy)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        proxyMode = dataSources[indexPath.item]
+        completionAction?(proxyMode)
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

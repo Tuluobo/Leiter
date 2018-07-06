@@ -13,6 +13,8 @@ import UIKit
 enum Opt {
     static let mainVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] ?? "0.0.1"
     static let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] ?? "1"
+    
+    static let kNormalTableViewCellIdentifierKey = "kNormalTableViewCellIdentifierKey"
 }
 
 // MARK: - 颜色

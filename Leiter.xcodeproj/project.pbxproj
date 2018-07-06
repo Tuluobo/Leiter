@@ -62,12 +62,10 @@
 		D6741A9820E778B200C6AFFA /* NEWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D6741A9020E778B200C6AFFA /* NEWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D6741A9C20E778BC00C6AFFA /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6741A8A20E7662900C6AFFA /* NetworkExtension.framework */; };
 		D688AC6920EE5A5400A49AD5 /* ConfigParserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D688AC6820EE5A5400A49AD5 /* ConfigParserHelper.swift */; };
-		D688AC8720EE620C00A49AD5 /* ProxyMode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D688AC8520EE620C00A49AD5 /* ProxyMode.storyboard */; };
-		D688AC8A20EE622400A49AD5 /* Encryption.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D688AC8820EE622400A49AD5 /* Encryption.storyboard */; };
 		D688ACED20EE72F600A49AD5 /* AdapterFactoryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D688ACE520EE6F9300A49AD5 /* AdapterFactoryParser.swift */; };
 		D688ACEE20EE733C00A49AD5 /* RuleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D688ACE420EE6F9300A49AD5 /* RuleParser.swift */; };
 		D6CE8FE120E7AA4800209AF0 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FE020E7AA4800209AF0 /* AboutViewController.swift */; };
-		D6CE8FE320E7AA6500209AF0 /* RoutModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FE220E7AA6500209AF0 /* RoutModeViewController.swift */; };
+		D6CE8FE320E7AA6500209AF0 /* ProxyModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FE220E7AA6500209AF0 /* ProxyModeViewController.swift */; };
 		D6CE8FE520E7AAAE00209AF0 /* EditSocks5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FE420E7AAAE00209AF0 /* EditSocks5ViewController.swift */; };
 		D6CE8FEB20E7B95900209AF0 /* Pods-Leiter-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6CE8FEA20E7B95800209AF0 /* Pods-Leiter-acknowledgements.plist */; };
 		D6CE8FEE20E7BAC900209AF0 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CE8FED20E7BAC900209AF0 /* Constant.swift */; };
@@ -169,12 +167,10 @@
 		D6741A9420E778B200C6AFFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6741A9520E778B200C6AFFA /* NEWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NEWidget.entitlements; sourceTree = "<group>"; };
 		D688AC6820EE5A5400A49AD5 /* ConfigParserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigParserHelper.swift; sourceTree = "<group>"; };
-		D688AC8620EE620C00A49AD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ProxyMode.storyboard; sourceTree = "<group>"; };
-		D688AC8920EE622400A49AD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Encryption.storyboard; sourceTree = "<group>"; };
 		D688ACE420EE6F9300A49AD5 /* RuleParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleParser.swift; sourceTree = "<group>"; };
 		D688ACE520EE6F9300A49AD5 /* AdapterFactoryParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdapterFactoryParser.swift; sourceTree = "<group>"; };
 		D6CE8FE020E7AA4800209AF0 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
-		D6CE8FE220E7AA6500209AF0 /* RoutModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutModeViewController.swift; sourceTree = "<group>"; };
+		D6CE8FE220E7AA6500209AF0 /* ProxyModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyModeViewController.swift; sourceTree = "<group>"; };
 		D6CE8FE420E7AAAE00209AF0 /* EditSocks5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSocks5ViewController.swift; sourceTree = "<group>"; };
 		D6CE8FEA20E7B95800209AF0 /* Pods-Leiter-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-Leiter-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-Leiter/Pods-Leiter-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		D6CE8FED20E7BAC900209AF0 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -304,8 +300,6 @@
 				D6CE901520E8A37B00209AF0 /* Http.storyboard */,
 				D6CE901720E8A37B00209AF0 /* Socks5.storyboard */,
 				D6CE901920E8A37B00209AF0 /* Shadowsocks.storyboard */,
-				D688AC8520EE620C00A49AD5 /* ProxyMode.storyboard */,
-				D688AC8820EE622400A49AD5 /* Encryption.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -448,7 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				D6CE900920E7DC7300209AF0 /* ScanQRViewController.swift */,
-				D6CE8FE220E7AA6500209AF0 /* RoutModeViewController.swift */,
+				D6CE8FE220E7AA6500209AF0 /* ProxyModeViewController.swift */,
 				D6CE901E20E8A50F00209AF0 /* EncryptionViewController.swift */,
 			);
 			path = Add;
@@ -634,10 +628,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D688AC8A20EE622400A49AD5 /* Encryption.storyboard in Resources */,
 				D6CE901B20E8A37B00209AF0 /* Http.storyboard in Resources */,
 				D6CE8FEB20E7B95900209AF0 /* Pods-Leiter-acknowledgements.plist in Resources */,
-				D688AC8720EE620C00A49AD5 /* ProxyMode.storyboard in Resources */,
 				D6741A6220E75B8B00C6AFFA /* LaunchScreen.storyboard in Resources */,
 				D60DAE0620EBCB5B00DE39F1 /* config.template.ss.general.yaml in Resources */,
 				D6CE901C20E8A37B00209AF0 /* Socks5.storyboard in Resources */,
@@ -831,7 +823,7 @@
 				D6CE8FE520E7AAAE00209AF0 /* EditSocks5ViewController.swift in Sources */,
 				D6CE900A20E7DC7300209AF0 /* ScanQRViewController.swift in Sources */,
 				D6741A5A20E75B8A00C6AFFA /* HomeViewController.swift in Sources */,
-				D6CE8FE320E7AA6500209AF0 /* RoutModeViewController.swift in Sources */,
+				D6CE8FE320E7AA6500209AF0 /* ProxyModeViewController.swift in Sources */,
 				D6CE901F20E8A50F00209AF0 /* EncryptionViewController.swift in Sources */,
 				D6CE8FE120E7AA4800209AF0 /* AboutViewController.swift in Sources */,
 				D6CE902420E8C02F00209AF0 /* ProxyManager.swift in Sources */,
@@ -909,22 +901,6 @@
 				D6741A7620E75BEB00C6AFFA /* Base */,
 			);
 			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-		D688AC8520EE620C00A49AD5 /* ProxyMode.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D688AC8620EE620C00A49AD5 /* Base */,
-			);
-			name = ProxyMode.storyboard;
-			sourceTree = "<group>";
-		};
-		D688AC8820EE622400A49AD5 /* Encryption.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D688AC8920EE622400A49AD5 /* Base */,
-			);
-			name = Encryption.storyboard;
 			sourceTree = "<group>";
 		};
 		D6CE901520E8A37B00209AF0 /* Http.storyboard */ = {
@@ -1082,7 +1058,10 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Leiter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.Leiter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1104,7 +1083,10 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Leiter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.Leiter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1120,7 +1102,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QRC4C5SWY;
 				INFOPLIST_FILE = TodayWidget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.Leiter.TodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1137,7 +1123,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QRC4C5SWY;
 				INFOPLIST_FILE = TodayWidget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.Leiter.TodayWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1158,7 +1148,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = NEWidget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.Leiter.NEWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1179,7 +1173,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = NEWidget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.Leiter.NEWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

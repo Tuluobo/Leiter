@@ -11,7 +11,7 @@ import WCDBSwift
 
 extension CryptoAlgorithm: ColumnCodable {
     
-    static let allValues: [CryptoAlgorithm] = [.AES128CFB, .AES192CFB, .AES256CFB, .CHACHA20, .SALSA20, .RC4MD5]
+    static let allCases: [CryptoAlgorithm] = [.AES128CFB, .AES192CFB, .AES256CFB, .CHACHA20, .SALSA20, .RC4MD5]
     
     public static var columnType: ColumnType {
         return .text
@@ -69,8 +69,11 @@ enum ProxyType: String, ColumnCodable {
 }
 
 enum ProxyMode: String, ColumnCodable, CustomStringConvertible {
+    
     case general = "general"
     case all = "all"
+    
+    static let allCases: [ProxyMode] = [.general, .all]
     
     static var columnType: ColumnType {
         return .text

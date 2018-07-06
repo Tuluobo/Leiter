@@ -36,6 +36,8 @@ class EditHttpViewController: UITableViewController, EditProxyProtocol {
     @IBOutlet weak var proxyModeLable: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    @IBOutlet weak var proxyModeCell: UITableViewCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "添加 Http(s)"
@@ -87,6 +89,18 @@ class EditHttpViewController: UITableViewController, EditProxyProtocol {
             serverTextField?.text = "192.168.1.233"
             portTextField?.text = "1080"
             #endif
+        }
+    }
+}
+
+extension EditHttpViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        if proxyModeCell == cell {
+            let vc = ProxyModeViewController(proxyMode: proxyMode, completionAction: { [weak self] (proxyMode) in
+                self?.proxyMode = proxyMode
+            })
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

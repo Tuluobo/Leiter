@@ -29,6 +29,8 @@ class EditSocks5ViewController: UITableViewController, EditProxyProtocol {
     @IBOutlet weak var proxyModeLabel: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    @IBOutlet weak var proxyModeCell: UITableViewCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "添加 Sockks5"
@@ -76,6 +78,18 @@ class EditSocks5ViewController: UITableViewController, EditProxyProtocol {
             serverTextField?.text = "192.168.1.233"
             portTextField?.text = "1086"
             #endif
+        }
+    }
+}
+
+extension EditSocks5ViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        if proxyModeCell == cell {
+            let vc = ProxyModeViewController(proxyMode: proxyMode, completionAction: { [weak self] (proxyMode) in
+                self?.proxyMode = proxyMode
+            })
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

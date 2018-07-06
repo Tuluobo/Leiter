@@ -217,6 +217,7 @@
                         <outlet property="isHttpsSwitch" destination="gg2-XW-dhK" id="Nlc-Qc-9nE"/>
                         <outlet property="isVerfiySwitch" destination="DON-co-T4D" id="XJW-Ip-HQk"/>
                         <outlet property="portTextField" destination="Lt1-0E-soH" id="pJV-X3-19A"/>
+                        <outlet property="proxyModeCell" destination="TiE-k5-Gew" id="hbY-Xc-Pem"/>
                         <outlet property="proxyModeLable" destination="kSW-1H-fUx" id="te1-WH-a4o"/>
                         <outlet property="saveButton" destination="Qxw-34-Dva" id="2cn-Fy-tpA"/>
                         <outlet property="serverTextField" destination="cC6-Av-Q8x" id="HhW-nR-dVP"/>

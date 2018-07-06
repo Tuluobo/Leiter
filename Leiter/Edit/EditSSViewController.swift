@@ -39,6 +39,8 @@ class EditSSViewController: UITableViewController, EditProxyProtocol {
     @IBOutlet weak var encryptionLabel: UILabel!
     @IBOutlet weak var proxyModeLabel: UILabel!
     
+    @IBOutlet weak var encryptionCell: UITableViewCell!
+    @IBOutlet weak var proxyModeCell: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +97,25 @@ class EditSSViewController: UITableViewController, EditProxyProtocol {
             passwdTextField?.text = "msx123456"
             encryption = .RC4MD5
             #endif
+        }
+    }
+}
+
+extension EditSSViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        switch cell {
+            case encryptionCell:
+                let vc = EncryptionViewController(encryption: encryption, completionAction: { [weak self] (encryption) in
+                    self?.encryption = encryption
+                })
+                self.navigationController?.pushViewController(vc, animated: true)
+            case proxyModeCell:
+                let vc = ProxyModeViewController(proxyMode: proxyMode, completionAction: { [weak self] (proxyMode) in
+                    self?.proxyMode = proxyMode
+                })
+                self.navigationController?.pushViewController(vc, animated: true)
+            default: break
         }
     }
 }

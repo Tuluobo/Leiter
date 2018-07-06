@@ -159,6 +159,7 @@
                     <connections>
                         <outlet property="identifierTextField" destination="VG5-6b-kZt" id="kIK-Bh-g4V"/>
                         <outlet property="portTextField" destination="Lt1-0E-soH" id="rax-PC-BV5"/>
+                        <outlet property="proxyModeCell" destination="TiE-k5-Gew" id="cVz-df-g5A"/>
                         <outlet property="proxyModeLabel" destination="kSW-1H-fUx" id="BjT-hS-E5V"/>
                         <outlet property="saveButton" destination="Qxw-34-Dva" id="0X5-cS-qhj"/>
                         <outlet property="serverTextField" destination="R5L-5I-5bK" id="Fcv-oD-a0E"/>
@@ -166,7 +167,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Doh-Bb-fbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2020" y="-611"/>
+            <point key="canvasLocation" x="1673" y="-699"/>
         </scene>
     </scenes>
 </document>
