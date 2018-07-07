@@ -28,7 +28,7 @@ class BaseNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.setBackgroundImage(UIImage.image(with: Opt.baseBlueColor), for: .any, barMetrics: .default)
+        navigationBar.setBackgroundImage(UIImage.image(with: UIColor.baseBlueColor), for: .any, barMetrics: .default)
         navigationBar.shadowImage = UIImage()
     }
 }

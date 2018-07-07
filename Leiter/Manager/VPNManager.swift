@@ -91,7 +91,7 @@ extension VPNManager {
     private func createProviderManager() -> NETunnelProviderManager {
         let manager = NETunnelProviderManager()
         let config = NETunnelProviderProtocol()
-        config.serverAddress = "127.0.0.1"
+        config.serverAddress = "Leiter"
         manager.protocolConfiguration = config
         manager.localizedDescription = "Leiter Pro"
         return manager

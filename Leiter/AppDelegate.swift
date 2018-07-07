@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     private func commonUI() {
         UIApplication.shared.statusBarStyle = .lightContent
-        UINavigationBar.appearance().barTintColor = Opt.baseBlueColor
+        UINavigationBar.appearance().barTintColor = UIColor.baseBlueColor
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
     }

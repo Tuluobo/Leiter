@@ -6,13 +6,12 @@
 //  Copyright © 2018 Tuluobo. All rights reserved.
 //
 
-import UIKit
-import ionicons
-import SnapKit
-import MJRefresh
-import CocoaLumberjackSwift
-import SVProgressHUD
 import AudioToolbox
+import CocoaLumberjackSwift
+import ionicons
+import MJRefresh
+import SnapKit
+import SVProgressHUD
 
 private let kSelectSegueID = "kSelectSegueID"
 
@@ -43,12 +42,12 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topBackgroundView.backgroundColor = Opt.baseBlueColor
+        topBackgroundView.backgroundColor = UIColor.baseBlueColor
         topBackgroundView.addSubview(startButton)
         startButton.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.width.height.equalTo(135)
-            make.centerY.equalToSuperview().offset(self.topLayoutGuide.length / 2.0)
+            make.centerY.equalToSuperview().offset(topLayoutGuide.length * 0.5)
         }
         viewModel.delegate = self
         proxyTableView.delegate = self
@@ -83,21 +82,15 @@ class HomeViewController: UIViewController {
         }
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name.ProxyServiceStatusNotification, object: nil, queue: OperationQueue.main) { [weak self] (_) in
-            let status = VPNManager.shared.status
-            switch status {
-            case .connecting:
-                self?.connectStatusLabel.text = "正在建立连接..."
-                break
-            case .on:
-                self?.startButton.isSelected = true
-                self?.connectStatusLabel.text = "已建立连接"
-            case .disconnecting:
-                self?.connectStatusLabel.text = "正在断开连接..."
-                break
-            case .off:
-                self?.startButton.isSelected = false
-                self?.connectStatusLabel.text = "未连接"
-            }
+            self?.updateConnectStatus()
+        }
+    }
+    
+    @available(iOS 11.0, *)
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+        startButton.snp.updateConstraints { (make) in
+            make.centerY.equalToSuperview().offset(topLayoutGuide.length / 3.0)
         }
     }
     
@@ -118,6 +111,24 @@ class HomeViewController: UIViewController {
     private func openSelectTypeViewController() {
         self.performSegue(withIdentifier: kSelectSegueID, sender: nil)
     }
+    
+    private func updateConnectStatus() {
+        let status = VPNManager.shared.status
+        switch status {
+        case .connecting:
+            self.connectStatusLabel.text = "正在建立连接..."
+            break
+        case .on:
+            self.startButton.isSelected = true
+            self.connectStatusLabel.text = "已建立连接"
+        case .disconnecting:
+            self.connectStatusLabel.text = "正在断开连接..."
+            break
+        case .off:
+            self.startButton.isSelected = false
+            self.connectStatusLabel.text = "未连接"
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate
@@ -128,18 +139,18 @@ extension HomeViewController: UITableViewDelegate {
         } else {
             SVProgressHUD.show(withStatus: "生成配置中...")
             if #available(iOS 10.0, *) {
-                let feedBack = UIImpactFeedbackGenerator(style: .light)
+                let feedBack = UIImpactFeedbackGenerator(style: .medium)
                 feedBack.prepare()
                 feedBack.impactOccurred()
+            } else {
+                AudioServicesPlaySystemSound(1519)
             }
             let proxy = viewModel.dataSources[indexPath.item]
             ProxyManager.shared.currentProxy = proxy
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                VPNManager.shared.disconnect()
-                SVProgressHUD.dismiss(withDelay: 0.3)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    VPNManager.shared.connect()
-                }
+            VPNManager.shared.disconnect()
+            SVProgressHUD.dismiss(withDelay: 0.7)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+                VPNManager.shared.connect()
             }
         }
     }

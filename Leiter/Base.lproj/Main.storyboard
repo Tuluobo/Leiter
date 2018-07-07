@@ -21,10 +21,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edB-KQ-hVz">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="337.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未连接" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXz-se-jd1">
-                                        <rect key="frame" x="0.0" y="323.5" width="375" height="19.5"/>
+                                        <rect key="frame" x="0.0" y="286" width="375" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -33,13 +33,13 @@
                                 <color key="backgroundColor" red="0.0" green="0.59345018863677979" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="UXz-se-jd1" firstAttribute="leading" secondItem="edB-KQ-hVz" secondAttribute="leading" id="5T9-M8-Jws"/>
-                                    <constraint firstAttribute="width" secondItem="edB-KQ-hVz" secondAttribute="height" multiplier="1:1" id="8GK-Pa-efi"/>
+                                    <constraint firstAttribute="width" secondItem="edB-KQ-hVz" secondAttribute="height" multiplier="10:9" id="8GK-Pa-efi"/>
                                     <constraint firstAttribute="trailing" secondItem="UXz-se-jd1" secondAttribute="trailing" id="LKn-lK-EKK"/>
                                     <constraint firstAttribute="bottom" secondItem="UXz-se-jd1" secondAttribute="bottom" constant="32" id="xco-qn-W96"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OJb-3e-pLB">
-                                <rect key="frame" x="0.0" y="375" width="375" height="292"/>
+                                <rect key="frame" x="0.0" y="337.5" width="375" height="329.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>

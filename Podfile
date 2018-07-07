@@ -3,8 +3,8 @@ platform :ios, '9.0'
 use_frameworks!
 
 target 'Leiter' do
-    pod 'SPBaseKit', :path => '../SPBaseKit'
-    
+    pod 'SPBaseKit', :git => 'https://github.com/Tuluobo/SPBaseKit.git', :commit => '014a996'
+
     pod 'SnapKit', '~> 4.0.0'
     pod 'ionicons', '~> 2.1.1'
     pod 'MJRefresh', '~> 3.1.15'
@@ -13,13 +13,12 @@ target 'Leiter' do
     pod 'ReactiveSwift', '~> 3.1.0'
     pod 'ReactiveCocoa', '~> 7.2.0'
     pod 'SVProgressHUD', '~> 2.2.5'
-#    pod 'Alamofire'
-#    pod 'MMWormhole'    # extension <=> container app
+    pod 'MMWormhole'    # extension <=> container app
 #    pod 'GBPing'
 end
 
 target 'NEWidget' do
-    pod 'SPBaseKit/Core', :path => '../SPBaseKit'
+    pod 'SPBaseKit/Core', :git => 'https://github.com/Tuluobo/SPBaseKit.git', :commit => '014a996'
 end
 
 target 'TodayWidget' do

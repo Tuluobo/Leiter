@@ -35,7 +35,10 @@ extension HomeViewModel: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.item < dataSources.count
+        if indexPath.item >= dataSources.count {
+                return false
+        }
+        return dataSources[indexPath.item].rid != ProxyManager.shared.currentProxy?.rid
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

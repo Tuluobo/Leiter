@@ -50,7 +50,7 @@ class ProxyViewCell: UITableViewCell, Identifiable {
             // 最后一行 增加
             titleLabel.text = "新增线路"
             titleLabel.font = UIFont.systemFont(ofSize: 16)
-            titleLabel.textColor = Opt.baseBlueColor
+            titleLabel.textColor = UIColor.baseBlueColor
             detailImageView.image = #imageLiteral(resourceName: "ic_ios_add")
             tapView.isHidden = true
             clickedDetailAction = nil

@@ -46,7 +46,7 @@ extension AboutViewController {
         let label = UILabel()
         view.addSubview(label)
         label.textAlignment = .center
-        label.textColor = Opt.baseBlueColor
+        label.textColor = UIColor.baseBlueColor
         label.text = (Bundle.main.infoDictionary?["CFBundleName"] as? String)?.uppercased()
         
         imageView.snp.makeConstraints { (make) in

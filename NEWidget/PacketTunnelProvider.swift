@@ -168,7 +168,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
 extension PacketTunnelProvider {
     /// 监听网络状态，切换不同的网络的时候，需要重新连接vpn
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if (keyPath == "defaultPath") {
+        if keyPath == "defaultPath" {
             if self.defaultPath?.status == .satisfied && self.defaultPath != self.lastPath {
                 if (self.lastPath == nil) {
                     self.lastPath = self.defaultPath
