@@ -111,6 +111,7 @@ struct Proxy: BaseModel {
     // http(s)
     var isHttps: Bool = false
     var isVerfiy: Bool = false
+    var username: String?
     // SS
     var encryption: CryptoAlgorithm?
     var password: String?
@@ -128,6 +129,7 @@ struct Proxy: BaseModel {
         case isHttps
         case isVerfiy
         case encryption
+        case username
         case password
         
         public static var columnConstraintBindings: [CodingKeys: ColumnConstraintBinding]? {

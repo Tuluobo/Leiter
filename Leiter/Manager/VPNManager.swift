@@ -131,14 +131,12 @@ extension VPNManager {
         var config = ruleConfig
         switch proxy.type {
         case .http:
-            // username: [attribute]http_username[/attribute]
-            // password: [attribute]http_password[/attribute]
             config = config.replacingOccurrences(of: "[attribute]http_host[/attribute]", with: proxy.server)
             config = config.replacingOccurrences(of: "[attribute]http_port[/attribute]", with: "\(proxy.port)")
             config = config.replacingOccurrences(of: "[attribute]http_secured[/attribute]", with: "\(proxy.isHttps)")
             config = config.replacingOccurrences(of: "[attribute]http_auth[/attribute]", with: "\(proxy.isVerfiy)")
-            config = config.replacingOccurrences(of: "[attribute]http_username[/attribute]", with: "")
-            config = config.replacingOccurrences(of: "[attribute]http_password[/attribute]", with: "")
+            config = config.replacingOccurrences(of: "[attribute]http_username[/attribute]", with: proxy.username ?? "")
+            config = config.replacingOccurrences(of: "[attribute]http_password[/attribute]", with: proxy.password ?? "")
         case .socks5:
             config = config.replacingOccurrences(of: "[attribute]socks5_host[/attribute]", with: proxy.server)
             config = config.replacingOccurrences(of: "[attribute]socks5_port[/attribute]", with: "\(proxy.port)")

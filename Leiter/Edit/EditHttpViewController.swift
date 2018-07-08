@@ -34,8 +34,13 @@ class EditHttpViewController: UITableViewController, EditProxyProtocol {
     @IBOutlet weak var isVerfiySwitch: UISwitch!
     @IBOutlet weak var proxyModeLable: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwdTextField: UITextField!
     
+    @IBOutlet weak var usernameCell: UITableViewCell!
+    @IBOutlet weak var passwordCell: UITableViewCell!
     @IBOutlet weak var proxyModeCell: UITableViewCell!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +69,13 @@ class EditHttpViewController: UITableViewController, EditProxyProtocol {
         }
         r.isHttps = isHttpsSwitch.isOn
         r.isVerfiy = isVerfiySwitch.isOn
+        if isVerfiySwitch.isOn {
+            r.username = usernameTextField.text
+            r.password = passwdTextField.text
+        } else {
+            r.username = nil
+            r.password = nil
+        }
         r.mode = proxyMode
         if ProxyManager.shared.save(proxy: r) {
             SVProgressHUD.showSuccess(withStatus: "保存成功！")
@@ -82,7 +94,17 @@ class EditHttpViewController: UITableViewController, EditProxyProtocol {
             portTextField?.text = "\(proxy.port)"
             isVerfiySwitch?.isOn = proxy.isVerfiy
             proxyMode = proxy.mode
+            passwdTextField.text = proxy.username
+            passwdTextField.text = proxy.password
         }
+        usernameCell.isHidden = !(proxy?.isVerfiy ?? false)
+        passwordCell.isHidden = !(proxy?.isVerfiy ?? false)
+        isVerfiySwitch.addTarget(self, action: #selector(toggleVerfiySwitch(sender:)), for: .touchUpInside)
+    }
+    
+    @objc private func toggleVerfiySwitch(sender: UISwitch) {
+        usernameCell.isHidden = !sender.isOn
+        passwordCell.isHidden = !sender.isOn
     }
 }
 
