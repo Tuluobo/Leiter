@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>需要授权相机读取二维码</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>需要授权相机读取二维码</string>
-	<key>NSCameraUsageDescription</key>
-	<string>需要授权相机扫描二维码</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -53,6 +47,12 @@
 	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>需要授权相机扫描二维码</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>需要授权相机读取二维码</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>需要授权相机读取二维码</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

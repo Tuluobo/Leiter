@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F944D011B65953561206BAF /* Pods_NEWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DCA76CEDF8233A0080FCB4 /* Pods_NEWidget.framework */; };
+		374334B108050CE3C4385AF6 /* Pods_NEWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DCA76CEDF8233A0080FCB4 /* Pods_NEWidget.framework */; };
 		D60DADE620EBB1FD00DE39F1 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D60120E77FF900FC22A3 /* CocoaAsyncSocket.framework */; };
 		D60DADE720EBB1FD00DE39F1 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D60320E77FF900FC22A3 /* CocoaLumberjack.framework */; };
 		D60DADE820EBB1FD00DE39F1 /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FF20E77FF900FC22A3 /* CocoaLumberjackSwift.framework */; };
@@ -100,11 +100,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		418D8015E55DF7BD41C36D1A /* Pods-NEWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEWidget/Pods-NEWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		4329204FECF3A825B54DF91D /* Pods-TodayWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.release.xcconfig"; sourceTree = "<group>"; };
 		668652A098DA44C25D7996D5 /* Pods-TodayWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		90193D5FEAA10ADFF40AFB3D /* Pods-NEWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NEWidget/Pods-NEWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		9F218691A7BDA42A2E764B39 /* Pods-NEWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-NEWidget/Pods-NEWidget.release.xcconfig"; sourceTree = "<group>"; };
 		B88CF410450E8D58D1B7D86D /* Pods_Leiter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Leiter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7CA66B57CB5F2F086895809 /* Pods-NEWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NEWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-NEWidget/Pods-NEWidget.release.xcconfig"; sourceTree = "<group>"; };
 		D60DADF020EBBCFB00DE39F1 /* VPNManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPNManager.swift; sourceTree = "<group>"; };
 		D60DADF520EBCB5A00DE39F1 /* config.template.socks5.general.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.template.socks5.general.yaml; sourceTree = "<group>"; };
 		D60DADF620EBCB5A00DE39F1 /* config.template.socks5.all.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.template.socks5.all.yaml; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 				D60DADED20EBB1FD00DE39F1 /* Sodium.framework in Frameworks */,
 				D60DADEE20EBB1FD00DE39F1 /* tun2socks.framework in Frameworks */,
 				D60DADEF20EBB1FD00DE39F1 /* Yaml.framework in Frameworks */,
-				9F944D011B65953561206BAF /* Pods_NEWidget.framework in Frameworks */,
+				374334B108050CE3C4385AF6 /* Pods_NEWidget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,8 +219,8 @@
 				E72CCAC99F60C885EF347891 /* Pods-Leiter.release.xcconfig */,
 				668652A098DA44C25D7996D5 /* Pods-TodayWidget.debug.xcconfig */,
 				4329204FECF3A825B54DF91D /* Pods-TodayWidget.release.xcconfig */,
-				418D8015E55DF7BD41C36D1A /* Pods-NEWidget.debug.xcconfig */,
-				C7CA66B57CB5F2F086895809 /* Pods-NEWidget.release.xcconfig */,
+				90193D5FEAA10ADFF40AFB3D /* Pods-NEWidget.debug.xcconfig */,
+				9F218691A7BDA42A2E764B39 /* Pods-NEWidget.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -476,7 +476,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6741A9920E778B200C6AFFA /* Build configuration list for PBXNativeTarget "NEWidget" */;
 			buildPhases = (
-				C8EC238EF0E309B6DE629E7B /* [CP] Check Pods Manifest.lock */,
+				1186B8130D4FDD8D2EE667B2 /* [CP] Check Pods Manifest.lock */,
 				D6741A8C20E778B200C6AFFA /* Sources */,
 				D6741A8D20E778B200C6AFFA /* Frameworks */,
 				D6741A8E20E778B200C6AFFA /* Resources */,
@@ -580,6 +580,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1186B8130D4FDD8D2EE667B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NEWidget-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B7F1F78F82A00B158085AB05 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -632,24 +650,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Leiter/Pods-Leiter-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C8EC238EF0E309B6DE629E7B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NEWidget-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D655D60E20E7802B00FC22A3 /* Carthage */ = {
@@ -959,7 +959,7 @@
 		};
 		D6741A9A20E778B200C6AFFA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 418D8015E55DF7BD41C36D1A /* Pods-NEWidget.debug.xcconfig */;
+			baseConfigurationReference = 90193D5FEAA10ADFF40AFB3D /* Pods-NEWidget.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = NEWidget/NEWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -980,7 +980,7 @@
 		};
 		D6741A9B20E778B200C6AFFA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7CA66B57CB5F2F086895809 /* Pods-NEWidget.release.xcconfig */;
+			baseConfigurationReference = 9F218691A7BDA42A2E764B39 /* Pods-NEWidget.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = NEWidget/NEWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
