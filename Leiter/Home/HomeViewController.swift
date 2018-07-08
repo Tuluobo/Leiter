@@ -59,8 +59,8 @@ class HomeViewController: UIViewController {
         })
         proxyTableView.tableFooterView = UIView(frame: .zero)
         // 接收增加 通知
-        NotificationCenter.default.addObserver(forName: Notification.Name.AddProxySuccessNotification, object: nil, queue: OperationQueue.main) { [weak self] (_) in
-            self?.proxyTableView.mj_header.beginRefreshing()
+        NotificationCenter.default.addObserver(forName: Notification.Name.AddProxySuccessNotification, object: nil, queue: OperationQueue.main) { [weak self] (notification) in
+            self?.handleNotification(with: notification)
         }
         
         NotificationCenter.default.addObserver(forName: Notification.Name.CurrentProxyChangeNotification, object: nil, queue: OperationQueue.main) { [weak self] (notification) in
@@ -108,6 +108,24 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Private
+    private func handleNotification(with notification: Notification) {
+        guard let newProxy = notification.userInfo?["proxy"] as? Proxy else {
+            return
+        }
+        self.proxyTableView.mj_header.beginRefreshing()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+            if ProxyManager.shared.currentProxy?.rid == newProxy.rid, VPNManager.shared.status == .on || VPNManager.shared.status == .connecting {
+                let alertVC = UIAlertController(title: "连接中的配置已更新", message: "是否需要重新连接", preferredStyle: UIAlertControllerStyle.alert)
+                alertVC.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+                alertVC.addAction(UIAlertAction(title: "确认", style: .default, handler: { [weak self] _ in
+                    self?.reconnect()
+                }))
+                SVProgressHUD.dismiss()
+                self.present(alertVC, animated: true, completion: nil)
+            }
+        }
+    }
+    
     private func openSelectTypeViewController() {
         self.performSegue(withIdentifier: kSelectSegueID, sender: nil)
     }
@@ -129,6 +147,15 @@ class HomeViewController: UIViewController {
             self.connectStatusLabel.text = "未连接"
         }
     }
+    
+    private func reconnect() {
+        SVProgressHUD.show(withStatus: "生成配置中...")
+        VPNManager.shared.disconnect()
+        SVProgressHUD.dismiss(withDelay: 0.7)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+            VPNManager.shared.connect()
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate
@@ -137,7 +164,6 @@ extension HomeViewController: UITableViewDelegate {
         if indexPath.item == viewModel.dataSources.count {
             openSelectTypeViewController()
         } else {
-            SVProgressHUD.show(withStatus: "生成配置中...")
             if #available(iOS 10.0, *) {
                 let feedBack = UIImpactFeedbackGenerator(style: .medium)
                 feedBack.prepare()
@@ -147,11 +173,7 @@ extension HomeViewController: UITableViewDelegate {
             }
             let proxy = viewModel.dataSources[indexPath.item]
             ProxyManager.shared.currentProxy = proxy
-            VPNManager.shared.disconnect()
-            SVProgressHUD.dismiss(withDelay: 0.7)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
-                VPNManager.shared.connect()
-            }
+            reconnect()
         }
     }
     

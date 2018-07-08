@@ -122,7 +122,6 @@ class EditHttpViewController: UITableViewController, EditProxyProtocol {
         r.mode = proxyMode
         if ProxyManager.shared.save(proxy: r) {
             SVProgressHUD.showSuccess(withStatus: "保存成功！")
-            NotificationCenter.default.post(name: Notification.Name.AddProxySuccessNotification, object: nil)
             self.navigationController?.popToRootViewController(animated: true)
         } else {
             SVProgressHUD.showError(withStatus: "保存失败！")

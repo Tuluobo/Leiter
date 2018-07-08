@@ -33,18 +33,6 @@ class ProxyManager {
     private init() {
         setupCurrentProxy()
     }
-    
-    func setupCurrentProxy() {
-        if currentProxy == nil {
-            let allProxies = all()
-            let rid = UserDefaults.standard.integer(forKey: kSelectedProxyKey)
-            if let proxy = allProxies.first(where: { $0.rid == rid }) {
-                currentProxy = proxy
-            } else {
-                currentProxy = allProxies.first
-            }
-        }
-    }
 
     func all() -> [Proxy] {
         do {
@@ -74,10 +62,23 @@ class ProxyManager {
             try DatabaseManager.shared.database?.insertOrReplace(objects: proxy, intoTable: Proxy.tableName)
             // 默认选择一个
             setupCurrentProxy()
+            NotificationCenter.default.post(name: Notification.Name.AddProxySuccessNotification, object: nil, userInfo: ["proxy": proxy])
             return true
         } catch {
             DDLogError("Proxy[\(proxy.server):\(proxy.port)]: insert Error: \(error.localizedDescription)")
             return false
+        }
+    }
+    // MARK: - Private
+    private func setupCurrentProxy() {
+        if currentProxy == nil {
+            let allProxies = all()
+            let rid = UserDefaults.standard.integer(forKey: kSelectedProxyKey)
+            if let proxy = allProxies.first(where: { $0.rid == rid }) {
+                currentProxy = proxy
+            } else {
+                currentProxy = allProxies.first
+            }
         }
     }
     
