@@ -23,32 +23,75 @@ class EditHttpViewController: UITableViewController, EditProxyProtocol {
     }
     var proxyMode: ProxyMode = .general {
         didSet {
-            proxyModeLable?.text = proxyMode.description
+            proxyModeCell.detailTextLabel?.text = proxyMode.description
         }
     }
     
-    @IBOutlet weak var identifierTextField: UITextField!
-    @IBOutlet weak var isHttpsSwitch: UISwitch!
-    @IBOutlet weak var serverTextField: UITextField!
-    @IBOutlet weak var portTextField: UITextField!
-    @IBOutlet weak var isVerfiySwitch: UISwitch!
-    @IBOutlet weak var proxyModeLable: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwdTextField: UITextField!
     
-    @IBOutlet weak var usernameCell: UITableViewCell!
-    @IBOutlet weak var passwordCell: UITableViewCell!
-    @IBOutlet weak var proxyModeCell: UITableViewCell!
+    private lazy var protocolCell: SwitchCell = {
+        let cell = SwitchCell(style: .default, reuseIdentifier: nil)
+        cell.titleLabel.text = "Https"
+        return cell
+    }()
+    private lazy var identifierCell: TextFieldCell = {
+        let cell = TextFieldCell(style: .default, reuseIdentifier: nil)
+        cell.titleLabel.text = "名称"
+        cell.textField.placeholder = "Optional"
+        return cell
+    }()
+    private lazy var serverCell: TextFieldCell = {
+        let cell = TextFieldCell(style: .default, reuseIdentifier: nil)
+        cell.titleLabel.text = "服务器"
+        cell.textField.placeholder = "Required"
+        return cell
+    }()
+    private lazy var portCell: TextFieldCell = {
+        let cell = TextFieldCell(style: .default, reuseIdentifier: nil)
+        cell.titleLabel.text = "端口"
+        cell.textField.placeholder = "1-65535"
+        cell.textField.keyboardType = UIKeyboardType.decimalPad
+        return cell
+    }()
+    
+    private lazy var verfiyCell: SwitchCell = {
+        let cell = SwitchCell(style: .default, reuseIdentifier: nil)
+        cell.titleLabel.text = "需要验证"
+        return cell
+    }()
+    private lazy var usernameCell: TextFieldCell = {
+        let cell = TextFieldCell(style: .default, reuseIdentifier: nil)
+        cell.titleLabel.text = "用户名"
+        cell.textField.placeholder = "Optional"
+        return cell
+    }()
+    private lazy var passwordCell: TextFieldCell = {
+        let cell = TextFieldCell(style: .default, reuseIdentifier: nil)
+        cell.titleLabel.text = "密码"
+        cell.textField.placeholder = "Optional, Max Length 128"
+        cell.textField.isSecureTextEntry = true
+        return cell
+    }()
+    private lazy var proxyModeCell: UITableViewCell = {
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+        cell.textLabel?.text = "代理模式"
+        cell.textLabel?.font = UIFont.pingfangRegular(15)
+        cell.detailTextLabel?.text = "自动代理模式"
+        cell.detailTextLabel?.font = UIFont.pingfangRegular(14)
+        cell.detailTextLabel?.textColor = UIColor.darkGray
+        cell.accessoryType = .disclosureIndicator
+        return cell
+    }()
 
+    private var cells = [UITableViewCell]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "添加 Http(s)"
         saveButton.isEnabled = false
-        
-        let serverSignal = serverTextField.reactive.signal(forKeyPath: #keyPath(UITextField.text))
-        let portSignal = portTextField.reactive.signal(forKeyPath: #keyPath(UITextField.text))
+        cells = [protocolCell ,identifierCell, serverCell, portCell, verfiyCell, proxyModeCell]
+        let serverSignal = serverCell.textField.reactive.signal(forKeyPath: #keyPath(UITextField.text))
+        let portSignal = portCell.textField.reactive.signal(forKeyPath: #keyPath(UITextField.text))
         saveButton.reactive.isEnabled <~ Signal.combineLatest(serverSignal, portSignal).observe(on: UIScheduler()).map { (server, port) -> Bool in
             guard !(server as? String).isEmpty else { return false }
             guard let port = port as? String, let portNumber = Int(port), portNumber > 0 else { return false }
@@ -60,18 +103,18 @@ class EditHttpViewController: UITableViewController, EditProxyProtocol {
     @IBAction func clickedSaveBtn(_ sender: UIBarButtonItem) {
         var r = self.proxy ?? Proxy()
         r.type = .http
-        r.identifier = identifierTextField.text.isEmpty ? nil : identifierTextField.text
-        if let server = serverTextField.text {
+        r.identifier = identifierCell.textField.text.isEmpty ? nil : identifierCell.textField.text
+        if let server = serverCell.textField.text {
             r.server = server
         }
-        if let port = portTextField.text, let portNumber = Int(port) {
+        if let port = portCell.textField.text, let portNumber = Int(port) {
             r.port = portNumber
         }
-        r.isHttps = isHttpsSwitch.isOn
-        r.isVerfiy = isVerfiySwitch.isOn
-        if isVerfiySwitch.isOn {
-            r.username = usernameTextField.text
-            r.password = passwdTextField.text
+        r.isHttps = protocolCell.switchControl.isOn
+        r.isVerfiy = verfiyCell.switchControl.isOn
+        if verfiyCell.switchControl.isOn {
+            r.username = usernameCell.textField.text
+            r.password = passwordCell.textField.text
         } else {
             r.username = nil
             r.password = nil
@@ -88,30 +131,40 @@ class EditHttpViewController: UITableViewController, EditProxyProtocol {
     
     private func updateUIs() {
         if let proxy = self.proxy {
-            identifierTextField?.text = proxy.identifier
-            isHttpsSwitch?.isOn = proxy.isHttps
-            serverTextField?.text = proxy.server
-            portTextField?.text = "\(proxy.port)"
-            isVerfiySwitch?.isOn = proxy.isVerfiy
+            identifierCell.textField.text = proxy.identifier
+            protocolCell.switchControl.isOn = proxy.isHttps
+            serverCell.textField.text = proxy.server
+            portCell.textField.text = "\(proxy.port)"
+            verfiyCell.switchControl.isOn = proxy.isVerfiy
             proxyMode = proxy.mode
-            passwdTextField.text = proxy.username
-            passwdTextField.text = proxy.password
+            usernameCell.textField.text = proxy.username
+            passwordCell.textField.text = proxy.password
         }
-        usernameCell.isHidden = !(proxy?.isVerfiy ?? false)
-        passwordCell.isHidden = !(proxy?.isVerfiy ?? false)
-        isVerfiySwitch.addTarget(self, action: #selector(toggleVerfiySwitch(sender:)), for: .touchUpInside)
+        toggleVerfiySwitch()
+        verfiyCell.switchControl.addTarget(self, action: #selector(toggleVerfiySwitch), for: .touchUpInside)
     }
     
-    @objc private func toggleVerfiySwitch(sender: UISwitch) {
-        usernameCell.isHidden = !sender.isOn
-        passwordCell.isHidden = !sender.isOn
+    @objc private func toggleVerfiySwitch() {
+        if verfiyCell.switchControl.isOn {
+            cells = [protocolCell ,identifierCell, serverCell, portCell, verfiyCell, usernameCell, passwordCell, proxyModeCell]
+        } else {
+            cells = [protocolCell ,identifierCell, serverCell, portCell, verfiyCell, proxyModeCell]
+        }
+        tableView.reloadData()
     }
 }
 
 extension EditHttpViewController {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cells.count
+    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return cells[indexPath.item]
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) else { return }
-        if proxyModeCell == cell {
+        if proxyModeCell == cells[indexPath.item] {
             let vc = ProxyModeViewController(proxyMode: proxyMode, completionAction: { [weak self] (proxyMode) in
                 self?.proxyMode = proxyMode
             })
