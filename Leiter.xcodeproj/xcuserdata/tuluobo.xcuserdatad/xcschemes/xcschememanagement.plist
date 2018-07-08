@@ -14,10 +14,13 @@
 			<key>orderHint</key>
 			<integer>16</integer>
 		</dict>
-		<key>TodayWidget.xcscheme</key>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>D6741A5320E75B8A00C6AFFA</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>17</integer>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

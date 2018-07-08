@@ -8,7 +8,6 @@
 
 import UIKit
 import NEKit
-import ReactiveCocoa
 import ReactiveSwift
 import SVProgressHUD
 

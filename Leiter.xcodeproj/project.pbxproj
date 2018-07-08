@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9F944D011B65953561206BAF /* Pods_NEWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4DCA76CEDF8233A0080FCB4 /* Pods_NEWidget.framework */; };
-		B55BB81BBCDAC06575594272 /* Pods_TodayWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F27AB17D9324E2050713E466 /* Pods_TodayWidget.framework */; };
 		D60DADE620EBB1FD00DE39F1 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D60120E77FF900FC22A3 /* CocoaAsyncSocket.framework */; };
 		D60DADE720EBB1FD00DE39F1 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D60320E77FF900FC22A3 /* CocoaLumberjack.framework */; };
 		D60DADE820EBB1FD00DE39F1 /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FF20E77FF900FC22A3 /* CocoaLumberjackSwift.framework */; };
@@ -21,17 +20,11 @@
 		D60DADEF20EBB1FD00DE39F1 /* Yaml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FC20E77FF900FC22A3 /* Yaml.framework */; };
 		D60DADF120EBBCFB00DE39F1 /* VPNManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60DADF020EBBCFB00DE39F1 /* VPNManager.swift */; };
 		D60DADFC20EBCB5B00DE39F1 /* config.template.socks5.general.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF520EBCB5A00DE39F1 /* config.template.socks5.general.yaml */; };
-		D60DADFD20EBCB5B00DE39F1 /* config.template.socks5.general.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF520EBCB5A00DE39F1 /* config.template.socks5.general.yaml */; };
 		D60DADFE20EBCB5B00DE39F1 /* config.template.socks5.all.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF620EBCB5A00DE39F1 /* config.template.socks5.all.yaml */; };
-		D60DADFF20EBCB5B00DE39F1 /* config.template.socks5.all.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF620EBCB5A00DE39F1 /* config.template.socks5.all.yaml */; };
 		D60DAE0020EBCB5B00DE39F1 /* config.template.ss.all.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF720EBCB5A00DE39F1 /* config.template.ss.all.yaml */; };
-		D60DAE0120EBCB5B00DE39F1 /* config.template.ss.all.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF720EBCB5A00DE39F1 /* config.template.ss.all.yaml */; };
 		D60DAE0220EBCB5B00DE39F1 /* config.template.http.general.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF820EBCB5A00DE39F1 /* config.template.http.general.yaml */; };
-		D60DAE0320EBCB5B00DE39F1 /* config.template.http.general.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF820EBCB5A00DE39F1 /* config.template.http.general.yaml */; };
 		D60DAE0420EBCB5B00DE39F1 /* config.template.http.all.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF920EBCB5A00DE39F1 /* config.template.http.all.yaml */; };
-		D60DAE0520EBCB5B00DE39F1 /* config.template.http.all.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADF920EBCB5A00DE39F1 /* config.template.http.all.yaml */; };
 		D60DAE0620EBCB5B00DE39F1 /* config.template.ss.general.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADFA20EBCB5A00DE39F1 /* config.template.ss.general.yaml */; };
-		D60DAE0720EBCB5B00DE39F1 /* config.template.ss.general.yaml in Resources */ = {isa = PBXBuildFile; fileRef = D60DADFA20EBCB5A00DE39F1 /* config.template.ss.general.yaml */; };
 		D655D60420E77FF900FC22A3 /* NEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FA20E77FF900FC22A3 /* NEKit.framework */; };
 		D655D60520E77FF900FC22A3 /* tun2socks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FB20E77FF900FC22A3 /* tun2socks.framework */; };
 		D655D60620E77FF900FC22A3 /* Yaml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D655D5FC20E77FF900FC22A3 /* Yaml.framework */; };
@@ -50,13 +43,6 @@
 		D6741A5D20E75B8A00C6AFFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6741A5B20E75B8A00C6AFFA /* Main.storyboard */; };
 		D6741A5F20E75B8B00C6AFFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6741A5E20E75B8B00C6AFFA /* Assets.xcassets */; };
 		D6741A6220E75B8B00C6AFFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6741A6020E75B8B00C6AFFA /* LaunchScreen.storyboard */; };
-		D6741A7120E75BEB00C6AFFA /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6741A7020E75BEB00C6AFFA /* NotificationCenter.framework */; };
-		D6741A7420E75BEB00C6AFFA /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6741A7320E75BEB00C6AFFA /* TodayViewController.swift */; };
-		D6741A7720E75BEB00C6AFFA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6741A7520E75BEB00C6AFFA /* MainInterface.storyboard */; };
-		D6741A7B20E75BEB00C6AFFA /* TodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D6741A6E20E75BEB00C6AFFA /* TodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		D6741A8420E75E1700C6AFFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6741A8320E75E1700C6AFFA /* Assets.xcassets */; };
-		D6741A8720E75F7E00C6AFFA /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6741A8620E75F7E00C6AFFA /* TodayViewModel.swift */; };
-		D6741A8920E7604E00C6AFFA /* TodayViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6741A8820E7604E00C6AFFA /* TodayViewCell.swift */; };
 		D6741A8B20E7662900C6AFFA /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6741A8A20E7662900C6AFFA /* NetworkExtension.framework */; };
 		D6741A9320E778B200C6AFFA /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6741A9220E778B200C6AFFA /* PacketTunnelProvider.swift */; };
 		D6741A9820E778B200C6AFFA /* NEWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D6741A9020E778B200C6AFFA /* NEWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -90,13 +76,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D6741A7920E75BEB00C6AFFA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D6741A4C20E75B8A00C6AFFA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D6741A6D20E75BEB00C6AFFA;
-			remoteInfo = TodayWidget;
-		};
 		D6741A9620E778B200C6AFFA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D6741A4C20E75B8A00C6AFFA /* Project object */;
@@ -113,7 +92,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D6741A7B20E75BEB00C6AFFA /* TodayWidget.appex in Embed App Extensions */,
 				D6741A9820E778B200C6AFFA /* NEWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -154,16 +132,8 @@
 		D6741A5E20E75B8B00C6AFFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6741A6120E75B8B00C6AFFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6741A6320E75B8B00C6AFFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6741A6E20E75BEB00C6AFFA /* TodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6741A7020E75BEB00C6AFFA /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		D6741A7320E75BEB00C6AFFA /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		D6741A7620E75BEB00C6AFFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		D6741A7820E75BEB00C6AFFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6741A8020E75C2C00C6AFFA /* Leiter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Leiter.entitlements; sourceTree = "<group>"; };
-		D6741A8120E75C4200C6AFFA /* TodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayWidget.entitlements; sourceTree = "<group>"; };
-		D6741A8320E75E1700C6AFFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D6741A8620E75F7E00C6AFFA /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
-		D6741A8820E7604E00C6AFFA /* TodayViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewCell.swift; sourceTree = "<group>"; };
 		D6741A8A20E7662900C6AFFA /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		D6741A9020E778B200C6AFFA /* NEWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NEWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6741A9220E778B200C6AFFA /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
@@ -217,15 +187,6 @@
 				D6741A8B20E7662900C6AFFA /* NetworkExtension.framework in Frameworks */,
 				D655D60D20E77FF900FC22A3 /* CocoaLumberjack.framework in Frameworks */,
 				D655D60520E77FF900FC22A3 /* tun2socks.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D6741A6B20E75BEB00C6AFFA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D6741A7120E75BEB00C6AFFA /* NotificationCenter.framework in Frameworks */,
-				B55BB81BBCDAC06575594272 /* Pods_TodayWidget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +275,6 @@
 			isa = PBXGroup;
 			children = (
 				D6741A5620E75B8A00C6AFFA /* Leiter */,
-				D6741A7220E75BEB00C6AFFA /* TodayWidget */,
 				D6741A9120E778B200C6AFFA /* NEWidget */,
 				D6741A6F20E75BEB00C6AFFA /* Frameworks */,
 				D6741A5520E75B8A00C6AFFA /* Products */,
@@ -326,7 +286,6 @@
 			isa = PBXGroup;
 			children = (
 				D6741A5420E75B8A00C6AFFA /* Leiter.app */,
-				D6741A6E20E75BEB00C6AFFA /* TodayWidget.appex */,
 				D6741A9020E778B200C6AFFA /* NEWidget.appex */,
 			);
 			name = Products;
@@ -383,28 +342,6 @@
 				E4DCA76CEDF8233A0080FCB4 /* Pods_NEWidget.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D6741A7220E75BEB00C6AFFA /* TodayWidget */ = {
-			isa = PBXGroup;
-			children = (
-				D6741A7320E75BEB00C6AFFA /* TodayViewController.swift */,
-				D6741A8620E75F7E00C6AFFA /* TodayViewModel.swift */,
-				D6741A8820E7604E00C6AFFA /* TodayViewCell.swift */,
-				D6741A7520E75BEB00C6AFFA /* MainInterface.storyboard */,
-				D6741A8220E75D0D00C6AFFA /* Supporting Files */,
-			);
-			path = TodayWidget;
-			sourceTree = "<group>";
-		};
-		D6741A8220E75D0D00C6AFFA /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D6741A8320E75E1700C6AFFA /* Assets.xcassets */,
-				D6741A7820E75BEB00C6AFFA /* Info.plist */,
-				D6741A8120E75C4200C6AFFA /* TodayWidget.entitlements */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		D6741A9120E778B200C6AFFA /* NEWidget */ = {
@@ -528,31 +465,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				D6741A7A20E75BEB00C6AFFA /* PBXTargetDependency */,
 				D6741A9720E778B200C6AFFA /* PBXTargetDependency */,
 			);
 			name = Leiter;
 			productName = Leiter;
 			productReference = D6741A5420E75B8A00C6AFFA /* Leiter.app */;
 			productType = "com.apple.product-type.application";
-		};
-		D6741A6D20E75BEB00C6AFFA /* TodayWidget */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D6741A7C20E75BEB00C6AFFA /* Build configuration list for PBXNativeTarget "TodayWidget" */;
-			buildPhases = (
-				C5354F4855D22424403D2512 /* [CP] Check Pods Manifest.lock */,
-				D6741A6A20E75BEB00C6AFFA /* Sources */,
-				D6741A6B20E75BEB00C6AFFA /* Frameworks */,
-				D6741A6C20E75BEB00C6AFFA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = TodayWidget;
-			productName = TodayWidget;
-			productReference = D6741A6E20E75BEB00C6AFFA /* TodayWidget.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 		D6741A8F20E778B200C6AFFA /* NEWidget */ = {
 			isa = PBXNativeTarget;
@@ -596,14 +514,6 @@
 							};
 						};
 					};
-					D6741A6D20E75BEB00C6AFFA = {
-						CreatedOnToolsVersion = 10.0;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-						};
-					};
 					D6741A8F20E778B200C6AFFA = {
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
@@ -635,7 +545,6 @@
 			targets = (
 				D6741A5320E75B8A00C6AFFA /* Leiter */,
 				D6741A8F20E778B200C6AFFA /* NEWidget */,
-				D6741A6D20E75BEB00C6AFFA /* TodayWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -658,21 +567,6 @@
 				D60DADFC20EBCB5B00DE39F1 /* config.template.socks5.general.yaml in Resources */,
 				D60DADFE20EBCB5B00DE39F1 /* config.template.socks5.all.yaml in Resources */,
 				D6741A5D20E75B8A00C6AFFA /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D6741A6C20E75BEB00C6AFFA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D60DAE0720EBCB5B00DE39F1 /* config.template.ss.general.yaml in Resources */,
-				D60DAE0320EBCB5B00DE39F1 /* config.template.http.general.yaml in Resources */,
-				D60DAE0120EBCB5B00DE39F1 /* config.template.ss.all.yaml in Resources */,
-				D60DADFD20EBCB5B00DE39F1 /* config.template.socks5.general.yaml in Resources */,
-				D60DAE0520EBCB5B00DE39F1 /* config.template.http.all.yaml in Resources */,
-				D60DADFF20EBCB5B00DE39F1 /* config.template.socks5.all.yaml in Resources */,
-				D6741A8420E75E1700C6AFFA /* Assets.xcassets in Resources */,
-				D6741A7720E75BEB00C6AFFA /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,24 +598,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C5354F4855D22424403D2512 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TodayWidget-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C667ED54732A5E683E45F81F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -731,7 +607,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Leiter/Pods-Leiter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Amplitude-iOS/Amplitude_iOS.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/MMWormhole/MMWormhole.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -740,14 +615,11 @@
 				"${BUILT_PRODUCTS_DIR}/VTAcknowledgementsViewController/VTAcknowledgementsViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/WCDB.swift/WCDBSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ionicons/ionicons.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftTimer/SwiftTimer.framework",
-				"${BUILT_PRODUCTS_DIR}/TrafficPolice/TrafficPolice.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Amplitude_iOS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MMWormhole.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -756,8 +628,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VTAcknowledgementsViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDBSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ionicons.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTimer.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TrafficPolice.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -864,16 +734,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D6741A6A20E75BEB00C6AFFA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D6741A8720E75F7E00C6AFFA /* TodayViewModel.swift in Sources */,
-				D6741A8920E7604E00C6AFFA /* TodayViewCell.swift in Sources */,
-				D6741A7420E75BEB00C6AFFA /* TodayViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D6741A8C20E778B200C6AFFA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -888,11 +748,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D6741A7A20E75BEB00C6AFFA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D6741A6D20E75BEB00C6AFFA /* TodayWidget */;
-			targetProxy = D6741A7920E75BEB00C6AFFA /* PBXContainerItemProxy */;
-		};
 		D6741A9720E778B200C6AFFA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D6741A8F20E778B200C6AFFA /* NEWidget */;
@@ -915,14 +770,6 @@
 				D6741A6120E75B8B00C6AFFA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		D6741A7520E75BEB00C6AFFA /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D6741A7620E75BEB00C6AFFA /* Base */,
-			);
-			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		D6CE901720E8A37B00209AF0 /* Socks5.storyboard */ = {
@@ -1080,10 +927,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Leiter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.Leiter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1105,55 +949,10 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Leiter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.Leiter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		D6741A7D20E75BEB00C6AFFA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 668652A098DA44C25D7996D5 /* Pods-TodayWidget.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = TodayWidget/TodayWidget.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4QRC4C5SWY;
-				INFOPLIST_FILE = TodayWidget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.Leiter.TodayWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		D6741A7E20E75BEB00C6AFFA /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4329204FECF3A825B54DF91D /* Pods-TodayWidget.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = TodayWidget/TodayWidget.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4QRC4C5SWY;
-				INFOPLIST_FILE = TodayWidget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.Leiter.TodayWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1170,11 +969,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = NEWidget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.Leiter.NEWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1195,11 +990,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = NEWidget/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.Leiter.NEWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1225,15 +1016,6 @@
 			buildConfigurations = (
 				D6741A6720E75B8B00C6AFFA /* Debug */,
 				D6741A6820E75B8B00C6AFFA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D6741A7C20E75BEB00C6AFFA /* Build configuration list for PBXNativeTarget "TodayWidget" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D6741A7D20E75BEB00C6AFFA /* Debug */,
-				D6741A7E20E75BEB00C6AFFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
