@@ -60,21 +60,29 @@ class HomeViewController: UIViewController {
         proxyTableView.tableFooterView = UIView(frame: .zero)
         // 接收增加 通知
         NotificationCenter.default.addObserver(forName: Notification.Name.AddProxySuccessNotification, object: nil, queue: OperationQueue.main) { [weak self] (notification) in
-            self?.handleNotification(with: notification)
+            guard let _ = notification.userInfo?["proxy"] as? Proxy else {
+                return
+            }
+            self?.proxyTableView.mj_header.beginRefreshing()
         }
         
         NotificationCenter.default.addObserver(forName: Notification.Name.CurrentProxyChangeNotification, object: nil, queue: OperationQueue.main) { [weak self] (notification) in
             guard let `self` = self, let userInfo = notification.userInfo as? [String: Any] else {
                 return
             }
-            if let oldValue = userInfo[kProxyOldValueKey] as? Proxy,
-                let index = self.viewModel.dataSources.index(where: { $0.rid == oldValue.rid }),
+            let oldValue = userInfo[kProxyOldValueKey] as? Proxy
+            let newValue = userInfo[kProxyNewValueKey] as? Proxy
+            if oldValue?.rid == newValue?.rid {
+                self.updateConnectingVPN()
+                return
+            }
+            // 切换才需要更新
+            if let index = self.viewModel.dataSources.index(where: { $0.rid == oldValue?.rid }),
                 let cell = self.proxyTableView.cellForRow(at: IndexPath(item: index, section: 0)),
                 self.proxyTableView.visibleCells.contains(cell) {
                 cell.isSelected = false
             }
-            if let newValue = userInfo[kProxyNewValueKey] as? Proxy,
-                let index = self.viewModel.dataSources.index(where: { $0.rid == newValue.rid }),
+            if let index = self.viewModel.dataSources.index(where: { $0.rid == newValue?.rid }),
                 let cell = self.proxyTableView.cellForRow(at: IndexPath(item: index, section: 0)),
                 self.proxyTableView.visibleCells.contains(cell) {
                 cell.isSelected = true
@@ -108,13 +116,9 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Private
-    private func handleNotification(with notification: Notification) {
-        guard let newProxy = notification.userInfo?["proxy"] as? Proxy else {
-            return
-        }
-        self.proxyTableView.mj_header.beginRefreshing()
+    private func updateConnectingVPN() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
-            if ProxyManager.shared.currentProxy?.rid == newProxy.rid, VPNManager.shared.status == .on || VPNManager.shared.status == .connecting {
+            if VPNManager.shared.status == .on || VPNManager.shared.status == .connecting {
                 let alertVC = UIAlertController(title: "连接中的配置已更新", message: "是否需要重新连接", preferredStyle: UIAlertControllerStyle.alert)
                 alertVC.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
                 alertVC.addAction(UIAlertAction(title: "确认", style: .default, handler: { [weak self] _ in

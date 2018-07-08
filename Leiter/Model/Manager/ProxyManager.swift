@@ -60,15 +60,19 @@ class ProxyManager {
     func save(proxy: Proxy) -> Bool {
         do {
             try DatabaseManager.shared.database?.insertOrReplace(objects: proxy, intoTable: Proxy.tableName)
+            NotificationCenter.default.post(name: Notification.Name.AddProxySuccessNotification, object: nil, userInfo: ["proxy": proxy])
+            if currentProxy?.rid == proxy.rid {
+                currentProxy = proxy
+            }
             // 默认选择一个
             setupCurrentProxy()
-            NotificationCenter.default.post(name: Notification.Name.AddProxySuccessNotification, object: nil, userInfo: ["proxy": proxy])
             return true
         } catch {
             DDLogError("Proxy[\(proxy.server):\(proxy.port)]: insert Error: \(error.localizedDescription)")
             return false
         }
     }
+    
     // MARK: - Private
     private func setupCurrentProxy() {
         if currentProxy == nil {
