@@ -88,7 +88,7 @@ class HomeViewController: UIViewController {
                 cell.isSelected = true
             }
         }
-        
+        updateConnectStatus()
         NotificationCenter.default.addObserver(forName: NSNotification.Name.ProxyServiceStatusNotification, object: nil, queue: OperationQueue.main) { [weak self] (_) in
             self?.updateConnectStatus()
         }

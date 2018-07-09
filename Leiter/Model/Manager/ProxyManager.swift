@@ -61,7 +61,7 @@ class ProxyManager {
         do {
             try DatabaseManager.shared.database?.insertOrReplace(objects: proxy, intoTable: Proxy.tableName)
             NotificationCenter.default.post(name: Notification.Name.AddProxySuccessNotification, object: nil, userInfo: ["proxy": proxy])
-            if currentProxy?.rid == proxy.rid {
+            if let current = currentProxy, current.rid == proxy.rid {
                 currentProxy = proxy
             }
             // 默认选择一个
