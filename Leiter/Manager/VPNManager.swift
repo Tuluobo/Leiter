@@ -43,6 +43,9 @@ class VPNManager {
 
     // MARK: - Actions
     func connect() {
+        guard let _ = ProxyManager.shared.currentProxy else {
+            return
+        }
         loadAndCreatePrividerManager { (manager) in
             guard let manager = manager else{return}
             do{

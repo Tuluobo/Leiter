@@ -108,6 +108,13 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func clickedStartbtn(btn: UIButton) {
+        guard let _ =  ProxyManager.shared.currentProxy else {
+            SVProgressHUD.showInfo(withStatus: "请先添加一个线路 ... ")
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) { [weak self] in
+                self?.openSelectTypeViewController()
+            }
+            return
+        }
         if !btn.isSelected {
             VPNManager.shared.connect()
         } else {
