@@ -16,6 +16,7 @@ class AboutViewController: UITableViewController {
     
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var reviewCell: UITableViewCell!
+    @IBOutlet weak var telegramCell: UITableViewCell!
     @IBOutlet weak var acknowledgeCell: UITableViewCell!
     @IBOutlet weak var feedbackCell: UITableViewCell!
     
@@ -62,7 +63,7 @@ extension AboutViewController {
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if section == 0 {
-            return "@Copyright 2018"
+            return "©2018 Letstest.app"
         }
         return nil
     }
@@ -73,6 +74,8 @@ extension AboutViewController {
         }
         cell.isSelected = false
         switch cell {
+        case telegramCell:
+            openTelegram()
         case reviewCell:
             review()
         case acknowledgeCell:
@@ -86,6 +89,13 @@ extension AboutViewController {
     
     // MARK: - Private
     
+    private func openTelegram() {
+        let urlStr = "https://t.me/LeiterApp"
+        if let url = URL(string: urlStr), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    
     private func review() {
         if #available(iOS 10.3, *) {
             SKStoreReviewController.requestReview()
@@ -98,24 +108,28 @@ extension AboutViewController {
     }
     
     private func makeFeedback() {
-        if MFMailComposeViewController.canSendMail() {
-            let picker = MFMailComposeViewController()
-            picker.navigationBar.tintColor = UIColor.white
-            picker.mailComposeDelegate = self
-            // 添加主题
-            picker.setSubject("Leiter FeedBack")
-            // 添加收件人
-            let toRecipients = ["admin@tuluobo.com"]
-            picker.setToRecipients(toRecipients)
-            // 直接在HTML代码中写入图片的地址
-            let modelName = UIDevice.current.modelName
-            let osVersion = UIDevice.current.systemVersion
-            let emailBody = "请在下面输入你的反馈和意见：\n\n\n\n 设备和软件信息：\n\(modelName) iOS:\(osVersion) Leiter-\(Opt.mainVersion) Build(\(Opt.buildVersion))"
-            picker.setMessageBody(emailBody, isHTML: false)
-            
-            self.present(picker, animated: true, completion: nil)
+        guard let emailScheme = URL(string: "mailto://") else {
+            return
         }
+        guard MFMailComposeViewController.canSendMail() else {
+            UIApplication.shared.openURL(emailScheme)
+            return
+        }
+        let picker = MFMailComposeViewController()
+        picker.navigationBar.tintColor = UIColor.white
+        picker.mailComposeDelegate = self
+        // 添加主题
+        picker.setSubject("Leiter FeedBack")
+        // 添加收件人
+        let toRecipients = ["admin@tuluobo.com"]
+        picker.setToRecipients(toRecipients)
+        // 直接在HTML代码中写入图片的地址
+        let modelName = UIDevice.current.modelName
+        let osVersion = UIDevice.current.systemVersion
+        let emailBody = "请在下面输入你的反馈和意见：\n\n\n\n 设备和软件信息：\n\(modelName) iOS:\(osVersion) Leiter-\(Opt.mainVersion) Build(\(Opt.buildVersion))"
+        picker.setMessageBody(emailBody, isHTML: false)
         
+        self.present(picker, animated: true, completion: nil)
     }
 }
 

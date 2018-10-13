@@ -14,6 +14,7 @@ target 'Leiter' do
     pod 'ReactiveSwift', '~> 3.1.0'
     pod 'ReactiveCocoa', '~> 7.2.0'
     pod 'SVProgressHUD', '~> 2.2.5'
+    pod 'SGQRCode', '~> 2.5.4'
 end
 
 target 'NEWidget' do

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vz9-lY-jHw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vz9-lY-jHw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -272,48 +270,20 @@
                     <view key="view" contentMode="scaleToFill" id="lfg-ko-ZUN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKm-gY-ex9">
-                                <rect key="frame" x="67.5" y="193.5" width="240" height="240"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ar-scan-corners" translatesAutoresizingMaskIntoConstraints="NO" id="y1V-jX-sCZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scan_net" translatesAutoresizingMaskIntoConstraints="NO" id="UiI-0o-hWQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="6dt-kz-BEy"/>
-                                    <constraint firstItem="UiI-0o-hWQ" firstAttribute="top" secondItem="aKm-gY-ex9" secondAttribute="top" id="Aqg-dr-eL8"/>
-                                    <constraint firstAttribute="bottom" secondItem="y1V-jX-sCZ" secondAttribute="bottom" id="WaJ-0m-qah"/>
-                                    <constraint firstAttribute="trailing" secondItem="y1V-jX-sCZ" secondAttribute="trailing" id="bYy-3G-UVY"/>
-                                    <constraint firstAttribute="trailing" secondItem="UiI-0o-hWQ" secondAttribute="trailing" id="lLn-2d-ywM"/>
-                                    <constraint firstItem="y1V-jX-sCZ" firstAttribute="leading" secondItem="aKm-gY-ex9" secondAttribute="leading" id="oiq-CG-Oab"/>
-                                    <constraint firstItem="y1V-jX-sCZ" firstAttribute="top" secondItem="aKm-gY-ex9" secondAttribute="top" id="pXV-5p-dGk"/>
-                                    <constraint firstAttribute="width" constant="240" id="w81-E0-K91"/>
-                                    <constraint firstItem="UiI-0o-hWQ" firstAttribute="height" secondItem="aKm-gY-ex9" secondAttribute="height" id="y1B-tW-pPW"/>
-                                    <constraint firstItem="UiI-0o-hWQ" firstAttribute="leading" secondItem="aKm-gY-ex9" secondAttribute="leading" id="yl1-NN-Abb"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="aKm-gY-ex9" firstAttribute="centerX" secondItem="lfg-ko-ZUN" secondAttribute="centerX" id="7Zr-Vh-fjb"/>
-                            <constraint firstItem="aKm-gY-ex9" firstAttribute="centerY" secondItem="lfg-ko-ZUN" secondAttribute="centerY" constant="-20" id="JRE-Wi-coN"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Vq-3e-BF0"/>
                     </view>
-                    <connections>
-                        <outlet property="scanLineHeightCons" destination="6dt-kz-BEy" id="hvd-gT-c48"/>
-                        <outlet property="scanLineImageView" destination="UiI-0o-hWQ" id="Lr4-eC-H9w"/>
-                        <outlet property="scanLineTopCons" destination="Aqg-dr-eL8" id="gqW-ZT-Dag"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="Rcy-8Z-I5x">
+                        <barButtonItem key="rightBarButtonItem" title="相册" id="A6a-fY-UTV">
+                            <connections>
+                                <action selector="rightBarButtonItenActionWithButton:" destination="p73-c3-6Uk" id="e5l-RH-pCX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ey7-fP-xy0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2804" y="-564"/>
+            <point key="canvasLocation" x="2814" y="-564"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="Uwy-oL-fvq">
@@ -367,8 +337,25 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="DVU-hU-CGO" style="IBUITableViewCellStyleDefault" id="fax-oZ-hOc">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="yzP-QD-MPa" style="IBUITableViewCellStyleDefault" id="8vu-sT-oKA">
                                         <rect key="frame" x="0.0" y="123" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8vu-sT-oKA" id="Jok-be-eO5">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Telegram" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yzP-QD-MPa">
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="DVU-hU-CGO" style="IBUITableViewCellStyleDefault" id="fax-oZ-hOc">
+                                        <rect key="frame" x="0.0" y="167" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fax-oZ-hOc" id="80h-iG-aRg">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -385,7 +372,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="MQx-le-goQ" style="IBUITableViewCellStyleDefault" id="4K0-XV-WSX">
-                                        <rect key="frame" x="0.0" y="167" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="211" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4K0-XV-WSX" id="AIc-IQ-EGB">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -413,6 +400,7 @@
                         <outlet property="acknowledgeCell" destination="4K0-XV-WSX" id="3bN-5F-XGo"/>
                         <outlet property="feedbackCell" destination="fax-oZ-hOc" id="iaM-2E-xJa"/>
                         <outlet property="reviewCell" destination="Mro-QR-Z0P" id="cpj-y6-e39"/>
+                        <outlet property="telegramCell" destination="8vu-sT-oKA" id="pUF-NM-N6F"/>
                         <outlet property="versionLabel" destination="hrm-Ux-XPM" id="Lj2-4F-B9s"/>
                     </connections>
                 </tableViewController>
@@ -440,8 +428,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ar-scan-corners" width="44" height="45"/>
         <image name="ic_about" width="24" height="14"/>
-        <image name="scan_net" width="241" height="241"/>
     </resources>
 </document>

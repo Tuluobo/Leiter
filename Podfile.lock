@@ -10,6 +10,7 @@ PODS:
   - ReactiveSwift (3.1.0):
     - Result (~> 3.2)
   - Result (3.2.4)
+  - SGQRCode (2.5.4)
   - SnapKit (4.0.0)
   - SPBaseKit (0.0.3):
     - SPBaseKit/Core (= 0.0.3)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - MJRefresh (~> 3.1.15)
   - ReactiveCocoa (~> 7.2.0)
   - ReactiveSwift (~> 3.1.0)
+  - SGQRCode
   - SnapKit (~> 4.0.0)
   - SPBaseKit (~> 0.0.3)
   - SPBaseKit/Vender (~> 0.0.3)
@@ -46,6 +48,7 @@ SPEC REPOS:
     - ReactiveCocoa
     - ReactiveSwift
     - Result
+    - SGQRCode
     - SnapKit
     - SPBaseKit
     - SVProgressHUD
@@ -61,12 +64,13 @@ SPEC CHECKSUMS:
   ReactiveCocoa: 476dae7ca790f40d30d186a1bd7ebae4290395d5
   ReactiveSwift: 5b26d2e988fe0eed2daf48c4054d1de74db50184
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  SGQRCode: 7195cef538aae5d33b6721407b58011a5fef6487
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SPBaseKit: 10d94158525418d9cf1bd88ca35071d5fea4b157
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   VTAcknowledgementsViewController: 9a7d0f040f17dfa6d02fc731bec8b188e4b4ee59
   WCDB.swift: 4f0f3e19085546ef85a69b5087ec5e1dec0f88b1
 
-PODFILE CHECKSUM: ae88c8e3be7e7f63c0f9fd224d20d4069b73963a
+PODFILE CHECKSUM: cb1bf01010fc4bae621bf8e8828f10b7a637a5db
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0.beta.1

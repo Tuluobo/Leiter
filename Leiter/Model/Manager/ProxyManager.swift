@@ -97,19 +97,28 @@ class ProxyManager {
     func decodeQRCode(with qrString: String?) -> Proxy? {
         guard let qr = qrString, let url = URL(string: qr) else { return nil }
         guard let scheme = url.scheme, let base64Str = url.host else { return nil }
-        // 修正 BASE64 编码串
-        var fixBase64Str = base64Str
-        let dotCount = fixBase64Str.count % 4
-        if dotCount != 0 {
-            fixBase64Str = (0..<(4-dotCount)).reduce(fixBase64Str, { (str, _) -> String in
-                return str + "="
-            })
+        if let user = url.user {
+            guard let data = Data(base64Encoded: user), let userStr = String(data: data, encoding: String.Encoding.utf8), let last = qr.substring(from: "@") else { return nil }
+            return convertedProxyWith(url: "\(scheme)://\(userStr)@\(last)")
+        } else {
+            // 修正 BASE64 编码串
+            var fixBase64Str = base64Str
+            let dotCount = fixBase64Str.count % 4
+            if dotCount != 0 {
+                fixBase64Str = (0..<(4-dotCount)).reduce(fixBase64Str, { (str, _) -> String in
+                    return str + "="
+                })
+            }
+            // Data
+            guard let data = Data(base64Encoded: fixBase64Str), let dataStr = String(data: data, encoding: String.Encoding.utf8) else { return nil }
+            return convertedProxyWith(url: "\(scheme)://\(dataStr)")
         }
-        // Data
-        guard let data = Data(base64Encoded: fixBase64Str),
-            let dataStr = String(data: data, encoding: String.Encoding.utf8),
-            let encodeUrl = URL(string: scheme + "://" + dataStr),
-            let host = encodeUrl.host, let port = encodeUrl.port, let type = ProxyType(with: scheme) else {
+    }
+    
+    // 解码后的 URL 转换成 Proxy
+    func convertedProxyWith(url: String) -> Proxy? {
+        guard let encodeUrl = URL(string: url),
+            let scheme = encodeUrl.scheme, let host = encodeUrl.host, let port = encodeUrl.port, let type = ProxyType(with: scheme) else {
             return nil
         }
         

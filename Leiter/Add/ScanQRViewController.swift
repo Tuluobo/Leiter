@@ -10,81 +10,43 @@ import UIKit
 import AVKit
 import ionicons
 import SVProgressHUD
+import SGQRCode
 
 class ScanQRViewController: UIViewController {
     
-    private var height: CGFloat!
+    deinit {
+        removeScanningView()
+    }
     
-    @IBOutlet weak var scanLineImageView: UIImageView!
-    @IBOutlet weak var scanLineTopCons: NSLayoutConstraint!
-    @IBOutlet weak var scanLineHeightCons: NSLayoutConstraint!
-    
-    // MARK: - 懒加载
-    
-    private lazy var input: AVCaptureDeviceInput? = {
-        guard let capture = AVCaptureDevice.default(for: .video) else { return nil }
-        return try? AVCaptureDeviceInput(device: capture)
+    private lazy var scanView: SGQRCodeScanView = {
+        return SGQRCodeScanView(frame: self.view.bounds)
     }()
-    private lazy var session: AVCaptureSession = AVCaptureSession()
-    private lazy var output: AVCaptureMetadataOutput =  {
-        let op = AVCaptureMetadataOutput()
-        let viewFrame = self.view.frame
-        let y = ((viewFrame.width - self.height)/2) / viewFrame.width
-        let x = ((viewFrame.height - self.height)/2 - 20) / viewFrame.height
-        let width = self.height / viewFrame.size.height
-        let height = self.height / viewFrame.size.width
-
-        op.rectOfInterest = CGRect(x: x, y: y, width: width, height: height)
-        return op
-    }()
-    private lazy var previewLayer: AVCaptureVideoPreviewLayer = {
-        AVCaptureVideoPreviewLayer(session: self.session)
+    private lazy var obtain: SGQRCodeObtain = {
+        let ob = SGQRCodeObtain()
+        return ob
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        TrackerManager.shared.trace(event: "scan_enter")
-        
-        height = scanLineHeightCons.constant
-        let image = IonIcons.image(withIcon: ion_images, size: 32, color: UIColor.white)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(openGallery))
-        scanQRCode()
+        view.backgroundColor = .black
+        setupQRCodeScan()
+        view.addSubview(scanView)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        obtain.startRunningWith(before: nil, completion: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        scanLineTopCons.constant = 0 - scanLineHeightCons.constant
-        view.layoutIfNeeded()
-        
-        UIView.animate(withDuration: 3.0) {
-            UIView.setAnimationRepeatCount(MAXFLOAT)
-            self.scanLineTopCons.constant = self.scanLineHeightCons.constant
-            self.view.layoutIfNeeded()
-        }
+        self.scanView.addTimer()
     }
     
-    private func scanQRCode() {
-        guard let input = input else { return }
-        
-        if !session.canAddInput(input), !session.canAddOutput(output) { return }
-        session.addInput(input)
-        session.addOutput(output)
-        
-        output.metadataObjectTypes = output.availableMetadataObjectTypes
-        output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-        previewLayer.frame = view.bounds
-        view.layer.insertSublayer(previewLayer, at: 0)
-        // start
-        session.startRunning()
-    }
-    
-    @objc func openGallery() {
-        if !UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            return
-        }
-        let imagePickerVC = UIImagePickerController()
-        imagePickerVC.delegate = self
-        present(imagePickerVC, animated: true, completion: nil)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.scanView.removeTimer()
+        obtain.stopRunning()
     }
     
     fileprivate func handleQRData(string: String?) {
@@ -92,38 +54,50 @@ class ScanQRViewController: UIViewController {
             SVProgressHUD.showError(withStatus: "没有识别到相关配置信息，请重新扫描...")
             return
         }
-        session.stopRunning()
         NotificationCenter.default.post(name: Notification.Name.AddProxySuccessNotification, object: nil)
         SVProgressHUD.showSuccess(withStatus: "添加成功")
-        self.navigationController?.popToRootViewController(animated: true)
     }
 }
 
-// MARK: - UIImagePickerControllerDelegate
-extension ScanQRViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension ScanQRViewController {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else { return }
-        picker.dismiss(animated: true, completion: nil)
-        
-        let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
-        let features = detector!.features(in: CIImage(image: image)!)
-        handleQRData(string: (features.last as? CIQRCodeFeature)?.messageString)
-    }
-}
-
-// MARK: - AVCaptureMetadataOutputObjectsDelegate
-extension ScanQRViewController: AVCaptureMetadataOutputObjectsDelegate {
-    
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        for object in metadataObjects {
-            guard let dataObject = previewLayer.transformedMetadataObject(for: object) as? AVMetadataMachineReadableCodeObject else { return }
-            switch dataObject.type {
-            case .qr:
-                handleQRData(string: dataObject.stringValue)
-            default: break
-            }
+    private func setupQRCodeScan() {
+        let configure = SGQRCodeObtainConfigure()
+        obtain.establishQRCodeObtainScan(with: self, configure: configure)
+        obtain.setBlockWithQRCodeObtainScanResult { [weak self] (obtain, result) in
+            guard let `self` = self else { return }
+            obtain?.stopRunning()
+            obtain?.playSoundName("SGQRCode.bundle/sound.caf")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                self.handleQRData(string: result)
+                self.navigationController?.popViewController(animated: true)
+            })
         }
     }
     
+    private func removeScanningView() {
+        self.scanView.removeTimer()
+        self.scanView.removeFromSuperview()
+    }
+    
+}
+
+extension ScanQRViewController {
+    
+    @IBAction func rightBarButtonItenAction(button: UIBarButtonItem) {
+        obtain.establishAuthorizationQRCodeObtainAlbum(with: nil)
+        if obtain.isPHAuthorization {
+            scanView.removeTimer()
+        }
+        obtain.setBlockWithQRCodeObtainAlbumDidCancelImagePickerController { [weak self] (_) in
+            guard let `self` = self else { return }
+            self.view.addSubview(self.scanView)
+        }
+        obtain.setBlockWithQRCodeObtainAlbumResult { (obtain, result) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                self.handleQRData(string: result)
+                self.navigationController?.popViewController(animated: true)
+            })
+        }
+    }
 }
