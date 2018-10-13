@@ -2,21 +2,27 @@
 platform :ios, '9.0'
 use_frameworks!
 
-target 'Leiter' do
-    pod 'SPBaseKit', '~> 0.0.3'
-    pod 'SPBaseKit/Vender', '~> 0.0.3'
+def analytics_and_reporting_pods
+    pod 'Amplitude-iOS', '~> 4.3'
+    pod 'Fabric', '~> 1.7'
+    pod 'Crashlytics', '~> 3.10'
+end
 
-    pod 'SnapKit', '~> 4.0.0'
+target 'Leiter' do
+    pod 'SPBaseKit', :git => 'https://github.com/Tuluobo/SPBaseKit.git', :commit => 'be5c72d'
+    pod 'SnapKit', '~> 4.0.1'
     pod 'ionicons', '~> 2.1.1'
     pod 'MJRefresh', '~> 3.1.15'
     pod 'VTAcknowledgementsViewController', '~> 1.4.1'
-    pod 'WCDB.swift', '~> 1.0.6'
-    pod 'ReactiveSwift', '~> 3.1.0'
-    pod 'ReactiveCocoa', '~> 7.2.0'
+    pod 'WCDB.swift', '~> 1.0.7'
+    pod 'ReactiveSwift', '~> 4.0'
+    pod 'ReactiveCocoa', '~> 8.0'
     pod 'SVProgressHUD', '~> 2.2.5'
     pod 'SGQRCode', '~> 2.5.4'
+    
+    analytics_and_reporting_pods
 end
 
 target 'NEWidget' do
-    pod 'SPBaseKit', '~> 0.0.3'
+    pod 'SPBaseKit', :git => 'https://github.com/Tuluobo/SPBaseKit.git', :commit => 'be5c72d'
 end

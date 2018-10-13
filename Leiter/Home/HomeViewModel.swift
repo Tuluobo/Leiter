@@ -41,7 +41,7 @@ extension HomeViewModel: UITableViewDataSource {
         return dataSources[indexPath.item].rid != ProxyManager.shared.currentProxy?.rid
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
             let proxy = dataSources[indexPath.item]

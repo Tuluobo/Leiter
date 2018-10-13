@@ -126,7 +126,7 @@ class HomeViewController: UIViewController {
     private func updateConnectingVPN() {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
             if VPNManager.shared.status == .on || VPNManager.shared.status == .connecting {
-                let alertVC = UIAlertController(title: "连接中的配置已更新", message: "是否需要重新连接", preferredStyle: UIAlertControllerStyle.alert)
+                let alertVC = UIAlertController(title: "连接中的配置已更新", message: "是否需要重新连接", preferredStyle: UIAlertController.Style.alert)
                 alertVC.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
                 alertVC.addAction(UIAlertAction(title: "确认", style: .default, handler: { [weak self] _ in
                     self?.reconnect()
