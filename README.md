@@ -5,10 +5,11 @@
 ## Usage
 
 执行：
-`carthage update --no-use-binaries --platform ios
-pod install --repo-update
-open Leiter.xcworkspace
-`
+```
+> carthage update --no-use-binaries --platform ios
+> pod install --repo-update
+> open Leiter.xcworkspace
+```
 
 ***此项目如果要在App上使用，需要99美元的开发者账号***
 
