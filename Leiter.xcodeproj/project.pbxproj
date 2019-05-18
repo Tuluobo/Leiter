@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -72,6 +72,7 @@
 		D6D79C6620F234A1002B06AE /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D79C6520F234A1002B06AE /* SwitchCell.swift */; };
 		D6D79C6820F23608002B06AE /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D79C6720F23608002B06AE /* UIFontExtension.swift */; };
 		D6D79C6B20F2446B002B06AE /* Http.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D79C6920F2446A002B06AE /* Http.storyboard */; };
+		D6DFB3DA228FBED900896BD7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D6DFB3D9228FBED900896BD7 /* README.md */; };
 		DCFA865615B527014DE39EF8 /* Pods_Leiter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88CF410450E8D58D1B7D86D /* Pods_Leiter.framework */; };
 /* End PBXBuildFile section */
 
@@ -164,6 +165,7 @@
 		D6D79C6520F234A1002B06AE /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		D6D79C6720F23608002B06AE /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		D6D79C6A20F2446A002B06AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Http.storyboard; sourceTree = "<group>"; };
+		D6DFB3D9228FBED900896BD7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D843F3F0D662940EAA5827B6 /* Pods-Leiter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Leiter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Leiter/Pods-Leiter.debug.xcconfig"; sourceTree = "<group>"; };
 		E4DCA76CEDF8233A0080FCB4 /* Pods_NEWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NEWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E72CCAC99F60C885EF347891 /* Pods-Leiter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Leiter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Leiter/Pods-Leiter.release.xcconfig"; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 		D6741A4B20E75B8A00C6AFFA = {
 			isa = PBXGroup;
 			children = (
+				D6DFB3D9228FBED900896BD7 /* README.md */,
 				D6741A5620E75B8A00C6AFFA /* Leiter */,
 				D6741A9120E778B200C6AFFA /* NEWidget */,
 				D6741A6F20E75BEB00C6AFFA /* Frameworks */,
@@ -566,6 +569,7 @@
 				D6CE901D20E8A37B00209AF0 /* Shadowsocks.storyboard in Resources */,
 				D60DAE0420EBCB5B00DE39F1 /* config.template.http.all.yaml in Resources */,
 				D60DAE0220EBCB5B00DE39F1 /* config.template.http.general.yaml in Resources */,
+				D6DFB3DA228FBED900896BD7 /* README.md in Resources */,
 				D60DADFC20EBCB5B00DE39F1 /* config.template.socks5.general.yaml in Resources */,
 				D60DADFE20EBCB5B00DE39F1 /* config.template.socks5.all.yaml in Resources */,
 				D6741A5D20E75B8A00C6AFFA /* Main.storyboard in Resources */,
@@ -623,39 +627,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Leiter/Pods-Leiter-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Amplitude-iOS/Amplitude_iOS.framework",
-				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/SGQRCode/SGQRCode.framework",
-				"${BUILT_PRODUCTS_DIR}/SPBaseKit/SPBaseKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SQLiteRepairKit/sqliterk.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/VTAcknowledgementsViewController/VTAcknowledgementsViewController.framework",
-				"${BUILT_PRODUCTS_DIR}/WCDB.swift/WCDBSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework",
-				"${BUILT_PRODUCTS_DIR}/ionicons/ionicons.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Leiter/Pods-Leiter-frameworks.sh.input.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Amplitude_iOS.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SGQRCode.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPBaseKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqliterk.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VTAcknowledgementsViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WCDBSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqlcipher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ionicons.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Leiter/Pods-Leiter-frameworks.sh.output.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -943,7 +920,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.Leiter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -968,7 +945,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.Leiter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -993,7 +970,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.Leiter.NEWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1018,7 +995,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tuluobo.Leiter.NEWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

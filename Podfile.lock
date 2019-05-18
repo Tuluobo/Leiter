@@ -1,23 +1,21 @@
 PODS:
-  - Amplitude-iOS (4.3.1)
-  - Crashlytics (3.10.9):
-    - Fabric (~> 1.7.13)
-  - Fabric (1.7.13)
+  - Amplitude-iOS (4.6.0)
+  - Crashlytics (3.13.1):
+    - Fabric (~> 1.10.1)
+  - Fabric (1.10.1)
   - ionicons (2.1.1)
-  - MJRefresh (3.1.15.3)
-  - ReactiveCocoa (8.0.1):
-    - ReactiveSwift (~> 4.0)
-  - ReactiveSwift (4.0.0):
-    - Result (~> 4.0)
-  - Result (4.0.0)
+  - MJRefresh (3.1.17)
+  - ReactiveCocoa (10.0.0):
+    - ReactiveSwift (~> 6.0)
+  - ReactiveSwift (6.0.0)
   - SGQRCode (2.5.4)
-  - SnapKit (4.0.1)
+  - SnapKit (4.2.0)
   - SPBaseKit (0.0.4)
-  - SQLiteRepairKit (1.2.1):
+  - SQLiteRepairKit (1.2.2):
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - SVProgressHUD (2.2.5)
   - VTAcknowledgementsViewController (1.4.1)
-  - WCDB.swift (1.0.7.5):
+  - WCDB.swift (1.0.8.2):
     - SQLiteRepairKit (~> 1.2.0)
     - WCDBOptimizedSQLCipher (~> 1.2.0)
   - WCDBOptimizedSQLCipher (1.2.1)
@@ -28,10 +26,10 @@ DEPENDENCIES:
   - Fabric (~> 1.7)
   - ionicons (~> 2.1.1)
   - MJRefresh (~> 3.1.15)
-  - ReactiveCocoa (~> 8.0)
-  - ReactiveSwift (~> 4.0)
+  - ReactiveCocoa
+  - ReactiveSwift
   - SGQRCode (~> 2.5.4)
-  - SnapKit (~> 4.0.1)
+  - SnapKit
   - SPBaseKit (from `https://github.com/Tuluobo/SPBaseKit.git`, commit `be5c72d`)
   - SVProgressHUD (~> 2.2.5)
   - VTAcknowledgementsViewController (~> 1.4.1)
@@ -46,7 +44,6 @@ SPEC REPOS:
     - MJRefresh
     - ReactiveCocoa
     - ReactiveSwift
-    - Result
     - SGQRCode
     - SnapKit
     - SQLiteRepairKit
@@ -66,23 +63,22 @@ CHECKOUT OPTIONS:
     :git: https://github.com/Tuluobo/SPBaseKit.git
 
 SPEC CHECKSUMS:
-  Amplitude-iOS: df355e2be58972041acde9576a2ae97c217bf941
-  Crashlytics: 55e24fc23989680285a21cb1146578d9d18e432c
-  Fabric: 25d0963b691fc97be566392243ff0ecef5a68338
+  Amplitude-iOS: ac1715ae68104b7a51723209ad574f60ab22ae5f
+  Crashlytics: 5aa8e90dcbf2f34898b4f5a0037787531246cca0
+  Fabric: f6f21452846788bb44595d73e9909d79d328e617
   ionicons: 630bcd2c2970741c3359e3a35ad544e71d3c086b
-  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
-  ReactiveCocoa: ed7cbc50f86d4aa8660df5f76b46ae2a82560413
-  ReactiveSwift: a2bb9ace428a109e9c0209615645d9d286c8c433
-  Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
+  MJRefresh: ee5b68f639775462faba4db0fd243baf4d42c2cf
+  ReactiveCocoa: 6d4c37ba236f5d9a7a55b2172cd09f19ba85f574
+  ReactiveSwift: 24b7ed245617bbfd30ee0c87779b6c64ac1b4518
   SGQRCode: 7195cef538aae5d33b6721407b58011a5fef6487
-  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SPBaseKit: 2bc4eec3e7ca88c87d459c548b532ec36e729f1d
-  SQLiteRepairKit: 4d21bab9eff6a273f63da6815a0d1659e53f5bde
+  SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   VTAcknowledgementsViewController: 9a7d0f040f17dfa6d02fc731bec8b188e4b4ee59
-  WCDB.swift: 87aee41f5ca3aded9c6f9b68b0ef3e88918a5ee2
+  WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 65a930f9589318fc88bd85e065fe55fe669ac4e7
+PODFILE CHECKSUM: 987d77a9d200702febd4f26045dc1fb8f91f3ab4
 
-COCOAPODS: 1.6.0.beta.1
+COCOAPODS: 1.5.3

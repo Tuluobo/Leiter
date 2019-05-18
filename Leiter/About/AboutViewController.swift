@@ -146,6 +146,8 @@ extension AboutViewController: MFMailComposeViewControllerDelegate {
             msg = "已取消发送"
         case .saved:
             msg = "已保存到草稿箱"
+        @unknown default:
+            fatalError()
         }
         let alertVC = UIAlertController(title: "Feedback Message", message: msg, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))

@@ -77,12 +77,12 @@ class HomeViewController: UIViewController {
                 return
             }
             // 切换才需要更新
-            if let index = self.viewModel.dataSources.index(where: { $0.rid == oldValue?.rid }),
+            if let index = self.viewModel.dataSources.firstIndex(where: { $0.rid == oldValue?.rid }),
                 let cell = self.proxyTableView.cellForRow(at: IndexPath(item: index, section: 0)),
                 self.proxyTableView.visibleCells.contains(cell) {
                 cell.isSelected = false
             }
-            if let index = self.viewModel.dataSources.index(where: { $0.rid == newValue?.rid }),
+            if let index = self.viewModel.dataSources.firstIndex(where: { $0.rid == newValue?.rid }),
                 let cell = self.proxyTableView.cellForRow(at: IndexPath(item: index, section: 0)),
                 self.proxyTableView.visibleCells.contains(cell) {
                 cell.isSelected = true

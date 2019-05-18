@@ -10,13 +10,13 @@ end
 
 target 'Leiter' do
     pod 'SPBaseKit', :git => 'https://github.com/Tuluobo/SPBaseKit.git', :commit => 'be5c72d'
-    pod 'SnapKit', '~> 4.0.1'
+    pod 'SnapKit', '~> 4.2.0'
     pod 'ionicons', '~> 2.1.1'
     pod 'MJRefresh', '~> 3.1.15'
     pod 'VTAcknowledgementsViewController', '~> 1.4.1'
     pod 'WCDB.swift', '~> 1.0.7'
-    pod 'ReactiveSwift', '~> 4.0'
-    pod 'ReactiveCocoa', '~> 8.0'
+    pod 'ReactiveSwift', '~> 6.0'
+    pod 'ReactiveCocoa', '~> 10.0'
     pod 'SVProgressHUD', '~> 2.2.5'
     pod 'SGQRCode', '~> 2.5.4'
     

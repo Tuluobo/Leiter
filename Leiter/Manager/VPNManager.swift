@@ -207,6 +207,8 @@ extension VPNManager {
             self.status = .disconnecting
         case .disconnected, .invalid:
             self.status = .off
+        @unknown default:
+            fatalError()
         }
         DDLogInfo("updateVPNStatus: \(self.status)")
     }
