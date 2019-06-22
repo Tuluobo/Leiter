@@ -628,11 +628,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Leiter/Pods-Leiter-frameworks.sh.input.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Leiter/Pods-Leiter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Leiter/Pods-Leiter-frameworks.sh.output.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Leiter/Pods-Leiter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

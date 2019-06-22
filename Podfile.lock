@@ -26,10 +26,10 @@ DEPENDENCIES:
   - Fabric (~> 1.7)
   - ionicons (~> 2.1.1)
   - MJRefresh (~> 3.1.15)
-  - ReactiveCocoa
-  - ReactiveSwift
+  - ReactiveCocoa (~> 10.0)
+  - ReactiveSwift (~> 6.0)
   - SGQRCode (~> 2.5.4)
-  - SnapKit
+  - SnapKit (~> 4.2.0)
   - SPBaseKit (from `https://github.com/Tuluobo/SPBaseKit.git`, commit `be5c72d`)
   - SVProgressHUD (~> 2.2.5)
   - VTAcknowledgementsViewController (~> 1.4.1)
@@ -79,6 +79,4 @@ SPEC CHECKSUMS:
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 987d77a9d200702febd4f26045dc1fb8f91f3ab4
-
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.1

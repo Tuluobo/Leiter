@@ -23,4 +23,4 @@ open Leiter.xcworkspace
 
 ## License
 
-The Project is under the [MIT license](https://github.com/mas-cli/mas/blob/master/LICENSE).
+The Project is under the [MIT license](https://github.com/Tuluobo/Leiter/blob/feature/tg/LICENSE).
