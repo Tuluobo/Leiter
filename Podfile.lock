@@ -36,7 +36,7 @@ DEPENDENCIES:
   - WCDB.swift (~> 1.0.7)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Amplitude-iOS
     - Crashlytics
     - Fabric
@@ -79,4 +79,6 @@ SPEC CHECKSUMS:
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-COCOAPODS: 1.7.1
+PODFILE CHECKSUM: 310e08dfe684c171f08e7372126ed3ca40fa6f5e
+
+COCOAPODS: 1.8.0

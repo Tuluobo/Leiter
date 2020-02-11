@@ -1,6 +1,8 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '9.0'
 use_frameworks!
+install! 'cocoapods',
+  :generate_multiple_pod_projects => true
 
 def analytics_and_reporting_pods
     pod 'Amplitude-iOS', '~> 4.3'

@@ -20,7 +20,9 @@ class ConfigManager {
         TrackerManager.shared.setup()
         
         /// Working
-        DDLog.add(DDTTYLogger.sharedInstance) // TTY = Xcode console
+        if let logger = DDTTYLogger.sharedInstance {
+            DDLog.add(logger) // TTY = Xcode console
+        }
         DatabaseManager.shared.setup()
     }
 }
