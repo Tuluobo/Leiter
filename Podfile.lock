@@ -1,14 +1,11 @@
 PODS:
   - Amplitude-iOS (4.6.0)
-  - Crashlytics (3.13.1):
-    - Fabric (~> 1.10.1)
-  - Fabric (1.10.1)
   - ionicons (2.1.1)
   - MJRefresh (3.1.17)
   - ReactiveCocoa (10.0.0):
     - ReactiveSwift (~> 6.0)
   - ReactiveSwift (6.0.0)
-  - SGQRCode (2.5.4)
+  - SGQRCode (3.0.1)
   - SnapKit (4.2.0)
   - SPBaseKit (0.0.4)
   - SQLiteRepairKit (1.2.2):
@@ -22,13 +19,11 @@ PODS:
 
 DEPENDENCIES:
   - Amplitude-iOS (~> 4.3)
-  - Crashlytics (~> 3.10)
-  - Fabric (~> 1.7)
   - ionicons (~> 2.1.1)
   - MJRefresh (~> 3.1.15)
   - ReactiveCocoa (~> 10.0)
   - ReactiveSwift (~> 6.0)
-  - SGQRCode (~> 2.5.4)
+  - SGQRCode (~> 3.0.1)
   - SnapKit (~> 4.2.0)
   - SPBaseKit (from `https://github.com/Tuluobo/SPBaseKit.git`, commit `be5c72d`)
   - SVProgressHUD (~> 2.2.5)
@@ -38,19 +33,18 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Amplitude-iOS
-    - Crashlytics
-    - Fabric
     - ionicons
     - MJRefresh
     - ReactiveCocoa
     - ReactiveSwift
-    - SGQRCode
     - SnapKit
     - SQLiteRepairKit
     - SVProgressHUD
     - VTAcknowledgementsViewController
     - WCDB.swift
     - WCDBOptimizedSQLCipher
+  trunk:
+    - SGQRCode
 
 EXTERNAL SOURCES:
   SPBaseKit:
@@ -64,21 +58,19 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Amplitude-iOS: ac1715ae68104b7a51723209ad574f60ab22ae5f
-  Crashlytics: 5aa8e90dcbf2f34898b4f5a0037787531246cca0
-  Fabric: f6f21452846788bb44595d73e9909d79d328e617
   ionicons: 630bcd2c2970741c3359e3a35ad544e71d3c086b
   MJRefresh: ee5b68f639775462faba4db0fd243baf4d42c2cf
   ReactiveCocoa: 6d4c37ba236f5d9a7a55b2172cd09f19ba85f574
   ReactiveSwift: 24b7ed245617bbfd30ee0c87779b6c64ac1b4518
-  SGQRCode: 7195cef538aae5d33b6721407b58011a5fef6487
+  SGQRCode: bf02d60e18d6660a9d75ff1c8b9b467f064f054e
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  SPBaseKit: 2bc4eec3e7ca88c87d459c548b532ec36e729f1d
+  SPBaseKit: 8179b7becc88f829027c2c4c4aa92f2ed4086ff2
   SQLiteRepairKit: 35aaae5a8838adb85f5b1eb4d796055be6060a4b
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   VTAcknowledgementsViewController: 9a7d0f040f17dfa6d02fc731bec8b188e4b4ee59
   WCDB.swift: 05d509d7a0e60fb6e11c34eb7e4027c0fab5849f
   WCDBOptimizedSQLCipher: baf44493b0c7a3d49e97bc5b64a3856f6428ddd1
 
-PODFILE CHECKSUM: 310e08dfe684c171f08e7372126ed3ca40fa6f5e
+PODFILE CHECKSUM: a1bab8b9353a1f663c81b5028797b521c27887c1
 
 COCOAPODS: 1.8.0

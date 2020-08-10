@@ -6,8 +6,6 @@ install! 'cocoapods',
 
 def analytics_and_reporting_pods
     pod 'Amplitude-iOS', '~> 4.3'
-    pod 'Fabric', '~> 1.7'
-    pod 'Crashlytics', '~> 3.10'
 end
 
 target 'Leiter' do
@@ -20,7 +18,7 @@ target 'Leiter' do
     pod 'ReactiveSwift', '~> 6.0'
     pod 'ReactiveCocoa', '~> 10.0'
     pod 'SVProgressHUD', '~> 2.2.5'
-    pod 'SGQRCode', '~> 2.5.4'
+    pod 'SGQRCode', '~> 3.0.1'
     
     analytics_and_reporting_pods
 end

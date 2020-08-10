@@ -463,7 +463,6 @@
 				D6741A7F20E75BEB00C6AFFA /* Embed App Extensions */,
 				C667ED54732A5E683E45F81F /* [CP] Embed Pods Frameworks */,
 				D655D60E20E7802B00FC22A3 /* Carthage */,
-				D655D61620E7881300FC22A3 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -672,20 +671,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		D655D61620E7881300FC22A3 /* Fabric */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Fabric;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 3a3dfa17db782f437cb2650660b453c67f175651 925d90ed11f8cf2fcd4d5c08221dfb396f941d4504c0ad2e6fdfd5610d2a1d1a";
 		};
 /* End PBXShellScriptBuildPhase section */
 
